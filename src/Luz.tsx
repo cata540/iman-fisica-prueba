@@ -95,7 +95,7 @@ export const Minkowski: React.FC<{s: any; dur: number}> = ({s, dur}) => {
 // ---------- barras de porcentaje de c ----------
 export const Barras: React.FC<{s: any; dur: number}> = ({s, dur}) => {
   const f = useCurrentFrame(); const u = f / dur; const m = s.modo;
-  const rows: [string, number, string, string][] = m === 'c' ? [['Luz medida por quien está parado', 1, '100 % de c', C.yellow], ['Luz medida por quien corre a 0,5 c', 1, '100 % de c', CYAN]] : m === 'sinmasa'
+  const rows: [string, number, string, string][] = m === 'suma' ? [['Suma ingenua: ½ c + ½ c', 1, '100 % de c', MAG], ['Suma relativista', 0.8, '80 % de c', C.yellow]] : m === 'c' ? [['Luz medida por quien está parado', 1, '100 % de c', C.yellow], ['Luz medida por quien corre a 0,5 c', 1, '100 % de c', CYAN]] : m === 'sinmasa'
     ? [['Luz', 1, '100 % de c', C.yellow], ['Ondas gravitacionales', 1, '100 % de c', CYAN], ['Gluones', 1, '100 % de c', MAG]]
     : [['Una persona caminando', 4.7e-9, '0,00000047 %', C.green], ['Un avión de pasajeros', 8.3e-7, '0,000083 %', C.green], ['La Tierra en su órbita', 1e-4, '0,01 %', C.yellow], ['Protón en el LHC', 0.99999999, '99,999999 %', MAG]];
   return (<Svg>

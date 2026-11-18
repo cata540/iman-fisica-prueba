@@ -123,7 +123,7 @@
   ]
  },
  {
-  "tipo": "maxwell",
+  "tipo": "cifra",
   "texto": "Y la velocidad de esa onda salió de sus ecuaciones sin buscarla: uno dividido entre la raíz de dos constantes, la eléctrica y la magnética.",
   "pills": [
    [
@@ -135,6 +135,13 @@
     "Dos constantes: ε₀ y μ₀",
     "g",
     0.5
+   ]
+  ],
+  "cards": [
+   [
+    "c = 1/√(μ₀ ε₀)",
+    "una velocidad que salió sola de las ecuaciones",
+    "#FFD83A"
    ]
   ]
  },
@@ -155,7 +162,7 @@
   ]
  },
  {
-  "tipo": "maxwell",
+  "tipo": "cifra",
   "texto": "Aquellas dos constantes se habían medido en el laboratorio, con cargas y corrientes, sin pensar en la luz. Y su combinación daba, sorprendentemente, la velocidad de la luz.",
   "pills": [
    [
@@ -167,6 +174,18 @@
     "¡Daban c!",
     "g",
     0.5
+   ]
+  ],
+  "cards": [
+   [
+    "ε₀",
+    "mide la fuerza entre cargas eléctricas",
+    "#2FD0F0"
+   ],
+   [
+    "μ₀",
+    "mide la fuerza entre corrientes",
+    "#FF4FD8"
    ]
   ]
  },
@@ -188,8 +207,7 @@
   ]
  },
  {
-  "tipo": "tierrasol",
-  "modo": "v",
+  "tipo": "cifra",
   "texto": "Fizeau, en mil ochocientos cuarenta y nueve, la midió en la Tierra con una rueda dentada y un espejo situado a unos ocho kilómetros.",
   "pills": [
    [
@@ -201,6 +219,13 @@
     "Rueda dentada y espejo",
     "g",
     0.5
+   ]
+  ],
+  "cards": [
+   [
+    "313 000 km/s",
+    "Fizeau, 1849: rueda dentada y ocho kilómetros de recorrido",
+    "#FFD83A"
    ]
   ]
  },
@@ -222,7 +247,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Pero había un problema. Las ecuaciones daban una velocidad fija, y no decían respecto a qué. ¿Respecto a quién se mide?",
   "pills": [
    [
@@ -236,16 +261,16 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "velocidad",
-    "reloj",
-    "¿respecto a qué?"
+    "¿Respecto a qué?",
+    "las ecuaciones daban una velocidad fija… pero ¿medida por quién?",
+    "#FF4FD8"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "minkowski",
   "texto": "Todo lo que conocemos tiene velocidad relativa. Si corres detrás de un tren, el tren va más despacio para ti que para alguien parado.",
   "pills": [
    [
@@ -259,20 +284,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "tren",
-    "motor",
-    "tren"
-   ],
-   [
-    "corres",
-    "mano"
-   ]
-  ]
+  "modo": "mundo"
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Los físicos pensaron que la luz viajaba por un medio invisible, el éter, como el sonido viaja por el aire. Su velocidad sería respecto al éter.",
   "pills": [
    [
@@ -286,20 +301,20 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "éter",
-    "agua",
-    "éter"
+    "Sonido",
+    "viaja por el aire"
    ],
    [
-    "sonido",
-    "altavoz"
+    "Luz",
+    "¿viaja por el éter?",
+    "#FF4FD8"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "maxwell",
   "texto": "Pero Maxwell describía campos, que no necesitan nada para propagarse. Aun así, casi todos siguieron buscando el medio que, según ellos, tenía que existir.",
   "pills": [
    [
@@ -311,12 +326,6 @@
     "La búsqueda del éter",
     "g",
     0.5
-   ]
-  ],
-  "items": [
-   [
-    "campos",
-    "iman"
    ]
   ]
  },
@@ -356,7 +365,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "tierrasol",
   "texto": "La luz iba igual de rápido en todas las direcciones, aunque la Tierra se mueve a treinta kilómetros por segundo. Parecía imposible.",
   "pills": [
    [
@@ -370,16 +379,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "Tierra",
-    "tierra",
-    "30 km/s"
-   ]
-  ]
+  "modo": "v"
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Fue uno de los resultados nulos más importantes de toda la historia de la física.",
   "pills": [
    [
@@ -388,17 +391,16 @@
     0.05
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "nulos",
-    "rayo",
-    "resultado nulo",
-    true
+    "0",
+    "diferencia entre direcciones: el resultado nulo más famoso",
+    "#2FD0F0"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Lorentz y FitzGerald propusieron que los objetos se encogen al moverse por el éter, y por eso el experimento no detectaba nada. Era un parche ingenioso.",
   "pills": [
    [
@@ -412,15 +414,20 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "encogen",
-    "caja"
+    "Se encogen",
+    "según Lorentz y FitzGerald"
+   ],
+   [
+    "Un parche",
+    "ingenioso, pero no la explicación",
+    "#FF4FD8"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "minkowski",
   "texto": "Einstein vio que no era un parche: era una propiedad real del espacio y del tiempo, y no hacía falta ningún éter.",
   "pills": [
    [
@@ -434,17 +441,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "éter",
-    "agua",
-    "éter",
-    true
-   ]
-  ]
+  "modo": "luz"
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Einstein, con veintiséis años, hizo lo contrario que todos: aceptó el resultado, y se preguntó qué significaba de verdad.",
   "pills": [
    [
@@ -458,16 +458,16 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "Einstein",
-    "libro",
-    "1905"
+    "26 años",
+    "Einstein, en 1905",
+    "#FFD83A"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "minkowski",
   "texto": "Propuso dos principios. Uno: las leyes de la física son las mismas para cualquiera que se mueva con velocidad constante.",
   "pills": [
    [
@@ -481,15 +481,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "leyes",
-    "libro"
-   ]
-  ]
+  "modo": "ejes"
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Dos: la velocidad de la luz en el vacío es la misma para cualquier observador, sin importar cómo se mueva él o la fuente.",
   "pills": [
    [
@@ -503,10 +498,11 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "velocidad",
-    "reloj"
+    "299 792 458 m/s",
+    "igual para cualquier observador",
+    "#FFD83A"
    ]
   ]
  },
@@ -528,7 +524,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cuatro",
   "texto": "Eso rompe el sentido común. Y para que sea cierto, algo más tiene que ceder: el espacio y el tiempo.",
   "pills": [
    [
@@ -540,14 +536,6 @@
     "Espacio y tiempo",
     "g",
     0.5
-   ]
-  ],
-  "items": [
-   [
-    "sentido",
-    "rayo",
-    "sentido común",
-    true
    ]
   ]
  },
@@ -654,8 +642,7 @@
   ]
  },
  {
-  "tipo": "tierrasol",
-  "modo": "v",
+  "tipo": "cifra",
   "texto": "Con Marte, un mensaje tarda entre tres y veintidós minutos, según dónde estén los dos planetas.",
   "pills": [
    [
@@ -667,6 +654,13 @@
     "Según la posición",
     "g",
     0.5
+   ]
+  ],
+  "cards": [
+   [
+    "3 – 22 min",
+    "lo que tarda un mensaje en llegar a Marte",
+    "#2FD0F0"
    ]
   ]
  },
@@ -688,7 +682,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "minkowski",
   "texto": "Ahí está el primer secreto. La velocidad de la luz no es una velocidad cualquiera: es el factor que convierte segundos en metros.",
   "pills": [
    [
@@ -702,20 +696,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "segundos",
-    "reloj"
-   ],
-   [
-    "metros",
-    "pared",
-    "metros"
-   ]
-  ]
+  "modo": "luz"
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Es como el cambio entre pulgadas y centímetros: no habla de lo que se mide, sino de cómo lo medimos.",
   "pills": [
    [
@@ -724,19 +708,21 @@
     0.05
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "pulgadas",
-    "libro"
+    "1 pulgada",
+    "= 2,54 cm",
+    "#2FD0F0"
    ],
    [
-    "centímetros",
-    "caja"
+    "1 segundo",
+    "= 299 792 km de espacio",
+    "#FFD83A"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "De hecho, desde mil novecientos ochenta y tres el metro se define a partir de ella: doscientos noventa y nueve millones setecientos noventa y dos mil cuatrocientos cincuenta y ocho metros por segundo.",
   "pills": [
    [
@@ -750,15 +736,16 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "metro",
-    "pared"
+    "299 792 458 m/s",
+    "desde 1983 esto define el metro",
+    "#FFD83A"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "minkowski",
   "texto": "No se mide: se fija por definición. Si cambiaras de unidades, el número cambiaría, pero la física seguiría exactamente igual.",
   "pills": [
    [
@@ -772,15 +759,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "unidades",
-    "caja"
-   ]
-  ]
+  "modo": "luz"
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Si mañana la velocidad de la luz fuese distinta en tus unidades, nadie lo notaría: tus reglas y tus relojes cambiarían con ella.",
   "pills": [
    [
@@ -794,19 +776,20 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "reglas",
-    "pared"
+    "299 792 458",
+    "metros por segundo: unidades humanas"
    ],
    [
-    "relojes",
-    "reloj"
+    "c = 1",
+    "unidades naturales de los físicos",
+    "#2FD0F0"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "niveles",
   "texto": "Lo que sí cambiaría el universo es un número sin unidades, como la constante de estructura fina. Con otro valor, los átomos no serían estables.",
   "pills": [
    [
@@ -820,13 +803,7 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "constante",
-    "atomo",
-    "α"
-   ]
-  ]
+  "modo": "emision"
  },
  {
   "tipo": "minkowski",
@@ -897,7 +874,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "En dos mil diecisiete se confirmó con una precisión enorme: dos estrellas de neutrones chocaron a ciento treinta millones de años luz.",
   "pills": [
    [
@@ -911,11 +888,15 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "neutrones",
-    "atomo",
-    "estrellas de neutrones"
+    "130 millones",
+    "de años luz de distancia"
+   ],
+   [
+    "2017",
+    "dos estrellas de neutrones chocan",
+    "#2FD0F0"
    ]
   ]
  },
@@ -937,7 +918,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Es decir, sus velocidades coinciden con una precisión de una parte en mil billones. Esa velocidad no es de la luz: es del universo.",
   "pills": [
    [
@@ -951,16 +932,16 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "mil",
-    "rayo",
-    "10¹⁵"
+    "1 : 10¹⁵",
+    "diferencia entre la velocidad de la luz y la de las ondas gravitacionales",
+    "#FFD83A"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "La luz no tiene ningún privilegio. Simplemente no tiene masa, así que no hay nada que la frene por debajo de ese límite.",
   "pills": [
    [
@@ -974,18 +955,16 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "masa",
-    "caja",
-    "masa",
-    true
+    "< 10⁻¹⁸ eV",
+    "masa del fotón (límite experimental)",
+    "#2FD0F0"
    ],
    [
-    "frene",
-    "mano",
-    "freno",
-    true
+    "0 kg",
+    "masa de la luz",
+    "#FFD83A"
    ]
   ]
  },
@@ -1103,7 +1082,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Y hay un efecto gemelo: la contracción de longitudes. Un objeto en movimiento se acorta en la dirección en que se mueve.",
   "pills": [
    [
@@ -1117,15 +1096,21 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "acorta",
-    "caja"
+    "Se acorta",
+    "en la dirección en que se mueve",
+    "#2FD0F0"
+   ],
+   [
+    "0,8 c → 60 %",
+    "de su longitud original",
+    "#FFD83A"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "minkowski",
   "cta": 2,
   "texto": "Y si te está gustando este viaje, suscríbete y activa la campanita ahora mismo. Todavía queda lo mejor.",
   "pills": [
@@ -1139,7 +1124,8 @@
     "g",
     0.6
    ]
-  ]
+  ],
+  "modo": "luz"
  },
  {
   "tipo": "muon",
@@ -1190,7 +1176,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Curiosamente, no existe un sistema de referencia que viaje junto a un fotón. Las reglas de la relatividad no permiten ponerte en su lugar.",
   "pills": [
    [
@@ -1204,15 +1190,16 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "fotón",
-    "foton"
+    "0 s",
+    "el tiempo que experimenta un fotón en su viaje",
+    "#2FD0F0"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cuatro",
   "texto": "Así que la luz no viaja a la velocidad de la luz porque sea luz. Viaja así porque está justo en el límite de ese reparto.",
   "pills": [
    [
@@ -1224,12 +1211,6 @@
     "Está en el límite del reparto",
     "g",
     0.5
-   ]
-  ],
-  "items": [
-   [
-    "luz",
-    "bombilla"
    ]
   ]
  },
@@ -1261,7 +1242,7 @@
   ]
  },
  {
-  "tipo": "gamma",
+  "tipo": "cifra",
   "texto": "Al noventa y nueve por ciento, por siete. Y al noventa y nueve coma nueve nueve por ciento, por setenta.",
   "pills": [
    [
@@ -1273,6 +1254,23 @@
     "0,9999 c → ×70",
     "g",
     0.5
+   ]
+  ],
+  "cards": [
+   [
+    "×2,3",
+    "energía a 0,9 c",
+    "#2FD0F0"
+   ],
+   [
+    "×7",
+    "a 0,99 c",
+    "#FFD83A"
+   ],
+   [
+    "×70",
+    "a 0,9999 c",
+    "#FF4FD8"
    ]
   ]
  },
@@ -1293,7 +1291,7 @@
   ]
  },
  {
-  "tipo": "gamma",
+  "tipo": "cifra",
   "texto": "Con esto, un viaje largo se vuelve posible para el viajero. A noventa y nueve coma nueve nueve por ciento de c, llegar al centro de la galaxia le llevaría menos de cuatrocientos años de su tiempo.",
   "pills": [
    [
@@ -1305,6 +1303,13 @@
     "Centro galáctico: < 400 años de viaje",
     "g",
     0.5
+   ]
+  ],
+  "cards": [
+   [
+    "< 400 años",
+    "para el viajero, al 99,99 % de c, hasta el centro de la galaxia",
+    "#FFD83A"
    ]
   ]
  },
@@ -1337,7 +1342,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "lhc",
   "texto": "Y aun así, cada vez que los aceleran más, ganan energía, pero casi nada de velocidad. El límite se vuelve más duro.",
   "pills": [
    [
@@ -1346,15 +1351,10 @@
     0.05
    ]
   ],
-  "items": [
-   [
-    "energía",
-    "rayo"
-   ]
-  ]
+  "modo": "v"
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Tampoco sirve sumar velocidades. Si lanzas un cohete a la mitad de la luz, y desde él otro a la mitad, no obtienes la velocidad de la luz.",
   "pills": [
    [
@@ -1368,16 +1368,21 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "cohete",
-    "motor",
-    "cohete"
+    "½ c + ½ c",
+    "≠ 1 c",
+    "#FF4FD8"
+   ],
+   [
+    "0,8 c",
+    "el resultado relativista",
+    "#FFD83A"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "barras",
   "texto": "La suma relativista da el ochenta por ciento. El espacio y el tiempo se ajustan para que nunca puedas pasar.",
   "pills": [
    [
@@ -1391,16 +1396,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "ochenta",
-    "reloj",
-    "0,8 c"
-   ]
-  ]
+  "modo": "suma"
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "En dos mil once, un experimento llamado OPERA anunció que unos neutrinos habían llegado sesenta nanosegundos antes que la luz. Medio mundo se emocionó.",
   "pills": [
    [
@@ -1414,15 +1413,21 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "neutrinos",
-    "atomo"
+    "60 ns",
+    "antes que la luz (OPERA, 2011)",
+    "#FF4FD8"
+   ],
+   [
+    "730 km",
+    "del CERN al Gran Sasso",
+    "#2FD0F0"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Meses después se encontró la causa: un cable de fibra óptica mal conectado. El límite de la velocidad seguía intacto.",
   "pills": [
    [
@@ -1436,11 +1441,11 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "cable",
-    "bobina",
-    "cable"
+    "1 cable",
+    "de fibra óptica mal conectado",
+    "#FFD83A"
    ]
   ]
  },
@@ -1456,7 +1461,7 @@
   ]
  },
  {
-  "tipo": "vidrio",
+  "tipo": "cifra",
   "texto": "Eso no contradice nada: la velocidad máxima es la del vacío. Dentro de un material, la onda se mezcla con los átomos y avanza más despacio.",
   "pills": [
    [
@@ -1468,6 +1473,13 @@
     "En un material, más lenta",
     "g",
     0.5
+   ]
+  ],
+  "cards": [
+   [
+    "299 792 km/s",
+    "el máximo: el de la luz en el vacío",
+    "#FFD83A"
    ]
   ]
  },
@@ -1488,7 +1500,7 @@
   ]
  },
  {
-  "tipo": "vidrio",
+  "tipo": "cifra",
   "texto": "Se ha llegado a frenar la luz hasta diecisiete metros por segundo dentro de un gas ultrafrío: más de diecisiete millones de veces más lenta que en el vacío.",
   "pills": [
    [
@@ -1501,10 +1513,22 @@
     "g",
     0.5
    ]
+  ],
+  "cards": [
+   [
+    "17 m/s",
+    "luz en un gas ultrafrío",
+    "#2FD0F0"
+   ],
+   [
+    "17 millones ×",
+    "más lenta que en el vacío",
+    "#FF4FD8"
+   ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "vidrio",
   "texto": "Y por eso una partícula puede ir más rápido que la luz en el agua, sin romper la regla, y emitir un brillo azul: el efecto Cherenkov.",
   "pills": [
    [
@@ -1518,20 +1542,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "partícula",
-    "atomo"
-   ],
-   [
-    "azul",
-    "bombilla",
-    "brillo azul"
-   ]
-  ]
+  "modo": "agua"
  },
  {
-  "tipo": "foton",
+  "tipo": "minkowski",
   "texto": "El límite real no es la luz en el vidrio. Es esa velocidad máxima del vacío, la de las ondas sin masa.",
   "pills": [
    [
@@ -1545,12 +1559,7 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "vacío",
-    "tierra"
-   ]
-  ]
+  "modo": "cono"
  },
  {
   "tipo": "minkowski",
@@ -1621,7 +1630,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Podrías recibir hoy la respuesta a un mensaje que enviarás mañana. Las paradojas se acumularían, y la física dejaría de tener sentido.",
   "pills": [
    [
@@ -1630,20 +1639,16 @@
     0.05
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "mensaje",
-    "nota",
-    "mensaje"
-   ],
-   [
-    "mañana",
-    "reloj"
+    "−1 día",
+    "recibes la respuesta antes de enviar el mensaje",
+    "#FF4FD8"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "minkowski",
   "texto": "Por eso la velocidad máxima no es una barrera tecnológica. Es lo que mantiene ordenado el universo: que las causas vayan siempre antes que los efectos.",
   "pills": [
    [
@@ -1657,15 +1662,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "causas",
-    "rayo"
-   ]
-  ]
+  "modo": "cono"
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "¿Y el entrelazamiento cuántico? Dos partículas entrelazadas parecen coordinarse al instante, sin importar la distancia.",
   "pills": [
    [
@@ -1679,15 +1679,21 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "partículas",
-    "atomo"
+    "Correlación",
+    "instantánea: sí",
+    "#2FD0F0"
+   ],
+   [
+    "Mensaje",
+    "más rápido que c: no",
+    "#FF4FD8"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Pero no sirve para enviar mensajes. El resultado de cada medida es aleatorio, y solo al compararlas por un canal normal descubres la correlación.",
   "pills": [
    [
@@ -1701,17 +1707,16 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "mensajes",
-    "nota",
-    "mensajes",
-    true
+    "50 % · 50 %",
+    "cada resultado es aleatorio",
+    "#FFD83A"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "color",
   "texto": "Hay cosas que sí pueden ir más rápido que la luz sin romper nada: sombras, puntos de luz, o la velocidad de fase de una onda.",
   "pills": [
    [
@@ -1725,15 +1730,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "sombras",
-    "pared"
-   ]
-  ]
+  "modo": "negro"
  },
  {
-  "tipo": "foton",
+  "tipo": "tierrasol",
   "texto": "Un puntero láser que barres sobre la Luna puede hacer correr el punto más deprisa que la luz, pero el punto no lleva información ni energía de un lado a otro.",
   "pills": [
    [
@@ -1747,12 +1747,7 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "láser",
-    "linterna"
-   ]
-  ]
+  "modo": "v"
  },
  {
   "tipo": "expansion",
@@ -1798,7 +1793,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Existe un horizonte cósmico: más allá, nada de lo que ocurra hoy podrá influir en nosotros, ni nosotros en ello.",
   "pills": [
    [
@@ -1812,15 +1807,16 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "horizonte",
-    "tierra"
+    "46 500 millones",
+    "de años luz: radio del universo observable",
+    "#FFD83A"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "minkowski",
   "texto": "Por eso no existe un ahora común en el universo. Lo que llamas ahora en Andrómeda depende de cómo te muevas, y nadie tiene razón sobre los demás.",
   "pills": [
    [
@@ -1834,15 +1830,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "ahora",
-    "reloj"
-   ]
-  ]
+  "modo": "simul"
  },
  {
-  "tipo": "foton",
+  "tipo": "expansion",
   "texto": "¿Y existe algún truco? El físico Miguel Alcubierre propuso en mil novecientos noventa y cuatro una burbuja que contrae el espacio por delante y lo expande por detrás.",
   "pills": [
    [
@@ -1855,17 +1846,10 @@
     "g",
     0.5
    ]
-  ],
-  "items": [
-   [
-    "burbuja",
-    "agua",
-    "burbuja"
-   ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "La nave estaría quieta dentro de su burbuja, y sería el espacio el que se moviese. Pero haría falta energía negativa que no sabemos si existe.",
   "pills": [
    [
@@ -1879,17 +1863,16 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "negativa",
-    "rayo",
-    "energía negativa",
-    true
+    "Energía negativa",
+    "no sabemos si existe a esa escala",
+    "#FF4FD8"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Y esa misma constante aparece en la fórmula más famosa: E igual a m c cuadrado.",
   "pills": [
    [
@@ -1898,15 +1881,16 @@
     0.05
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "fórmula",
-    "rayo"
+    "E = m c²",
+    "la fórmula más famosa de la física",
+    "#FFD83A"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "minkowski",
   "texto": "No tiene nada que ver con la luz. Es el factor de conversión entre masa y energía, igual que c convierte tiempo en distancia.",
   "pills": [
    [
@@ -1920,19 +1904,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "masa",
-    "caja"
-   ],
-   [
-    "energía",
-    "rayo"
-   ]
-  ]
+  "modo": "luz"
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Un gramo de materia equivale a unos noventa billones de julios: la energía de una explosión de unos veinte kilotones.",
   "pills": [
    [
@@ -1946,20 +1921,21 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "gramo",
-    "caja",
-    "1 gramo"
+    "1 gramo",
+    "≈ 9 × 10¹³ julios",
+    "#FFD83A"
    ],
    [
-    "julios",
-    "rayo"
+    "≈ 20 kt",
+    "una explosión de veinte kilotones",
+    "#FF4FD8"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "reloj",
   "texto": "Los físicos incluso eligen unidades en las que c vale uno, y las fórmulas se vuelven más simples. Tiempo y espacio se miden con la misma regla.",
   "pills": [
    [
@@ -1972,17 +1948,10 @@
     "g",
     0.5
    ]
-  ],
-  "items": [
-   [
-    "uno",
-    "reloj",
-    "c = 1"
-   ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Lo que de verdad importa son los números sin unidades, como la constante de estructura fina: aproximadamente uno entre ciento treinta y siete.",
   "pills": [
    [
@@ -1996,11 +1965,11 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "estructura",
-    "atomo",
-    "α ≈ 1/137"
+    "α ≈ 1/137",
+    "la constante de estructura fina, sin unidades",
+    "#FFD83A"
    ]
   ]
  },
@@ -2021,7 +1990,7 @@
   ]
  },
  {
-  "tipo": "muon",
+  "tipo": "cifra",
   "texto": "Viven solo dos microsegundos. Ni a la velocidad de la luz podrían recorrer más de seiscientos metros.",
   "pills": [
    [
@@ -2033,6 +2002,18 @@
     "Alcance: ≈ 660 m",
     "g",
     0.5
+   ]
+  ],
+  "cards": [
+   [
+    "2,2 µs",
+    "vida media del muón",
+    "#2FD0F0"
+   ],
+   [
+    "≈ 660 m",
+    "lo que recorrería sin relatividad",
+    "#FF4FD8"
    ]
   ]
  },
@@ -2069,7 +2050,7 @@
   ]
  },
  {
-  "tipo": "gps",
+  "tipo": "cifra",
   "texto": "Además, al estar lejos de la Tierra, la gravedad les afecta menos, y sus relojes se adelantan. En total ganan treinta y ocho microsegundos al día.",
   "pills": [
    [
@@ -2081,6 +2062,18 @@
     "Neto: +38 µs/día",
     "g",
     0.5
+   ]
+  ],
+  "cards": [
+   [
+    "+45 µs/día",
+    "gravedad: los relojes se adelantan",
+    "#2FD0F0"
+   ],
+   [
+    "−7 µs/día",
+    "velocidad: los relojes se atrasan",
+    "#FF4FD8"
    ]
   ]
  },
@@ -2101,7 +2094,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Estos efectos no son teoría escondida: se miden cada segundo, en tu bolsillo, en forma de coordenadas.",
   "pills": [
    [
@@ -2110,11 +2103,16 @@
     0.05
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "móvil",
-    "movil",
-    "tu móvil"
+    "38 µs/día",
+    "de corrección en los relojes de los satélites",
+    "#FFD83A"
+   ],
+   [
+    "11 km",
+    "de error diario evitado en tu móvil",
+    "#2FD0F0"
    ]
   ]
  },
@@ -2136,7 +2134,7 @@
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "barras",
   "texto": "La luz viaja a ella porque no tiene masa. La gravedad también, y cualquier cosa sin masa.",
   "pills": [
    [
@@ -2145,19 +2143,10 @@
     0.05
    ]
   ],
-  "items": [
-   [
-    "luz",
-    "bombilla"
-   ],
-   [
-    "gravedad",
-    "tierra"
-   ]
-  ]
+  "modo": "sinmasa"
  },
  {
-  "tipo": "foton",
+  "tipo": "lhc",
   "texto": "Nada con masa puede alcanzarla, porque se necesitaría energía infinita, y ningún mensaje puede superarla sin romper la causalidad.",
   "pills": [
    [
@@ -2171,16 +2160,10 @@
     0.5
    ]
   ],
-  "items": [
-   [
-    "infinita",
-    "rayo",
-    "∞"
-   ]
-  ]
+  "modo": "inf"
  },
  {
-  "tipo": "foton",
+  "tipo": "cifra",
   "texto": "Así que no, la velocidad de la luz nunca fue sobre la luz. Es la velocidad a la que el universo conecta las causas con sus efectos.",
   "pills": [
    [
@@ -2194,20 +2177,17 @@
     0.5
    ]
   ],
-  "items": [
+  "cards": [
    [
-    "causas",
-    "rayo"
+    "Nunca fue sobre la luz",
+    "es la velocidad a la que el universo conecta causas y efectos",
+    "#FFD83A"
    ]
   ]
  },
  {
-  "tipo": "foton",
+  "tipo": "tierrasol",
   "cta": 3,
-  "title": [
-   "Gracias por",
-   "llegar hasta aquí"
-  ],
   "texto": "Si has llegado hasta aquí, suscríbete y activa la campanita para no perderte nada. El próximo vídeo ya lo tienes en pantalla. Nos vemos allí.",
   "pills": [
    [
@@ -2220,6 +2200,7 @@
     "g",
     0.5
    ]
-  ]
+  ],
+  "modo": "v"
  }
 ]

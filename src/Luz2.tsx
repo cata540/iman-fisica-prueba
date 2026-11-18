@@ -51,10 +51,10 @@ export const Cuatro: React.FC<{s: any; dur: number}> = ({dur}) => {
     <line x1={ox} y1={oy} x2={px} y2={py} stroke="#fff" strokeWidth="6" />
     <line x1={ox} y1={py} x2={px} y2={py} stroke={C.yellow} strokeWidth="4" strokeDasharray="8 8" /><line x1={px} y1={oy} x2={px} y2={py} stroke={CYAN} strokeWidth="4" strokeDasharray="8 8" />
     <circle cx={px} cy={py} r="22" fill="#fff" />
-    <text x="1250" y="400" fill="#fff" fontSize="44" fontWeight="700">Velocidad total = c (siempre)</text>
-    <text x="1250" y="500" fill={CYAN} fontSize="46" fontWeight="700">por el espacio: {(v * 100).toFixed(0)} % de c</text>
-    <text x="1250" y="580" fill={C.yellow} fontSize="46" fontWeight="700">ritmo de tu reloj: {(rate * 100).toFixed(0)} %</text>
-    <rect x="1250" y="620" width="560" height="22" rx="11" fill="rgba(255,255,255,.14)" /><rect x="1250" y="620" width={560 * rate} height="22" rx="11" fill={C.yellow} />
+    <text x="1160" y="400" fill="#fff" fontSize="40" fontWeight="700">Velocidad total = c (siempre)</text>
+    <text x="1160" y="500" fill={CYAN} fontSize="40" fontWeight="700">por el espacio: {(v * 100).toFixed(0)} % de c</text>
+    <text x="1160" y="580" fill={C.yellow} fontSize="40" fontWeight="700">ritmo de tu reloj: {(rate * 100).toFixed(0)} %</text>
+    <rect x="1160" y="620" width="520" height="22" rx="11" fill="rgba(255,255,255,.14)" /><rect x="1160" y="620" width={520 * rate} height="22" rx="11" fill={C.yellow} />
   </Svg>);
 };
 
@@ -81,10 +81,11 @@ export const Gamma: React.FC<{s: any; dur: number}> = ({dur}) => {
 };
 
 // ---------- luz atravesando vidrio ----------
-export const Vidrio: React.FC<{s: any; dur: number}> = ({dur}) => {
+export const Vidrio: React.FC<{s: any; dur: number}> = ({s, dur}) => {
+  const agua = s.modo === 'agua';
   const f = useCurrentFrame(); const t = f / 30;
   const P = 5.5; const tt = t % P;
-  const vOut = 3.4, vIn = vOut / 1.5; const x0 = -6.5, g0 = -1.8, g1 = 1.8;
+  const vOut = 3.4, vIn = vOut / (agua ? 1.33 : 1.5); const x0 = -6.5, g0 = -1.8, g1 = 1.8;
   const tA = (g0 - x0) / vOut, tB = tA + (g1 - g0) / vIn;
   const x = tt < tA ? x0 + vOut * tt : tt < tB ? g0 + vIn * (tt - tA) : g1 + vOut * (tt - tB);
   const inside = x > g0 && x < g1; const k = inside ? 16 : 10;
@@ -94,10 +95,12 @@ export const Vidrio: React.FC<{s: any; dur: number}> = ({dur}) => {
         <mesh position={[0, 0, 0]}><boxGeometry args={[3.6, 2.8, 1.8]} /><meshStandardMaterial color="#5fd0ff" transparent opacity={0.28} roughness={0.1} /></mesh>
         <mesh position={[0, 0, 0]}><boxGeometry args={[3.62, 2.82, 1.82]} /><meshBasicMaterial color="#9be7ff" wireframe transparent opacity={0.45} /></mesh>
         <group position={[x, 0, 0]}><WavePacket t={t * 1.3} len={2.4} amp={0.45} k={k} width={0.55} /></group>
+        {agua && (() => { const px = -6.5 + ((t % 4) / 4) * 13; const inW = px > g0 && px < g1; return <group position={[px, -1.0, 0.2]}><mesh><sphereGeometry args={[0.16, 14, 12]} /><meshBasicMaterial color="#ffffff" /></mesh>{inW && <mesh position={[-0.9, 0, 0]} rotation={[0, 0, -Math.PI / 2]}><coneGeometry args={[0.6, 1.8, 20, 1, true]} /><meshBasicMaterial color="#4f9bff" transparent opacity={0.55} side={2} /></mesh>}</group>; })()}
       </group>
     </Stage>
     <Txt x={110} y={790} t="vacío: 299 792 km/s" c={C.yellow} s={38} o={inside ? 0.35 : 1} />
-    <Txt x={110} y={850} t="vidrio (n = 1,5): ≈ 200 000 km/s" c={CYAN} s={38} o={inside ? 1 : 0.35} />
+    <Txt x={110} y={850} t={agua ? 'agua (n = 1,33): ≈ 225 000 km/s' : 'vidrio (n = 1,5): ≈ 200 000 km/s'} c={CYAN} s={38} o={inside ? 1 : 0.35} />
+    {agua && <Txt x={110} y={910} t="partícula más rápida que la luz del agua → brillo azul" c="#7fb0ff" s={34} />}
   </>);
 };
 
@@ -178,7 +181,56 @@ export const Cta: React.FC<{v: number; dur: number}> = ({v, dur}) => {
         <svg width="40" height="40" viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6v4l-2 3v1h16v-1l-2-3V8a6 6 0 0 0-6-6zm0 20a2.5 2.5 0 0 0 2.4-2h-4.8A2.5 2.5 0 0 0 12 22z" fill="#1a0f33" /></svg></div>
     </div>
     {v === 3 && (() => { const a = seg(u, 0.15, 0.35); return (<div style={{position: 'absolute', right: 110, top: 190, width: 760, height: 428, borderRadius: 24, border: '4px solid #FFD83A', background: '#1d1040', opacity: a * out, transform: `scale(${0.92 + a * 0.08})`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, color: '#fff'}}>
-      <div style={{width: 120, height: 120, borderRadius: 999, background: '#FF1E1E', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 56}}>▶</div>
-      <div style={{marginTop: 24, fontSize: 44, fontWeight: 700}}>PRÓXIMO VÍDEO</div><div style={{fontSize: 30, fontWeight: 500, opacity: 0.8, marginTop: 8}}>Física Infinita</div></div>); })()}
+      <div style={{width: 100, height: 100, borderRadius: 999, background: '#FF1E1E', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 46}}>▶</div>
+      <div style={{marginTop: 18, fontSize: 28, fontWeight: 700, color: '#FFD83A', letterSpacing: 3}}>PRÓXIMO VÍDEO</div><div style={{fontSize: 52, fontWeight: 700, marginTop: 14, lineHeight: 1.15, textAlign: 'center', padding: '0 30px'}}>¿A Dónde Van Los Fotones?</div></div>); })()}
+  </>);
+};
+
+// ---------- tarjetas grandes de cifras ----------
+export const Cifra: React.FC<{s: any; dur: number}> = ({s, dur}) => {
+  const f = useCurrentFrame(); const t = f / 30; const u = f / dur;
+  const cards: [string, string, string?][] = s.cards ?? [];
+  const n = cards.length || 1;
+  const COLS = [C.yellow, CYAN, MAG, C.green];
+  const W = n === 1 ? 1180 : n === 2 ? 760 : 560, H = n === 1 ? 520 : 480;
+  const gap = 60; const totalW = n * W + (n - 1) * gap; const x0 = (1920 - totalW) / 2;
+  const count = (str: string, k: number) => { const m = /^(\d{1,3})(\D.*)?$/.exec(str); if (!m || Number(m[1]) < 3 || (m[2] && /^\s\d/.test(m[2]))) return str; const v = Math.round(Number(m[1]) * Math.min(1, k)); return v + (m[2] ?? ''); };
+  return (<>
+    <Svg>
+      {[0, 1, 2, 3, 4].map((i) => <circle key={i} cx={960 + Math.sin(t * 0.3 + i) * 120} cy={560 + Math.cos(t * 0.25 + i * 1.7) * 60} r={240 + i * 150} fill="none" stroke={i % 2 ? MAG : CYAN} strokeOpacity="0.10" strokeWidth="3" strokeDasharray="14 18" />)}
+      {[...Array(26)].map((_, i) => <circle key={i} cx={(rnd(i * 3 + 1) * 1920 + t * (20 + rnd(i) * 30)) % 1920} cy={140 + rnd(i * 3 + 2) * 860} r={2 + rnd(i * 3 + 3) * 3} fill="#ffffff" opacity="0.35" />)}
+    </Svg>
+    {cards.map((c, i) => {
+      const k = 0.3 + 0.7 * seg(u, 0.0 + i * 0.12, 0.16 + i * 0.12);
+      const col = c[2] ?? COLS[i % 4];
+      const fz = n === 1 ? (c[0].length > 14 ? 120 : 190) : n === 2 ? (c[0].length > 12 ? 74 : 112) : 76;
+      return (<div key={i} style={{position: 'absolute', left: x0 + i * (W + gap), top: 330 + (1 - k) * 26 + Math.sin(t * 1.3 + i) * 6, width: W, height: H, opacity: Math.min(1, 0.35 + k), transform: `scale(${0.9 + 0.1 * k})`, borderRadius: 40, background: 'linear-gradient(160deg,#2a1a5e,#1d1040)', border: `5px solid ${col}`, boxShadow: `0 0 60px ${col}33, 0 14px 40px rgba(0,0,0,.45)`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 36, boxSizing: 'border-box', fontFamily: FONT}}>
+        <div style={{color: col, fontWeight: 700, fontSize: fz, lineHeight: 1.05}}>{count(c[0], seg(u, 0.05 + i * 0.1, 0.5 + i * 0.1))}</div>
+        <div style={{color: '#e9e4f7', fontWeight: 600, fontSize: n === 1 ? 46 : 38, marginTop: 26, lineHeight: 1.2}}>{c[1]}</div>
+      </div>);
+    })}
+  </>);
+};
+
+// ---------- anillo del LHC ----------
+export const Lhc: React.FC<{s: any; dur: number}> = ({s, dur}) => {
+  const f = useCurrentFrame(); const t = f / 30; const u = f / dur; const m = s.modo;
+  const R = 3.5; const mags = [...Array(16)].map((_, i) => i);
+  const bunch = (dir: number, off: number, col: string) => [0, 1, 2, 3, 4].map((j) => { const a = dir * (t * 5.2 + off + j * 0.085); return <mesh key={j} position={[Math.cos(a) * R, Math.sin(a) * R, 0.1]}><sphereGeometry args={[0.1 + (j === 2 ? 0.03 : 0), 12, 10]} /><meshBasicMaterial color={col} /></mesh>; });
+  const E = m === 'inf' ? 6.5 * seg(u, 0.1, 0.8) : 6.5;
+  return (<>
+    <Stage cam={[0, 0, 11]}>
+      <group position={[-1.6, -0.1, 0]} rotation={[-0.75, 0, 0.35]} scale={sp(f, 0)}>
+        <mesh><torusGeometry args={[R, 0.06, 10, 160]} /><meshBasicMaterial color="#9be7ff" /></mesh>
+        {mags.map((i) => { const a = (i / 16) * Math.PI * 2; return <mesh key={i} position={[Math.cos(a) * R, Math.sin(a) * R, 0]} rotation={[0, 0, a]}><boxGeometry args={[0.55, 0.36, 0.36]} />{mat('#3F6DFF', 0.35)}</mesh>; })}
+        {[0, 1, 2, 3].map((i) => { const a = (i / 4) * Math.PI * 2 + 0.4; return <mesh key={i} position={[Math.cos(a) * R, Math.sin(a) * R, 0]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[0.32, 0.32, 0.8, 18]} />{mat(C.yellow, 0.35)}</mesh>; })}
+        {bunch(1, 0, MAG)}{bunch(-1, 2.2, CYAN)}
+      </group>
+    </Stage>
+    <Txt x={1130} y={300} t="Gran Colisionador de Hadrones" c="#fff" s={44} w={700} />
+    <Txt x={1130} y={370} t="27 km de circunferencia" c="#c8bfe6" s={36} w={500} />
+    <Txt x={1130} y={500} t={m === 'inf' ? `energía por protón: ${E.toFixed(1).replace('.', ',')} TeV` : 'protones al 99,999999 % de c'} c={C.yellow} s={46} w={700} />
+    {m === 'inf' && <Txt x={1130} y={580} t={`velocidad: casi no cambia (${(99.99 + Math.min(1, u * 1.2) * 0.009999).toFixed(6).replace('.', ',')} %)`} c={CYAN} s={36} w={600} />}
+    {m === 'inf' && <Txt x={1130} y={660} t="más energía → casi la misma velocidad" c={MAG} s={38} w={600} />}
   </>);
 };

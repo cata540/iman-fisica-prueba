@@ -8,12 +8,12 @@ import {BODY, Overlay, Zoom, Spec} from './Completo';
 import {Cues} from './Props';
 import {Foton, Habitacion} from './Fotones';
 import {TierraSol, Minkowski, Barras, Maxwell} from './Luz';
-import {Reloj, Cuatro, Gamma, Vidrio, Expansion, Muon, Gps, Cta} from './Luz2';
+import {Reloj, Cuatro, Gamma, Vidrio, Expansion, Muon, Gps, Cta, Cifra, Lhc} from './Luz2';
 import {Filamento, Niveles, Espectro, CalorPared, Tierra, Decaimiento, ColorSup, Banda, Reparto, Balance, Cuerpo, Ojo} from './Fotones2';
 
 const FR = tl.frames as number[];
 export const TOTAL_V3 = FR.reduce((a, b) => a + b, 0);
-const B2: Record<string, React.FC<any>> = {...BODY, habitacion: Habitacion, foton: Foton, tierrasol: TierraSol, minkowski: Minkowski, barras: Barras, maxwell: Maxwell, reloj: Reloj, cuatro: Cuatro, gamma: Gamma, vidrio: Vidrio, expansion: Expansion, muon: Muon, gps: Gps, filamento: Filamento, niveles: Niveles, espectro: Espectro, calorpared: CalorPared, tierra: Tierra, decaimiento: Decaimiento, color: ColorSup, banda: Banda, reparto: Reparto, balance: Balance, cuerpo: Cuerpo, ojo: Ojo};
+const B2: Record<string, React.FC<any>> = {...BODY, habitacion: Habitacion, foton: Foton, tierrasol: TierraSol, minkowski: Minkowski, barras: Barras, maxwell: Maxwell, reloj: Reloj, cuatro: Cuatro, gamma: Gamma, vidrio: Vidrio, expansion: Expansion, muon: Muon, gps: Gps, cifra: Cifra, lhc: Lhc, filamento: Filamento, niveles: Niveles, espectro: Espectro, calorpared: CalorPared, tierra: Tierra, decaimiento: Decaimiento, color: ColorSup, banda: Banda, reparto: Reparto, balance: Balance, cuerpo: Cuerpo, ojo: Ojo};
 
 export const Video3: React.FC = () => {
   const sc = spec as unknown as (Spec & {texto: string})[];
