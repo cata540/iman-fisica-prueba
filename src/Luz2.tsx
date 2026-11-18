@@ -177,7 +177,7 @@ export const Cta: React.FC<{v: number; dur: number}> = ({v, dur}) => {
       <div style={{width: 70, height: 70, borderRadius: 999, background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 28px rgba(0,0,0,.45)', transform: `rotate(${bell}deg)`, transformOrigin: '50% 12%'}}>
         <svg width="40" height="40" viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6v4l-2 3v1h16v-1l-2-3V8a6 6 0 0 0-6-6zm0 20a2.5 2.5 0 0 0 2.4-2h-4.8A2.5 2.5 0 0 0 12 22z" fill="#1a0f33" /></svg></div>
     </div>
-    {v === 3 && (() => { const a = seg(u, 0.15, 0.35); return (<div style={{position: 'absolute', right: 110, top: 190, width: 760, height: 428, borderRadius: 24, border: '4px solid #FFD83A', background: 'rgba(255,216,58,.08)', opacity: a * out, transform: `scale(${0.92 + a * 0.08})`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, color: '#fff'}}>
+    {v === 3 && (() => { const a = seg(u, 0.15, 0.35); return (<div style={{position: 'absolute', right: 110, top: 190, width: 760, height: 428, borderRadius: 24, border: '4px solid #FFD83A', background: '#1d1040', opacity: a * out, transform: `scale(${0.92 + a * 0.08})`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, color: '#fff'}}>
       <div style={{width: 120, height: 120, borderRadius: 999, background: '#FF1E1E', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 56}}>▶</div>
       <div style={{marginTop: 24, fontSize: 44, fontWeight: 700}}>PRÓXIMO VÍDEO</div><div style={{fontSize: 30, fontWeight: 500, opacity: 0.8, marginTop: 8}}>Física Infinita</div></div>); })()}
   </>);

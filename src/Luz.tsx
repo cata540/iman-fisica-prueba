@@ -27,7 +27,7 @@ export const TierraSol: React.FC<{s: any; dur: number}> = ({s, dur}) => {
         {ring > 0 && <mesh scale={[1, 0.62, 1]}><torusGeometry args={[ring, 0.04, 8, 120]} /><meshBasicMaterial color={MAG} transparent opacity={0.8} /></mesh>}
         <group position={[ex, ey, 0]} rotation={[0.3, t * 0.5, 0.3]}><mesh><sphereGeometry args={[0.55, 28, 22]} />{mat('#2f6bd6', 0.5)}</mesh><mesh position={[0.2, 0.2, 0.45]} scale={[1, 0.7, 0.4]}><sphereGeometry args={[0.2, 10, 8]} />{mat('#3DDC97', 0.6)}</mesh></group>
       </Stage>
-      <Txt x={1300} y={86} t={u < tv ? 'Sol: presente' : u < te ? 't = ' + clock(secs) + ' · la Tierra aún no lo sabe' : '¡Ahora sí! la Tierra se suelta'} c={u < te ? C.yellow : C.green} s={42} w={700} />
+      <Txt x={760} y={92} t={u < tv ? 'Sol: presente' : u < te ? 't = ' + clock(secs) + ' · la Tierra aún no lo sabe' : '¡Ahora sí! La Tierra se suelta'} c={u < te ? C.yellow : C.green} s={40} w={700} />
     </>);
   }
   const secs = m === 'tarda' ? seg(u, 0.08, 0.85) * 500 : 0;
@@ -82,7 +82,7 @@ export const Minkowski: React.FC<{s: any; dur: number}> = ({s, dur}) => {
       <line x1={ax - 200} y1={ty} x2={bx + 200} y2={ty} stroke={C.green} strokeWidth="4" strokeDasharray="12 10" /><text x={ax - 190} y={ty - 24} fill={C.green} fontSize="34" fontWeight="600">simultáneos para ti</text>
       <line x1={ax - 200} y1={ty + sl * 200} x2={bx + 200} y2={ty - sl * 800 + sl * 200} stroke={MAG} strokeWidth="4" strokeDasharray="6 8" opacity="0.9" />
       <circle cx={ax} cy={ty} r="18" fill="#fff" /><text x={ax - 18} y={ty + 56} fill="#fff" fontSize="38" fontWeight="700">A</text><circle cx={bx} cy={ty} r="18" fill="#fff" /><text x={bx - 14} y={ty + 56} fill="#fff" fontSize="38" fontWeight="700">B</text>
-      <text x="560" y="170" fill={MAG} fontSize="40" fontWeight="700">{order}</text></g>; })()}
+      <text x="430" y="1010" fill={MAG} fontSize="42" fontWeight="700">{order}</text></g>; })()}
     {m === 'taquion' && <g>
       <line x1={ox} y1={oy} x2={ox + 520} y2={oy - 250 * seg(u, 0.1, 0.5) - 30} stroke={C.orange} strokeWidth="8" strokeLinecap="round" /><circle cx={ox + 520} cy={oy - 280} r="18" fill={C.orange} opacity={seg(u, 0.4, 0.5)} />
       <text x={ox + 330} y={oy - 330} fill={C.orange} fontSize="36" fontWeight="700" opacity={seg(u, 0.4, 0.55)}>señal más rápida que c</text>
