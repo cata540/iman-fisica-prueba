@@ -224,7 +224,8 @@ const Grid: React.FC<{mode: 'ordenado' | 'alinea' | 'dominios' | 'calor'; dur: n
           const g = (r === 0 ? 0 : r === 1 ? 1 : 2) * 2 + (c < 2 ? 0 : c < 3 ? 1 : 2); // dominios por zonas
           const seed = mode === 'dominios' ? (c < 2 ? 3 : c < 4 ? (r < 2 ? 7 : 11) : 5) : k;
           const jit = mode === 'calor' ? Math.sin(t * 9 + k * 1.7) * 0.5 * (1 - al) : 0;
-          const rz = ((rnd(seed) - 0.5) * Math.PI * (mode === 'dominios' ? 2.2 : 1.7)) * (1 - al) + jit;
+          const domAng = c < 2 ? -1.2 : c < 4 ? (r < 2 ? 1.3 : 2.6) : -0.4;
+          const rz = (mode === 'dominios' ? domAng : (rnd(seed) - 0.5) * Math.PI * 1.7) * (1 - al) + jit;
           const rx = (rnd(seed + 50) - 0.5) * 1.2 * (1 - al);
           return <SpinG key={k} k={k} x={(c - 2) * 1.9} y={(1 - r) * 1.9} t={t} rz={rz} rx={rx} />;
         }))}
@@ -268,7 +269,7 @@ const Clip: React.FC<{dur: number}> = ({dur}) => {
           <RoundedBox size={[1.3, 0.35, 0.5]} color="#b9b3d4" radius={0.1} />
         </group>
         <mesh position={[0, y - 0.55, 0]} visible={handO > 0.1} rotation={[0, 0, 0]}><capsuleGeometry args={[0.12, 0.9, 6, 12]} />{mat(C.orange, 0.4)}</mesh>
-        <FieldLines time={t} scale={0.7} />
+        <group position={[0, 1.6, 0]} rotation={[0, 0, Math.PI / 2]}><FieldLines time={t} scale={0.8} /></group>
       </group>
     </Stage>
   );
