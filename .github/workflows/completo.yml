@@ -15,7 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: {node-version: 22, cache: npm}
+        with:
+          node-version: 22
+          cache: "npm"
       - run: |
           sudo apt-get update
           sudo apt-get install -y libnss3 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 libasound2 libxrandr2 libxkbcommon-dev libxfixes3 libxcomposite1 libxdamage1 libgbm-dev libcups2 libpango-1.0-0 libcairo2 ffmpeg
@@ -27,7 +29,10 @@ jobs:
           i=0; for fr in $(cat frames.txt); do npx remotion still src/index.ts Completo out/st/s$(printf %02d $i).png --frame=$fr --gl=swangle; i=$((i+1)); done
           ffmpeg -y -pattern_type glob -i 'out/st/s*.png' -vf "scale=640:-1,tile=4x6" -frames:v 1 out/preview_escenas.png
       - uses: actions/upload-artifact@v4
-        with: {name: preview, path: out/preview_escenas.png, retention-days: 7}
+        with:
+          name: "preview"
+          path: "out/preview_escenas.png"
+          retention-days: 7
   render:
     if: ${{ inputs.modo == 'full' }}
     runs-on: ubuntu-22.04
@@ -39,7 +44,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: {node-version: 22, cache: npm}
+        with:
+          node-version: 22
+          cache: "npm"
       - run: |
           sudo apt-get update
           sudo apt-get install -y libnss3 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 libasound2 libxrandr2 libxkbcommon-dev libxfixes3 libxcomposite1 libxdamage1 libgbm-dev libcups2 libpango-1.0-0 libcairo2 ffmpeg
@@ -53,7 +60,10 @@ jobs:
           mkdir -p out
           npx remotion render src/index.ts Completo out/chunk_$(printf %02d ${{ matrix.chunk }}).mp4 --frames=$START-$END --muted --codec=h264 --crf=18 --pixel-format=yuv420p --gl=swangle --concurrency=2
       - uses: actions/upload-artifact@v4
-        with: {name: chunk-${{ matrix.chunk }}, path: out/chunk_*.mp4, retention-days: 3}
+        with:
+          name: "chunk-${{ matrix.chunk }}"
+          path: "out/chunk_*.mp4"
+          retention-days: 3
   assemble:
     if: ${{ inputs.modo == 'full' }}
     needs: render
@@ -62,7 +72,10 @@ jobs:
       - uses: actions/checkout@v4
       - run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - uses: actions/download-artifact@v4
-        with: {path: chunks, pattern: chunk-*, merge-multiple: true}
+        with:
+          path: "chunks"
+          pattern: "chunk-*"
+          merge-multiple: true
       - name: Unir + audio + hoja de contacto
         run: |
           mkdir -p out
@@ -74,4 +87,7 @@ jobs:
           { echo "duracion: $D"; ffmpeg -hide_banner -i out/video_completo.mp4 -af "volumedetect,silencedetect=n=-40dB:d=0.6" -f null - 2>&1 | grep -E "mean_volume|max_volume|silence_"; } | tee out/medidas.txt
           rm out/silent.mp4
       - uses: actions/upload-artifact@v4
-        with: {name: final, path: out/*, retention-days: 7}
+        with:
+          name: "final"
+          path: "out/*"
+          retention-days: 7
