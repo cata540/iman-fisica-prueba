@@ -26,7 +26,7 @@ export const Filamento: React.FC<{s: any; dur: number}> = ({dur}) => {
       <group position={[1.8, 0.2, 0]} scale={sp(f, 0)}>
         <mesh><sphereGeometry args={[1.7, 36, 28]} /><meshStandardMaterial color="#ffffff" transparent opacity={0.16} roughness={0.1} /></mesh>
         <mesh position={[0, -1.95, 0]}><cylinderGeometry args={[0.7, 0.55, 0.9, 24]} />{mat('#b9b3d4', 0.3)}</mesh>
-        {coil.map((i) => <mesh key={i} position={[(i - 5) * 0.17, 0.05, 0]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.2, 0.04, 8, 16]} /><meshStandardMaterial color="#ff9a4c" emissive={heat > 0.6 ? '#ffe9a0' : '#ff6a2c'} emissiveIntensity={0.3 + heat * 1.6} /></mesh>)}
+        {coil.map((i) => <mesh key={i} position={[(i - 5) * 0.17, 0.05, 0]} rotation={[0, Math.PI / 2, 0]}><torusGeometry args={[0.32, 0.05, 8, 20]} /><meshStandardMaterial color="#ff9a4c" emissive={heat > 0.6 ? '#ffe9a0' : '#ff6a2c'} emissiveIntensity={0.3 + heat * 1.6} /></mesh>)}
         {heat > 0.05 && <pointLight intensity={heat * 25} color="#ffcf8a" />}
         {[...Array(N)].map((_, k) => {
           const vis = k % 4 === 0; const ph = (t * 0.55 + k / N) % 1;
@@ -197,7 +197,7 @@ export const Decaimiento: React.FC<{s: any; dur: number}> = ({s, dur}) => {
     {curves.map((c, ci) => {
       const hi = m === 'todos' || m === 'intro' || m === c.k; const pts: string[] = [];
       for (let i = 0; i <= 120 * draw; i++) { const x = i / 120; const y = 1 / (1 + Math.exp((x - c.x) / c.st)); pts.push(`${X0 + (X1 - X0) * x},${Y0 - y * (Y0 - YT) * 0.9}`); }
-      return <g key={ci} opacity={hi ? 1 : 0.18}><polyline points={pts.join(' ')} fill="none" stroke={c.c} strokeWidth={m === c.k ? 11 : 7} strokeLinecap="round" /><text x={X0 + (X1 - X0) * c.x + 20} y={Y0 - 0.9 * (Y0 - YT) * 0.5} fill={c.c} fontSize="32" fontWeight="600" opacity={hi && m !== 'intro' ? 1 : 0.7}>{c.n}</text></g>;
+      return <g key={ci} opacity={hi ? 1 : 0.18}><polyline points={pts.join(' ')} fill="none" stroke={c.c} strokeWidth={m === c.k ? 11 : 7} strokeLinecap="round" /><text x={1060} y={380 + ci * 52} fill={c.c} fontSize="34" fontWeight="700" opacity={hi ? 1 : 0.35}>● {c.n}</text></g>;
     })}
   </Svg>);
 };
@@ -216,8 +216,8 @@ export const ColorSup: React.FC<{s: any; dur: number}> = ({s, dur}) => {
       </group>
       {rays.map((r, i) => { const ph = (t * 0.55 + i * 0.22) % 1; const H: [number, number] = [2.0, r.y]; const A: [number, number] = [-4.5, r.y + 2.3]; const B: [number, number] = [-4.5, r.y - 2.3];
         const inc = ph < 0.5; const q = inc ? ph / 0.5 : (ph - 0.5) / 0.5;
-        if (inc) return <Dot key={i} p={[A[0] + (H[0] - A[0]) * q, A[1] + (H[1] - A[1]) * q, 0.4]} r={0.13} c={r.c} />;
-        if (r.keep) return <Dot key={i} p={[H[0] + (B[0] - H[0]) * q, H[1] + (B[1] - H[1]) * q, 0.4]} r={0.13} c={r.c} o={1 - q * 0.2} />;
+        if (inc) return <Dot key={i} p={[A[0] + (H[0] - A[0]) * q, A[1] + (H[1] - A[1]) * q, 0.4]} r={0.22} c={r.c} />;
+        if (r.keep) return <Dot key={i} p={[H[0] + (B[0] - H[0]) * q, H[1] + (B[1] - H[1]) * q, 0.4]} r={0.22} c={r.c} o={1 - q * 0.2} />;
         return <mesh key={i} position={[H[0] - 0.05, H[1], 0.5]} scale={0.2 + q * 0.7}><sphereGeometry args={[0.4, 14, 12]} /><meshBasicMaterial color="#ff9a4c" transparent opacity={0.8 * (1 - q)} /></mesh>; })}
     </Stage>
     <Txt x={110} y={800} t={m === 'rojo' ? 'azul y verde → calor · rojo → reflejado' : m === 'espejo' ? 'casi todos reflejados' : 'todo absorbido → calor'} c="#e9e4f7" s={36} />
