@@ -73,7 +73,7 @@ const Bateria: React.FC<{dur: number}> = ({dur}) => {
   const chem = interpolate(f, [0.05 * dur, 0.2 * dur], [0, 1], clamp);
   return (<>
     <Stage cam={[0, 0, 9.5]}>
-      <group position={[-4.4, 0, 0]} rotation={[0, Math.sin(t * 0.7) * 0.5, 0.1]} scale={1.35 * sp(f, 0)}><Battery s={1} /></group>
+      <group position={[-4.4, 0, 0]} rotation={[0, Math.sin(t * 0.7) * 0.5, 0.1]} scale={1.35 * sp(f, 0)}><Battery s={1} cross={false} /></group>
       {/* cable y cargas que se mueven */}
       <mesh position={[-1.6, 0.9, 0]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[0.07, 0.07, 6.2, 12]} />{mat('#a65a36', 0.45)}</mesh>
       {Array.from({length: 9}).map((_, i) => <mesh key={i} position={[-4.6 + ((i * 0.75 + flow) % 6.4) * 1.0, 0.98, 0.06]} visible={lvl > 0.04}><sphereGeometry args={[0.1, 12, 12]} />{mat(C.cyan, 0.2)}</mesh>)}

@@ -31,12 +31,12 @@ export const Cross: React.FC = () => (
     <mesh rotation={[0, 0, -Math.PI / 4]}><boxGeometry args={[1.9, 0.14, 0.08]} />{mat(C.orange, 0.3)}</mesh>
   </group>
 );
-export const Battery: React.FC<{s: number}> = ({s}) => (
+export const Battery: React.FC<{s: number; cross?: boolean}> = ({s, cross = true}) => (
   <group scale={s} rotation={[0, 0, 0]}>
     <mesh><cylinderGeometry args={[0.45, 0.45, 1.4, 32]} />{mat('#2fd69a', 0.35)}</mesh>
     <mesh position={[0, 0.78, 0]}><cylinderGeometry args={[0.16, 0.16, 0.2, 20]} />{mat('#d9d4ee', 0.3)}</mesh>
     <mesh position={[0, -0.45, 0]}><cylinderGeometry args={[0.461, 0.461, 0.5, 32]} />{mat('#1d1735', 0.5)}</mesh>
-    <Cross />
+    {cross && <Cross />}
   </group>
 );
 
