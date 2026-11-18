@@ -16,7 +16,7 @@ export const Pendulo: React.FC<{s: any; dur: number}> = ({dur}) => {
   const bar = (y: number, v: number, col: string, name: string) => (<g><text x="1130" y={y - 16} fill="#fff" fontSize="36" fontWeight="600">{name}</text><rect x="1130" y={y} width="600" height="46" rx="14" fill="rgba(255,255,255,.12)" /><rect x="1130" y={y} width={Math.max(2, 600 * v)} height="46" rx="14" fill={col} /></g>);
   return (<>
     <Stage cam={[0, -0.6, 10]}>
-      <group position={[-2.6, 2.6, 0]} scale={sp(f, 0)}>
+      <group position={[-2.9, 3.2, 0]} scale={sp(f, 0) * 1.3}>
         <mesh position={[0, 0.05, 0]}><boxGeometry args={[3, 0.18, 0.4]} />{mat('#8a84a8', 0.3)}</mesh>
         <mesh position={[px / 2, py / 2, 0]} rotation={[0, 0, th]}><cylinderGeometry args={[0.025, 0.025, L, 8]} />{mat('#d9d4ee', 0.3)}</mesh>
         {trail.map((p, i) => <Dot key={i} p={[p[0], p[1], -0.1]} r={0.1 * p[2]} c={C.yellow} o={0.5 * p[2]} />)}
