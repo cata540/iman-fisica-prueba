@@ -5,9 +5,9 @@ import {execFileSync, spawnSync} from 'node:child_process';
 import {MsEdgeTTS, OUTPUT_FORMAT} from 'msedge-tts';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const TMP = path.join(ROOT, 'data', 'voz');
+const TMP = path.join(ROOT, 'data', 'voz_' + (process.argv[4] || 'x'));
 fs.mkdirSync(TMP, {recursive: true});
-const scenes = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'guion.json'), 'utf8'));
+const scenes = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', process.argv[2] || 'guion.json'), 'utf8'));
 
 const tts = new MsEdgeTTS();
 await tts.setMetadata('es-ES-AlvaroNeural', OUTPUT_FORMAT.AUDIO_24KHZ_96KBITRATE_MONO_MP3);
@@ -34,7 +34,7 @@ execFileSync('ffmpeg', ['-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i',
 // mide y ajusta ganancia para mean_volume = -17.5 dB
 const r = spawnSync('ffmpeg', ['-hide_banner', '-i', raw, '-af', 'volumedetect', '-f', 'null', '-'], {encoding: 'utf8'});
 const mean = Number(/mean_volume: (-?[0-9.]+) dB/.exec(r.stderr)?.[1]);
-const mix = (g) => spawnSync('ffmpeg', ['-y', '-hide_banner', '-i', raw, '-af', `volume=${g.toFixed(2)}dB,alimiter=limit=0.9:level=disabled,volumedetect`, '-c:a', 'aac', '-b:a', '192k', path.join(ROOT, 'public', 'audio', 'voz.m4a')], {encoding: 'utf8'});
+const mix = (g) => spawnSync('ffmpeg', ['-y', '-hide_banner', '-i', raw, '-af', `volume=${g.toFixed(2)}dB,alimiter=limit=0.9:level=disabled,volumedetect`, '-c:a', 'aac', '-b:a', '192k', path.join(ROOT, 'public', 'audio', process.argv[3] || 'voz.m4a')], {encoding: 'utf8'});
 let gain = -17.5 - mean;
 for (let k = 0; k < 4; k++) {
   const m = Number(/mean_volume: (-?[0-9.]+) dB/.exec(mix(gain).stderr)?.[1]);
@@ -42,5 +42,5 @@ for (let k = 0; k < 4; k++) {
   gain += -17.5 - m;
 }
 const total = durs.reduce((a, b) => a + b, 0);
-fs.writeFileSync(path.join(ROOT, 'data', 'timeline.json'), JSON.stringify({fps: 30, totalSeconds: total, durs, frames: durs.map((d) => Math.round(d * 30))}, null, 1));
+fs.writeFileSync(path.join(ROOT, 'data', process.argv[4] || 'timeline.json'), JSON.stringify({fps: 30, totalSeconds: total, durs, frames: durs.map((d) => Math.round(d * 30))}, null, 1));
 console.log({mean, gain, durs, total});

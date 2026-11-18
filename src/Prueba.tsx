@@ -5,18 +5,18 @@ import {Backdrop, C, FONT, Label, Pill, Title} from './ui';
 import {Arrow, BarMagnet, FieldLines, RoundedBox, Stage, mat} from './three';
 
 const FR = tl.frames as number[];
-const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
-const sp = (f: number, from: number, fps = 30) => spring({frame: f - from, fps, config: {damping: 13, stiffness: 120}});
-const rnd = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+export const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
+export const sp = (f: number, from: number, fps = 30) => spring({frame: f - from, fps, config: {damping: 13, stiffness: 120}});
+export const rnd = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 
-const Fade: React.FC<{dur: number; children: React.ReactNode}> = ({dur, children}) => {
+export const Fade: React.FC<{dur: number; children: React.ReactNode}> = ({dur, children}) => {
   const f = useCurrentFrame();
   const o = interpolate(f, [0, 8, dur - 6, dur], [0, 1, 1, 0], clamp);
   return <AbsoluteFill style={{opacity: o}}>{children}</AbsoluteFill>;
 };
 
 // ---------- Escena 1: imán en la nevera ----------
-const Plug: React.FC<{s: number}> = ({s}) => (
+export const Plug: React.FC<{s: number}> = ({s}) => (
   <group scale={s}>
     <RoundedBox size={[0.9, 0.9, 0.5]} color="#b9b3d4" pos={[0, 0, 0]} />
     <mesh position={[-0.18, 0.62, 0]}><boxGeometry args={[0.1, 0.45, 0.08]} />{mat('#d8d3ee', 0.2)}</mesh>
@@ -25,13 +25,13 @@ const Plug: React.FC<{s: number}> = ({s}) => (
     <Cross />
   </group>
 );
-const Cross: React.FC = () => (
+export const Cross: React.FC = () => (
   <group position={[0, 0.1, 0.45]}>
     <mesh rotation={[0, 0, Math.PI / 4]}><boxGeometry args={[1.9, 0.14, 0.08]} />{mat(C.orange, 0.3)}</mesh>
     <mesh rotation={[0, 0, -Math.PI / 4]}><boxGeometry args={[1.9, 0.14, 0.08]} />{mat(C.orange, 0.3)}</mesh>
   </group>
 );
-const Battery: React.FC<{s: number}> = ({s}) => (
+export const Battery: React.FC<{s: number}> = ({s}) => (
   <group scale={s} rotation={[0, 0, 0]}>
     <mesh><cylinderGeometry args={[0.45, 0.45, 1.4, 32]} />{mat('#2fd69a', 0.35)}</mesh>
     <mesh position={[0, 0.78, 0]}><cylinderGeometry args={[0.16, 0.16, 0.2, 20]} />{mat('#d9d4ee', 0.3)}</mesh>
@@ -117,7 +117,7 @@ const Scene3: React.FC = () => {
 };
 
 // ---------- Cuadrícula de espines ----------
-const Spin: React.FC<{x: number; y: number; k: number; t: number; align: number}> = ({x, y, k, t, align}) => {
+export const Spin: React.FC<{x: number; y: number; k: number; t: number; align: number}> = ({x, y, k, t, align}) => {
   const rz = (rnd(k) - 0.5) * Math.PI * 1.7 * (1 - align);
   const rx = (rnd(k + 50) - 0.5) * 1.2 * (1 - align);
   return (
@@ -132,7 +132,7 @@ const Spin: React.FC<{x: number; y: number; k: number; t: number; align: number}
     </group>
   );
 };
-const SpinGrid: React.FC<{t: number; align: number; scale?: number; pos?: [number, number, number]}> = ({t, align, scale = 1, pos = [0, 0, 0]}) => (
+export const SpinGrid: React.FC<{t: number; align: number; scale?: number; pos?: [number, number, number]}> = ({t, align, scale = 1, pos = [0, 0, 0]}) => (
   <group scale={scale} position={pos}>
     {[0, 1, 2].flatMap((r) => [0, 1, 2, 3, 4].map((c) => <Spin key={`${r}${c}`} k={r * 5 + c} x={(c - 2) * 1.9} y={(1 - r) * 1.9} t={t} align={align} />))}
   </group>
