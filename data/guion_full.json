@@ -43,7 +43,22 @@
    "¿De dónde sale",
    "su energía?"
   ],
-  "barra": true
+  "barra": true,
+  "items": [
+   [
+    "móvil",
+    "movil"
+   ],
+   [
+    "linterna",
+    "linterna"
+   ],
+   [
+    "imán",
+    "iman",
+    "el imán"
+   ]
+  ]
  },
  {
   "tipo": "campo",
@@ -58,6 +73,16 @@
   "title": [
    "De la piedra",
    "al electrón"
+  ],
+  "items": [
+   [
+    "piedra",
+    "roca"
+   ],
+   [
+    "electrones",
+    "atomo"
+   ]
   ]
  },
  {
@@ -74,6 +99,22 @@
     "g",
     0.55
    ]
+  ],
+  "items": [
+   [
+    "magnetita",
+    "roca",
+    "magnetita"
+   ],
+   [
+    "griegos",
+    "libro",
+    "griegos y chinos"
+   ],
+   [
+    "brújulas",
+    "brujula"
+   ]
   ]
  },
  {
@@ -89,6 +130,16 @@
     "La Tierra es un imán",
     "g",
     0.5
+   ]
+  ],
+  "items": [
+   [
+    "Tierra",
+    "tierra"
+   ],
+   [
+    "brújula",
+    "brujula"
    ]
   ]
  },
@@ -126,6 +177,22 @@
   "title": [
    "Escultura,",
    "no río"
+  ],
+  "items": [
+   [
+    "escultura",
+    "roca",
+    "escultura"
+   ],
+   [
+    "río",
+    "rio"
+   ],
+   [
+    "empuje",
+    "mano",
+    "empuje"
+   ]
   ]
  },
  {
@@ -163,6 +230,22 @@
     0.5,
     "g"
    ]
+  ],
+  "items": [
+   [
+    "libro",
+    "libro"
+   ],
+   [
+    "fuerza",
+    "flecha"
+   ],
+   [
+    "energía",
+    "rayo",
+    "sin gasto",
+    true
+   ]
   ]
  },
  {
@@ -194,6 +277,22 @@
   "title": [
    "Fuerza sin",
    "movimiento"
+  ],
+  "items": [
+   [
+    "pared",
+    "pared"
+   ],
+   [
+    "fuerza",
+    "flecha"
+   ],
+   [
+    "energía",
+    "rayo",
+    "sin gasto",
+    true
+   ]
   ]
  },
  {
@@ -210,6 +309,21 @@
     "g",
     0.5
    ]
+  ],
+  "items": [
+   [
+    "mano",
+    "mano"
+   ],
+   [
+    "peso",
+    "caja"
+   ],
+   [
+    "repisa",
+    "pared",
+    "repisa"
+   ]
   ]
  },
  {
@@ -225,6 +339,21 @@
   "title": [
    "Pegado = en el",
    "fondo del valle"
+  ],
+  "items": [
+   [
+    "valle",
+    "valle"
+   ],
+   [
+    "bola",
+    "clip",
+    "bola"
+   ],
+   [
+    "imán",
+    "iman"
+   ]
   ]
  },
  {
@@ -235,6 +364,21 @@
     "Despegar cuesta trabajo",
     "y",
     0.05
+   ]
+  ],
+  "items": [
+   [
+    "tirar",
+    "mano"
+   ],
+   [
+    "trabajo",
+    "rayo"
+   ],
+   [
+    "energía",
+    "rayo",
+    "la devuelves"
    ]
   ]
  },
@@ -627,6 +771,21 @@
   "title": [
    "Imantar cuesta",
    "energía, una vez"
+  ],
+  "items": [
+   [
+    "energía",
+    "rayo"
+   ],
+   [
+    "reloj",
+    "reloj",
+    "dar cuerda"
+   ],
+   [
+    "hierro",
+    "clavo"
+   ]
   ]
  },
  {
@@ -702,6 +861,20 @@
     "g",
     0.6
    ]
+  ],
+  "items": [
+   [
+    "clip",
+    "clip"
+   ],
+   [
+    "energía",
+    "rayo"
+   ],
+   [
+    "separarlos",
+    "mano"
+   ]
   ]
  },
  {
@@ -718,6 +891,20 @@
     "g",
     0.55
    ]
+  ],
+  "items": [
+   [
+    "imanes",
+    "iman"
+   ],
+   [
+    "calientan",
+    "llama"
+   ],
+   [
+    "energía",
+    "rayo"
+   ]
   ]
  },
  {
@@ -733,6 +920,21 @@
   "title": [
    "Fuerza ≠ energía",
    "Estado ≠ consumo"
+  ],
+  "items": [
+   [
+    "fuerza",
+    "flecha"
+   ],
+   [
+    "energía",
+    "rayo"
+   ],
+   [
+    "estado",
+    "iman",
+    "un estado"
+   ]
   ]
  },
  {
@@ -748,6 +950,23 @@
   "title": [
    "Un imán no",
    "fabrica energía"
+  ],
+  "items": [
+   [
+    "ruedas",
+    "rueda"
+   ],
+   [
+    "siempre",
+    "reloj",
+    "siempre"
+   ],
+   [
+    "energía",
+    "rayo",
+    "no se crea",
+    true
+   ]
   ]
  },
  {
@@ -758,6 +977,22 @@
     "Todos fallaron",
     "y",
     0.05
+   ]
+  ],
+  "items": [
+   [
+    "motores",
+    "motor"
+   ],
+   [
+    "fraude",
+    "rayo",
+    "fraude",
+    true
+   ],
+   [
+    "imán",
+    "iman"
    ]
   ]
  },
@@ -775,6 +1010,21 @@
     "g",
     0.55
    ]
+  ],
+  "items": [
+   [
+    "campo",
+    "iman"
+   ],
+   [
+    "energía",
+    "rayo"
+   ],
+   [
+    "vuelta",
+    "rueda",
+    "vuelta completa"
+   ]
   ]
  },
  {
@@ -790,6 +1040,22 @@
     "Leyes constantes = energía conservada",
     "g",
     0.5
+   ]
+  ],
+  "items": [
+   [
+    "Noether",
+    "libro",
+    "Noether"
+   ],
+   [
+    "tiempo",
+    "reloj"
+   ],
+   [
+    "energía",
+    "rayo",
+    "se conserva"
    ]
   ]
  },
@@ -834,6 +1100,22 @@
     "y",
     0.05
    ]
+  ],
+  "items": [
+   [
+    "energía",
+    "rayo"
+   ],
+   [
+    "eléctrico",
+    "rayo",
+    "campo eléctrico"
+   ],
+   [
+    "magnético",
+    "iman",
+    "campo magnético"
+   ]
   ]
  },
  {
@@ -849,6 +1131,19 @@
     "Estructura, no caudal",
     "g",
     0.5
+   ]
+  ],
+  "items": [
+   [
+    "norte",
+    "brujula",
+    "norte → sur"
+   ],
+   [
+    "caudal",
+    "rio",
+    "no es un caudal",
+    true
    ]
   ]
  },
@@ -904,6 +1199,20 @@
     "y",
     0.05
    ]
+  ],
+  "items": [
+   [
+    "bacterias",
+    "bacteria"
+   ],
+   [
+    "magnetita",
+    "roca"
+   ],
+   [
+    "brújulas",
+    "brujula"
+   ]
   ]
  },
  {
@@ -924,6 +1233,18 @@
   "title": [
    "Más potente,",
    "misma física"
+  ],
+  "items": [
+   [
+    "neodimio",
+    "iman"
+   ],
+   [
+    "energía",
+    "rayo",
+    "sin entrega",
+    true
+   ]
   ]
  },
  {
@@ -978,6 +1299,20 @@
   "title": [
    "Hasta el agua",
    "reacciona"
+  ],
+  "items": [
+   [
+    "agua",
+    "agua"
+   ],
+   [
+    "rana",
+    "rana"
+   ],
+   [
+    "campo",
+    "iman"
+   ]
   ]
  },
  {
@@ -1025,6 +1360,21 @@
   "title": [
    "Un imán de",
    "verdad: la Tierra"
+  ],
+  "items": [
+   [
+    "Tierra",
+    "tierra"
+   ],
+   [
+    "hierro",
+    "clavo",
+    "hierro líquido"
+   ],
+   [
+    "calor",
+    "llama"
+   ]
   ]
  },
  {
@@ -1077,6 +1427,20 @@
   "title": [
    "Dos clases",
    "de campo"
+  ],
+  "items": [
+   [
+    "electroimán",
+    "bobina"
+   ],
+   [
+    "Tierra",
+    "tierra"
+   ],
+   [
+    "nevera",
+    "nota"
+   ]
   ]
  },
  {
@@ -1093,6 +1457,20 @@
     "g",
     0.6
    ]
+  ],
+  "items": [
+   [
+    "clips",
+    "clip"
+   ],
+   [
+    "magnetismo",
+    "iman"
+   ],
+   [
+    "espines",
+    "atomo"
+   ]
   ]
  },
  {
@@ -1108,6 +1486,21 @@
     "Calor, golpes, campos contrarios",
     "g",
     0.5
+   ]
+  ],
+  "items": [
+   [
+    "calor",
+    "llama"
+   ],
+   [
+    "golpes",
+    "martillo"
+   ],
+   [
+    "campos",
+    "iman",
+    "campos contrarios"
    ]
   ]
  },
@@ -1148,6 +1541,16 @@
   "title": [
    "Es orden,",
    "no reserva"
+  ],
+  "items": [
+   [
+    "energía",
+    "rayo"
+   ],
+   [
+    "orden",
+    "atomo"
+   ]
   ]
  },
  {
@@ -1163,6 +1566,22 @@
   "title": [
    "Sostener",
    "es gratis"
+  ],
+  "items": [
+   [
+    "energía",
+    "rayo",
+    "ninguna",
+    true
+   ],
+   [
+    "fuerza",
+    "flecha"
+   ],
+   [
+    "sostener",
+    "mano"
+   ]
   ]
  },
  {
@@ -1203,6 +1622,20 @@
     "Un estado natural",
     "y",
     0.05
+   ]
+  ],
+  "items": [
+   [
+    "libro",
+    "libro"
+   ],
+   [
+    "escultura",
+    "roca"
+   ],
+   [
+    "orden",
+    "atomo"
    ]
   ]
  },

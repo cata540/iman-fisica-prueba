@@ -5,8 +5,9 @@ import spec from '../data/guion_full.json';
 import {Backdrop, C, FONT, Label, Pill, Title} from './ui';
 import {Arrow, BarMagnet, FieldLines, RoundedBox, Stage, mat} from './three';
 import {Battery, Cross, Fade, Plug, clamp, rnd, sp} from './Prueba';
+import {Cues, Item, ZONE_TYPES} from './Props';
 
-type Spec = {tipo: string; pills?: [string, string, number][]; title?: string[]; labels?: [string, number, number, number, string?][]; barra?: boolean; final?: boolean; plano?: boolean; curva?: string};
+type Spec = {tipo: string; pills?: [string, string, number][]; title?: string[]; labels?: [string, number, number, number, string?][]; barra?: boolean; items?: Item[]; texto?: string; final?: boolean; plano?: boolean; curva?: string};
 const FR = tl.frames as number[];
 export const TOTAL_FRAMES = FR.reduce((a, b) => a + b, 0);
 const COL: Record<string, string> = {y: C.yellow, g: C.green, o: C.orange};
@@ -66,17 +67,29 @@ const Campo: React.FC<{s: Spec; dur: number}> = ({s, dur}) => {
 // ---- batería vs imán ----
 const Bateria: React.FC<{dur: number}> = ({dur}) => {
   const f = useCurrentFrame(); const t = f / 30;
-  const lvl = interpolate(f, [0.15 * dur, 0.6 * dur], [1, 0.02], clamp);
-  const mag = interpolate(f, [0.55 * dur, 0.62 * dur], [0, 1], clamp);
+  const lvl = interpolate(f, [0.2 * dur, 0.62 * dur], [1, 0.0], clamp);
+  const mag = interpolate(f, [0.62 * dur, 0.72 * dur], [0, 1], clamp);
+  const flow = (f * 0.06 * Math.min(1, lvl * 3));
+  const chem = interpolate(f, [0.05 * dur, 0.2 * dur], [0, 1], clamp);
   return (<>
     <Stage cam={[0, 0, 9.5]}>
-      <group position={[-3.2, 0, 0]} rotation={[0, t * 0.5, 0.15]} scale={1.6 * sp(f, 0)}><Battery s={1} /></group>
-      <group position={[3.4, 0, 0]} rotation={[0.25, t * 0.25, 0.1]} scale={mag * 1.0}><BarMagnet /><FieldLines time={t} scale={0.9} /></group>
+      <group position={[-4.4, 0, 0]} rotation={[0, Math.sin(t * 0.7) * 0.5, 0.1]} scale={1.35 * sp(f, 0)}><Battery s={1} /></group>
+      {/* cable y cargas que se mueven */}
+      <mesh position={[-1.6, 0.9, 0]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[0.07, 0.07, 6.2, 12]} />{mat('#a65a36', 0.45)}</mesh>
+      {Array.from({length: 9}).map((_, i) => <mesh key={i} position={[-4.6 + ((i * 0.75 + flow) % 6.4) * 1.0, 0.98, 0.06]} visible={lvl > 0.04}><sphereGeometry args={[0.1, 12, 12]} />{mat(C.cyan, 0.2)}</mesh>)}
+      {/* bombilla que se apaga */}
+      <group position={[1.4, 0.2, 0]}>
+        <mesh position={[0, 0.2, 0]}><sphereGeometry args={[0.8, 32, 24]} /><meshStandardMaterial color={lvl > 0.05 ? '#FFD83A' : '#6f6891'} emissive="#FFD83A" emissiveIntensity={lvl * 1.1} roughness={0.3} transparent opacity={0.95} /></mesh>
+        <mesh position={[0, -0.75, 0]}><cylinderGeometry args={[0.36, 0.3, 0.55, 20]} />{mat('#b9b3d4', 0.3)}</mesh>
+        {lvl > 0.02 && <pointLight position={[0, 0.2, 1.2]} intensity={lvl * 30} color="#FFD83A" />}
+      </group>
+      <group position={[4.4, 0, 0]} rotation={[0.25, t * 0.25, 0.1]} scale={mag}><BarMagnet /><FieldLines time={t} scale={0.9} /></group>
     </Stage>
-    <div style={{position: 'absolute', left: 190, top: 800, fontFamily: FONT, color: '#fff', fontWeight: 600, fontSize: 38}}>Pila
-      <div style={{marginTop: 10, width: 380, height: 18, borderRadius: 9, background: 'rgba(255,255,255,.14)'}}><div style={{width: `${lvl * 100}%`, height: '100%', background: lvl > 0.25 ? C.green : C.orange, borderRadius: 9}} /></div></div>
-    <div style={{position: 'absolute', left: 1230, top: 800, opacity: mag, fontFamily: FONT, color: '#fff', fontWeight: 600, fontSize: 38}}>Imán
+    <div style={{position: 'absolute', left: 90, top: 790, opacity: chem, fontFamily: FONT, color: '#fff', fontWeight: 600, fontSize: 36}}>Reserva química
+      <div style={{marginTop: 10, width: 400, height: 18, borderRadius: 9, background: 'rgba(255,255,255,.14)'}}><div style={{width: `${lvl * 100}%`, height: '100%', background: lvl > 0.25 ? C.green : C.orange, borderRadius: 9}} /></div></div>
+    <div style={{position: 'absolute', left: 1440, top: 790, opacity: mag, fontFamily: FONT, color: '#fff', fontWeight: 600, fontSize: 36}}>Imán: sin reserva
       <div style={{marginTop: 10, width: 380, height: 18, borderRadius: 9, background: 'rgba(255,255,255,.14)'}}><div style={{width: '100%', height: '100%', background: C.yellow, borderRadius: 9}} /></div></div>
+    <Label text={lvl > 0.04 ? 'la corriente empuja cargas' : 'sin reserva: se apaga'} x={560} y={300} from={0.2 * dur} color={lvl > 0.04 ? C.cyan : C.orange} size={38} />
   </>);
 };
 
@@ -347,6 +360,12 @@ const BODY: Record<string, React.FC<any>> = {
   dominios: (p: any) => <Grid mode="dominios" dur={p.dur} />, calor: (p: any) => <Grid mode="calor" dur={p.dur} />,
 };
 
+const Zoom: React.FC<{dur: number; i: number; children: React.ReactNode}> = ({dur, i, children}) => {
+  const f = useCurrentFrame();
+  const p = f / dur; const dir = i % 2 === 0 ? 1 : -1;
+  return <AbsoluteFill style={{transform: `scale(${1.0 + 0.05 * p}) translate(${dir * p * -14}px, ${p * -8}px)`, transformOrigin: '60% 50%'}}>{children}</AbsoluteFill>;
+};
+
 export const Completo: React.FC = () => {
   const sc = spec as unknown as Spec[];
   let acc = 0;
@@ -357,7 +376,7 @@ export const Completo: React.FC = () => {
         const from = acc; acc += FR[i];
         const B = BODY[s.tipo];
         return <Sequence key={i} from={from} durationInFrames={FR[i]} layout="none">
-          <Fade dur={FR[i]}><B s={s} dur={FR[i]} /><Overlay s={s} dur={FR[i]} /></Fade>
+          <Fade dur={FR[i]}><Zoom dur={FR[i]} i={i}><B s={s} dur={FR[i]} />{s.items && <Cues items={s.items} texto={(s as any).texto} dur={FR[i]} tipo={s.tipo} barra={s.barra} />}</Zoom><Overlay s={s} dur={FR[i]} /></Fade>
         </Sequence>;
       })}
     </AbsoluteFill>
