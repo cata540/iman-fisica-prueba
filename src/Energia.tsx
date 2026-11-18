@@ -17,7 +17,7 @@ export const Pendulo: React.FC<{s: any; dur: number}> = ({dur}) => {
   return (<>
     <Stage cam={[0, -0.6, 10]}>
       <group position={[-1.2, 3.0, 0]} scale={sp(f, 0) * 1.25}>
-        <mesh position={[0, 0.05, 0]}><boxGeometry args={[3, 0.18, 0.4]} />{mat('#8a84a8', 0.3)}</mesh>
+        <mesh position={[0, 0.05, 0]}><boxGeometry args={[1.5, 0.18, 0.4]} />{mat('#8a84a8', 0.3)}</mesh>
         <mesh position={[px / 2, py / 2, 0]} rotation={[0, 0, th]}><cylinderGeometry args={[0.025, 0.025, L, 8]} />{mat('#d9d4ee', 0.3)}</mesh>
         {trail.map((p, i) => <Dot key={i} p={[p[0], p[1], -0.1]} r={0.1 * p[2]} c={C.yellow} o={0.5 * p[2]} />)}
         <mesh position={[px, py, 0]}><sphereGeometry args={[0.42, 28, 22]} /><meshStandardMaterial color={C.yellow} emissive={C.yellow} emissiveIntensity={0.3 + Ek * 0.8} roughness={0.3} /></mesh>
