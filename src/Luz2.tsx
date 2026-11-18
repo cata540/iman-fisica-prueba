@@ -203,9 +203,9 @@ export const Cifra: React.FC<{s: any; dur: number}> = ({s, dur}) => {
     {cards.map((c, i) => {
       const k = 0.3 + 0.7 * seg(u, 0.0 + i * 0.12, 0.16 + i * 0.12);
       const col = c[2] ?? COLS[i % 4];
-      const fz = n === 1 ? (c[0].length > 14 ? 120 : 190) : n === 2 ? (c[0].length > 12 ? 74 : 112) : 76;
+      const L = c[0].length; const fz = n === 1 ? (L > 20 ? 78 : L > 14 ? 100 : L > 9 ? 140 : 190) : n === 2 ? (L > 14 ? 58 : L > 10 ? 74 : 112) : (L > 8 ? 62 : 84);
       return (<div key={i} style={{position: 'absolute', left: x0 + i * (W + gap), top: 330 + (1 - k) * 26 + Math.sin(t * 1.3 + i) * 6, width: W, height: H, opacity: Math.min(1, 0.35 + k), transform: `scale(${0.9 + 0.1 * k})`, borderRadius: 40, background: 'linear-gradient(160deg,#2a1a5e,#1d1040)', border: `5px solid ${col}`, boxShadow: `0 0 60px ${col}33, 0 14px 40px rgba(0,0,0,.45)`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 36, boxSizing: 'border-box', fontFamily: FONT}}>
-        <div style={{color: col, fontWeight: 700, fontSize: fz, lineHeight: 1.05}}>{count(c[0], seg(u, 0.05 + i * 0.1, 0.5 + i * 0.1))}</div>
+        <div style={{color: col, fontWeight: 700, fontSize: fz, lineHeight: 1.05, whiteSpace: 'nowrap'}}>{count(c[0], seg(u, 0.05 + i * 0.1, 0.5 + i * 0.1))}</div>
         <div style={{color: '#e9e4f7', fontWeight: 600, fontSize: n === 1 ? 46 : 38, marginTop: 26, lineHeight: 1.2}}>{c[1]}</div>
       </div>);
     })}
@@ -215,22 +215,22 @@ export const Cifra: React.FC<{s: any; dur: number}> = ({s, dur}) => {
 // ---------- anillo del LHC ----------
 export const Lhc: React.FC<{s: any; dur: number}> = ({s, dur}) => {
   const f = useCurrentFrame(); const t = f / 30; const u = f / dur; const m = s.modo;
-  const R = 3.5; const mags = [...Array(16)].map((_, i) => i);
+  const R = 2.9; const mags = [...Array(16)].map((_, i) => i);
   const bunch = (dir: number, off: number, col: string) => [0, 1, 2, 3, 4].map((j) => { const a = dir * (t * 5.2 + off + j * 0.085); return <mesh key={j} position={[Math.cos(a) * R, Math.sin(a) * R, 0.1]}><sphereGeometry args={[0.1 + (j === 2 ? 0.03 : 0), 12, 10]} /><meshBasicMaterial color={col} /></mesh>; });
   const E = m === 'inf' ? 6.5 * seg(u, 0.1, 0.8) : 6.5;
   return (<>
     <Stage cam={[0, 0, 11]}>
-      <group position={[-1.6, -0.1, 0]} rotation={[-0.75, 0, 0.35]} scale={sp(f, 0)}>
+      <group position={[-3.6, -0.1, 0]} rotation={[-0.75, 0, 0.35]} scale={sp(f, 0)}>
         <mesh><torusGeometry args={[R, 0.06, 10, 160]} /><meshBasicMaterial color="#9be7ff" /></mesh>
         {mags.map((i) => { const a = (i / 16) * Math.PI * 2; return <mesh key={i} position={[Math.cos(a) * R, Math.sin(a) * R, 0]} rotation={[0, 0, a]}><boxGeometry args={[0.55, 0.36, 0.36]} />{mat('#3F6DFF', 0.35)}</mesh>; })}
         {[0, 1, 2, 3].map((i) => { const a = (i / 4) * Math.PI * 2 + 0.4; return <mesh key={i} position={[Math.cos(a) * R, Math.sin(a) * R, 0]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[0.32, 0.32, 0.8, 18]} />{mat(C.yellow, 0.35)}</mesh>; })}
         {bunch(1, 0, MAG)}{bunch(-1, 2.2, CYAN)}
       </group>
     </Stage>
-    <Txt x={1130} y={300} t="Gran Colisionador de Hadrones" c="#fff" s={44} w={700} />
-    <Txt x={1130} y={370} t="27 km de circunferencia" c="#c8bfe6" s={36} w={500} />
-    <Txt x={1130} y={500} t={m === 'inf' ? `energía por protón: ${E.toFixed(1).replace('.', ',')} TeV` : 'protones al 99,999999 % de c'} c={C.yellow} s={46} w={700} />
-    {m === 'inf' && <Txt x={1130} y={580} t={`velocidad: casi no cambia (${(99.99 + Math.min(1, u * 1.2) * 0.009999).toFixed(6).replace('.', ',')} %)`} c={CYAN} s={36} w={600} />}
-    {m === 'inf' && <Txt x={1130} y={660} t="más energía → casi la misma velocidad" c={MAG} s={38} w={600} />}
+    <Txt x={1060} y={300} t="Gran Colisionador de Hadrones" c="#fff" s={44} w={700} />
+    <Txt x={1060} y={370} t="27 km de circunferencia" c="#c8bfe6" s={36} w={500} />
+    <Txt x={1060} y={500} t={m === 'inf' ? `energía por protón: ${E.toFixed(1).replace('.', ',')} TeV` : 'protones al 99,999999 % de c'} c={C.yellow} s={42} w={700} />
+    {m === 'inf' && <Txt x={1060} y={580} t={`velocidad: casi no cambia (${(99.99 + Math.min(1, u * 1.2) * 0.009999).toFixed(6).replace('.', ',')} %)`} c={CYAN} s={32} w={600} />}
+    {m === 'inf' && <Txt x={1060} y={660} t="más energía → casi la misma velocidad" c={MAG} s={38} w={600} />}
   </>);
 };
