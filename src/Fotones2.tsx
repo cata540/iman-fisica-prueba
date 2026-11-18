@@ -6,12 +6,12 @@ import {RoundedBox, Stage, mat} from './three';
 import {rnd, sp} from './Prueba';
 import {WavePacket} from './Fotones';
 
-const CYAN = '#2FD0F0', MAG = '#FF4FD8';
+export const CYAN = '#2FD0F0', MAG = '#FF4FD8';
 const ease = (x: number) => { x = Math.max(0, Math.min(1, x)); return x * x * (3 - 2 * x); };
-const seg = (u: number, a: number, b: number) => ease((u - a) / (b - a));
-const Dot: React.FC<{p: [number, number, number]; r?: number; c: string; o?: number}> = ({p, r = 0.09, c, o = 1}) => <mesh position={p}><sphereGeometry args={[r, 12, 10]} /><meshBasicMaterial color={c} transparent opacity={o} /></mesh>;
-const Txt: React.FC<{x: number; y: number; t: string; c?: string; s?: number; o?: number; w?: number}> = ({x, y, t, c = '#fff', s = 34, o = 1, w = 600}) => <div style={{position: 'absolute', left: x, top: y, opacity: o, color: c, fontFamily: FONT, fontWeight: w, fontSize: s, whiteSpace: 'nowrap'}}>{t}</div>;
-const Svg: React.FC<{o?: number; children: React.ReactNode}> = ({o = 1, children}) => <svg width="1920" height="1080" style={{position: 'absolute', inset: 0, opacity: o, fontFamily: FONT}}>{children}</svg>;
+export const seg = (u: number, a: number, b: number) => ease((u - a) / (b - a));
+export const Dot: React.FC<{p: [number, number, number]; r?: number; c: string; o?: number}> = ({p, r = 0.09, c, o = 1}) => <mesh position={p}><sphereGeometry args={[r, 12, 10]} /><meshBasicMaterial color={c} transparent opacity={o} /></mesh>;
+export const Txt: React.FC<{x: number; y: number; t: string; c?: string; s?: number; o?: number; w?: number}> = ({x, y, t, c = '#fff', s = 34, o = 1, w = 600}) => <div style={{position: 'absolute', left: x, top: y, opacity: o, color: c, fontFamily: FONT, fontWeight: w, fontSize: s, whiteSpace: 'nowrap'}}>{t}</div>;
+export const Svg: React.FC<{o?: number; children: React.ReactNode}> = ({o = 1, children}) => <svg width="1920" height="1080" style={{position: 'absolute', inset: 0, opacity: o, fontFamily: FONT}}>{children}</svg>;
 const planck = (l: number, T: number) => { const h = 6.626e-34, c = 3e8, k = 1.381e-23; const x = h * c / (l * k * T); return 1 / (Math.pow(l, 5) * (Math.exp(x) - 1)); };
 const lam2rgb = (nm: number) => { const h = 270 - ((nm - 400) / 350) * 270; return `hsl(${h}, 95%, 55%)`; };
 

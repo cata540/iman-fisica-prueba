@@ -1,0 +1,8 @@
+[
+ {"tipo":"tierrasol","modo":"v","texto":"Te enseñaron que existe una velocidad de la luz: trescientos mil kilómetros por segundo.","pills":[["300 000 km/s","y",0.1]]},
+ {"tipo":"tierrasol","modo":"tarda","texto":"La luz del Sol tarda ocho minutos en llegar hasta aquí. Pero esa frase esconde un error enorme.","pills":[["8 min 20 s hasta la Tierra","y",0.05],["Un error enorme","g",0.62]]},
+ {"tipo":"minkowski","modo":"ejes","texto":"Porque la velocidad de la luz nunca fue sobre la luz. Es una propiedad del propio universo.","pills":[["No va de la luz","y",0.05],["Va del universo","g",0.55]]},
+ {"tipo":"minkowski","modo":"luz","texto":"La luz no es especial. Lo especial es esa velocidad, y la luz solo tiene el privilegio de viajar a ella.","pills":[["La luz no es especial","y",0.05],["Lo especial es la velocidad","g",0.5]]},
+ {"tipo":"barras","modo":"sinmasa","texto":"Las ondas gravitacionales viajan exactamente a esa misma velocidad. Y los gluones también. Todo lo que no tiene masa va a ella.","pills":[["Sin masa = velocidad máxima","y",0.05]]},
+ {"tipo":"maxwell","texto":"Para entender por qué, hay que viajar a mil ochocientos sesenta y cinco, cuando un físico escocés encontró ese número escondido dentro del electromagnetismo.","pills":[["1865 · Maxwell","y",0.05],["El número estaba escondido","g",0.55]]}
+]
