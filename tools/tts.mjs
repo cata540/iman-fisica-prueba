@@ -12,10 +12,17 @@ const scenes = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', process.argv[2
 const tts = new MsEdgeTTS();
 await tts.setMetadata('es-ES-AlvaroNeural', OUTPUT_FORMAT.AUDIO_24KHZ_96KBITRATE_MONO_MP3);
 for (let i = 0; i < scenes.length; i++) {
-  const {audioStream} = tts.toStream(scenes[i].texto, {rate: '+6%'});
-  const chunks = [];
-  await new Promise((res, rej) => { audioStream.on('data', (c) => chunks.push(c)); audioStream.on('end', res); audioStream.on('error', rej); audioStream.on('close', res); });
-  fs.writeFileSync(path.join(TMP, `s${i}.mp3`), Buffer.concat(chunks));
+  const f = path.join(TMP, `s${i}.mp3`);
+  if (fs.existsSync(f) && fs.statSync(f).size > 1000 && fs.existsSync(f + '.ok') && fs.readFileSync(f + '.ok', 'utf8') === scenes[i].texto) continue;
+  for (let tr = 0; tr < 5; tr++) {
+    try {
+      const t2 = new MsEdgeTTS(); await t2.setMetadata('es-ES-AlvaroNeural', OUTPUT_FORMAT.AUDIO_24KHZ_96KBITRATE_MONO_MP3);
+      const {audioStream} = t2.toStream(scenes[i].texto, {rate: '+6%'});
+      const chunks = [];
+      await new Promise((res, rej) => { audioStream.on('data', (c) => chunks.push(c)); audioStream.on('end', res); audioStream.on('error', rej); audioStream.on('close', res); });
+      fs.writeFileSync(f, Buffer.concat(chunks)); fs.writeFileSync(f + '.ok', scenes[i].texto); break;
+    } catch (e) { console.log('reintento', i, String(e).slice(0, 80)); await new Promise((r) => setTimeout(r, 2000)); }
+  }
 }
 // recorta silencios de borde de cada clip y los concatena sin huecos
 const list = [];
