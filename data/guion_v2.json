@@ -1,7 +1,7 @@
 [
  {
   "tipo": "habitacion",
-  "apaga": 0.14,
+  "apaga": 0.66,
   "texto": "Pulsas el interruptor. En ese instante, más de un millón de billones de fotones cruzan tu habitación cada segundo. Y en apenas unos nanosegundos, todos habrán desaparecido.",
   "pills": [
    [
@@ -12,14 +12,15 @@
    [
     "Más de 10¹⁸ fotones por segundo",
     "g",
-    0.3
+    0.28
    ],
    [
     "Solo unos nanosegundos",
     "y",
-    0.7
+    0.72
    ]
-  ]
+  ],
+  "enciende": 0.04
  },
  {
   "tipo": "habitacion",
@@ -110,6 +111,7 @@
     "reloj",
     "por segundo"
    ]
-  ]
+  ],
+  "enciende": 0
  }
 ]

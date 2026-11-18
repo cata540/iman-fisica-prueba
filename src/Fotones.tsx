@@ -35,14 +35,14 @@ const V = 5.2; // unidades/s (estilizado)
 type Ev = {t0: number; dir: THREE.Vector3; hit: THREE.Vector3; tHit: number; col: string};
 const EVENTS: Ev[] = (() => {
   const out: Ev[] = [];
-  for (let j = 0; j < 260; j++) {
+  for (let j = 0; j < 420; j++) {
     const th = Math.acos(1 - 2 * rnd(j * 3 + 1)); const ph = rnd(j * 3 + 2) * Math.PI * 2;
     let d = new THREE.Vector3(Math.sin(th) * Math.cos(ph), Math.cos(th) * 0.8 - 0.25, -Math.abs(Math.sin(th) * Math.sin(ph)) - 0.15).normalize();
     // intersección con las paredes de la habitación (caja)
     let tMin = 1e9;
     const chk = (p: number, o: number, dd: number) => (dd > 1e-6 ? (p - o) / dd : dd < -1e-6 ? (p - o) / dd : 1e9);
     for (const t of [chk(LO.x1, ORI.x, d.x), chk(LO.x0, ORI.x, d.x), chk(LO.y1, ORI.y, d.y), chk(LO.y0, ORI.y, d.y), chk(LO.z0, ORI.z, d.z)]) if (t > 0 && t < tMin) tMin = t;
-    out.push({t0: j * 0.035, dir: d, hit: ORI.clone().add(d.clone().multiplyScalar(tMin)), tHit: tMin / V, col: j % 2 ? '#2FD0F0' : '#FF4FD8'});
+    out.push({t0: j * 0.02, dir: d, hit: ORI.clone().add(d.clone().multiplyScalar(tMin)), tHit: tMin / V, col: j % 2 ? '#2FD0F0' : '#FF4FD8'});
   }
   return out;
 })();
@@ -50,22 +50,24 @@ const EVENTS: Ev[] = (() => {
 export const Habitacion: React.FC<{s: any; dur: number}> = ({s, dur}) => {
   const f = useCurrentFrame(); const t = f / 30;
   const choque = s.modo === 'choque';
-  const tOff = (s.apaga ?? 0.15) * dur / 30;
-  const on = t < tOff;
-  const hitsSoFar = EVENTS.filter((e) => e.t0 <= tOff && e.t0 + e.tHit < t).length;
-  const warm = Math.min(0.55, hitsSoFar / 120) * (choque ? 1 : 0.8) + (choque ? 0.15 : 0);
-  const ns = Math.max(0, Math.min(20, ((t - tOff) / 1.5) * 20));
-  const active = EVENTS.filter((e) => e.t0 <= tOff && t >= e.t0 && t < e.t0 + e.tHit + 0.28);
-  // en modo choque, la lámpara ya está apagada: emitimos un lote que se desplaza (t desplazado)
-  const sh = choque ? 0 : 0;
+  const shift = choque ? 1.0 : 0;               // en modo choque la lámpara ya estaba encendida antes de la escena
+  const tt = t + shift;
+  const tOn = choque ? 0 : (s.enciende ?? 0.0) * dur / 30;
+  const tOff = choque ? 1.0 : (s.apaga ?? 0.15) * dur / 30;
+  const on = tt >= tOn && tt < tOff;
+  const evs = EVENTS.filter((e) => e.t0 + tOn <= tOff);
+  const hitsSoFar = evs.filter((e) => e.t0 + tOn + e.tHit < tt).length;
+  const warm = Math.min(0.2, hitsSoFar / 500) + (choque ? 0.05 : 0);
+  const ns = Math.max(0, Math.min(20, ((tt - tOff) / 1.5) * 20));
+  const active = evs.filter((e) => tt >= e.t0 + tOn && tt < e.t0 + tOn + e.tHit + 0.28);
   return (<>
     <Stage cam={[0, 0.6, 10.5]} fov={42}>
       <group rotation={[0.04, Math.sin(t * 0.35) * 0.05, 0]}>
         {/* suelo y paredes */}
         <RoundedBox size={[10.8, 0.25, 3.6]} color="#2a1856" pos={[0, LO.y0 - 0.12, -1.6]} radius={0.05} />
-        <mesh position={[0, 0.4, LO.z0 - 0.06]}><boxGeometry args={[10.6, 5.7, 0.12]} /><meshStandardMaterial color="#35206a" emissive="#FF8A4C" emissiveIntensity={warm} roughness={0.8} /></mesh>
-        <mesh position={[LO.x0 - 0.06, 0.4, -1.6]}><boxGeometry args={[0.12, 5.7, 3.4]} /><meshStandardMaterial color="#2c1a58" emissive="#FF8A4C" emissiveIntensity={warm * 0.8} roughness={0.8} /></mesh>
-        <mesh position={[LO.x1 + 0.06, 0.4, -1.6]}><boxGeometry args={[0.12, 5.7, 3.4]} /><meshStandardMaterial color="#2c1a58" emissive="#FF8A4C" emissiveIntensity={warm * 0.8} roughness={0.8} /></mesh>
+        <mesh position={[0, 0.4, LO.z0 - 0.06]}><boxGeometry args={[10.6, 5.7, 0.12]} /><meshStandardMaterial color="#241448" emissive="#FF8A4C" emissiveIntensity={warm} roughness={0.8} /></mesh>
+        <mesh position={[LO.x0 - 0.06, 0.4, -1.6]}><boxGeometry args={[0.12, 5.7, 3.4]} /><meshStandardMaterial color="#1f1040" emissive="#FF8A4C" emissiveIntensity={warm * 0.8} roughness={0.8} /></mesh>
+        <mesh position={[LO.x1 + 0.06, 0.4, -1.6]}><boxGeometry args={[0.12, 5.7, 3.4]} /><meshStandardMaterial color="#1f1040" emissive="#FF8A4C" emissiveIntensity={warm * 0.8} roughness={0.8} /></mesh>
         {/* ventana */}
         <mesh position={[2.6, 1.2, LO.z0 + 0.01]}><planeGeometry args={[2.2, 1.7]} /><meshStandardMaterial color="#0e0a30" emissive="#1a2a6a" emissiveIntensity={0.5} /></mesh>
         <mesh position={[2.6, 1.2, LO.z0 + 0.03]}><boxGeometry args={[0.07, 1.7, 0.03]} />{mat('#b9b3d4')}</mesh>
@@ -79,17 +81,17 @@ export const Habitacion: React.FC<{s: any; dur: number}> = ({s, dur}) => {
         <mesh position={[ORI.x, 3.0, ORI.z]}><cylinderGeometry args={[0.02, 0.02, 0.6, 6]} />{mat('#8a84a8')}</mesh>
         <mesh position={[ORI.x, ORI.y - 0.02, ORI.z]}><sphereGeometry args={[0.32, 28, 22]} /><meshStandardMaterial color={on ? '#FFE680' : '#5a4a8a'} emissive="#FFD83A" emissiveIntensity={on ? 1.4 : 0.03} /></mesh>
         <mesh position={[ORI.x, ORI.y + 0.36, ORI.z]}><cylinderGeometry args={[0.15, 0.13, 0.22, 16]} />{mat('#b9b3d4', 0.3)}</mesh>
-        {on && <pointLight position={[ORI.x, ORI.y, ORI.z + 0.5]} intensity={30} color="#FFE9A0" />}
+        {on && <pointLight position={[ORI.x, ORI.y, ORI.z + 0.5]} intensity={14} color="#FFE9A0" />}
         {/* fotones */}
         {active.map((e, i) => {
-          const age = t - e.t0;
+          const age = tt - e.t0 - tOn;
           const alive = age < e.tHit;
           if (alive) {
             const p = ORI.clone().add(e.dir.clone().multiplyScalar(V * age));
             const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(1, 0, 0), e.dir);
             return (<group key={i} position={p} quaternion={q}>
-              <mesh scale={[3.2, 1, 1]}><sphereGeometry args={[0.065, 10, 8]} /><meshBasicMaterial color={e.col} /></mesh>
-              <mesh scale={[1, 1, 1]}><sphereGeometry args={[0.14, 10, 8]} /><meshBasicMaterial color={e.col} transparent opacity={0.22} /></mesh>
+              <mesh scale={[3.2, 1, 1]}><sphereGeometry args={[0.1, 10, 8]} /><meshBasicMaterial color={e.col} /></mesh>
+              <mesh scale={[1, 1, 1]}><sphereGeometry args={[0.22, 10, 8]} /><meshBasicMaterial color={e.col} transparent opacity={0.22} /></mesh>
             </group>);
           }
           const k = (age - e.tHit) / 0.28;
@@ -100,7 +102,7 @@ export const Habitacion: React.FC<{s: any; dur: number}> = ({s, dur}) => {
       </group>
     </Stage>
     <div style={{position: 'absolute', right: 70, top: 62, fontFamily: FONT, fontWeight: 600, fontSize: 34, color: on ? C.green : '#b9b0d6', opacity: interpolate(f, [0, 8], [0, 1], clamp)}}>
-      {on ? 'LUZ: ON' : `LUZ: OFF · t = ${ns.toFixed(0)} ns`}</div>
+      {tt < tOn ? 'LUZ: OFF' : on ? 'LUZ: ON' : `LUZ: OFF · t = ${ns.toFixed(0)} ns`}</div>
   </>);
 };
 
@@ -108,8 +110,8 @@ export const Foton: React.FC<{s: any; dur: number}> = ({dur}) => {
   const f = useCurrentFrame(); const t = f / 30;
   return (
     <Stage cam={[0, 0, 9]}>
-      <group position={[2.6, 0.2, 0]} rotation={[0.35, -0.5 + Math.sin(t * 0.4) * 0.15, 0.1]} scale={sp(f, 0) * 1.05}>
-        <WavePacket t={t} len={6.5} amp={0.9} k={5} width={1.5} />
+      <group position={[2.3, 0.4, 0]} rotation={[0.35, -0.5 + Math.sin(t * 0.4) * 0.15, 0.1]} scale={sp(f, 0) * 1.05}>
+        <WavePacket t={t} len={5.4} amp={0.85} k={5} width={1.3} />
       </group>
     </Stage>
   );

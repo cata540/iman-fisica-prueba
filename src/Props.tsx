@@ -29,7 +29,7 @@ const Prop: React.FC<{k: string; t: number}> = ({k, t}) => {
     case 'rio': return (<group rotation={[0.5, -0.3, 0]}><mesh><boxGeometry args={[2.2, 0.15, 1.2]} />{mat('#2f8bd6', 0.3)}</mesh>{[0, 1, 2, 3, 4].map((i) => <mesh key={i} position={[((t * 0.9 + i * 0.45) % 2.0) - 1.0, 0.12, (i % 3 - 1) * 0.3]}><sphereGeometry args={[0.08, 10, 10]} />{mat('#fff', 0.2)}</mesh>)}</group>);
     case 'pared': return <group rotation={[0, -0.5, 0]}><RoundedBox size={[1.6, 1.9, 0.5]} color="#6f66a8" radius={0.08} /></group>;
     case 'flecha': return <group scale={1.3} position={[0, -0.6, 0]} rotation={[0, 0, -0.3]}><Arrow color={C.orange} len={1.3} r={0.1} /></group>;
-    case 'foton': return <group rotation={[0.3, 0.2, 0]} scale={0.55}><WavePacket t={t} len={3.4} amp={0.7} k={6} width={0.8} /></group>;
+    case 'foton': return <group rotation={[0.3, 0.2, 0]} scale={0.85}><WavePacket t={t} len={3.4} amp={0.7} k={6} width={0.8} /></group>;
     case 'rayo': { const sh = new THREE.Shape(); sh.moveTo(0.1, 1); sh.lineTo(-0.5, -0.1); sh.lineTo(-0.05, -0.1); sh.lineTo(-0.2, -1); sh.lineTo(0.5, 0.2); sh.lineTo(0.05, 0.2); sh.closePath();
       return <mesh rotation={[0, t * 0.8, 0]}><extrudeGeometry args={[sh, {depth: 0.2, bevelEnabled: false}]} /><Em color="#FFD83A" i={0.7} /></mesh>; }
     case 'reloj': return (<group rotation={[0.2, t * 0.4, 0]}><mesh rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[0.95, 0.95, 0.2, 40]} />{mat('#f3ecff', 0.4)}</mesh><mesh position={[0, 0, 0.12]} rotation={[0, 0, -t * 2]}><boxGeometry args={[0.07, 0.75, 0.05]} />{mat('#1d1735')}</mesh><mesh position={[0, 0, 0.13]} rotation={[0, 0, -t * 0.2]}><boxGeometry args={[0.1, 0.5, 0.05]} />{mat('#EF4B4B')}</mesh></group>);
@@ -96,7 +96,7 @@ export const Cues: React.FC<{items: Item[]; texto: string; dur: number; tipo: st
     </Stage>
     {place.map(({it, s, from}, i) => {
       const o = interpolate(f, [from + 4, from + 16], [0, 1], clamp);
-      return <div key={i} style={{position: 'absolute', left: px(s[0]) - 200, width: 400, textAlign: 'center', top: py(s[1]) + 105, opacity: o, color: '#fff', fontFamily: FONT, fontWeight: 600, fontSize: 32}}>{it[2] ?? NAMES[it[1]] ?? ''}</div>;
+      return <div key={i} style={{position: 'absolute', left: px(s[0]) - 200, width: 400, textAlign: 'center', top: py(s[1]) + 150, opacity: o, color: '#fff', fontFamily: FONT, fontWeight: 600, fontSize: 32}}>{it[2] ?? NAMES[it[1]] ?? ''}</div>;
     })}
   </>);
 };
