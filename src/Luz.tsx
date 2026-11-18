@@ -12,6 +12,24 @@ const clock = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60))
 // ---------- Sol → Tierra con fotones ----------
 export const TierraSol: React.FC<{s: any; dur: number}> = ({s, dur}) => {
   const f = useCurrentFrame(); const t = f / 30; const u = f / dur; const m = s.modo;
+  if (m === 'gravedad') {
+    const tv = 0.28, te = 0.86; const R = 4.2;
+    const th = t * 0.55; const away = u > te ? (u - te) / (1 - te) : 0;
+    const ex = Math.cos(th) * R + (away > 0 ? -Math.sin(th) * R * 0.55 * away * 3 : 0), ey = Math.sin(th) * R * 0.62 + (away > 0 ? Math.cos(th) * R * 0.62 * 0.55 * away * 3 : 0);
+    const ring = u > tv ? Math.min(1, (u - tv) / (te - tv)) * R : 0;
+    const secs = u > tv ? Math.min(1, (u - tv) / (te - tv)) * 500 : 0;
+    return (<>
+      <Stage cam={[0, 0, 11]}>
+        {STARS.map((p, i) => <Dot key={i} p={[p[0], p[1], -2]} r={p[2] * (1 + 0.3 * Math.sin(t * 2 + i))} c="#ffffff" o={0.6} />)}
+        <mesh position={[0, 0, -0.5]} scale={u < tv ? sp(f, 0) : Math.max(0, 1 - (u - tv) * 30)}><sphereGeometry args={[1.5, 36, 28]} /><meshBasicMaterial color="#ffd24a" /></mesh>
+        {u >= tv && u < tv + 0.05 && <mesh position={[0, 0, -0.4]} scale={1 + (u - tv) * 60}><sphereGeometry args={[1.5, 24, 18]} /><meshBasicMaterial color="#fff6c0" transparent opacity={0.6 * (1 - (u - tv) / 0.05)} /></mesh>}
+        <mesh rotation={[0, 0, 0]} scale={[1, 0.62, 1]}><torusGeometry args={[R, 0.012, 6, 120]} /><meshBasicMaterial color="#9be7ff" transparent opacity={0.5} /></mesh>
+        {ring > 0 && <mesh scale={[1, 0.62, 1]}><torusGeometry args={[ring, 0.04, 8, 120]} /><meshBasicMaterial color={MAG} transparent opacity={0.8} /></mesh>}
+        <group position={[ex, ey, 0]} rotation={[0.3, t * 0.5, 0.3]}><mesh><sphereGeometry args={[0.55, 28, 22]} />{mat('#2f6bd6', 0.5)}</mesh><mesh position={[0.2, 0.2, 0.45]} scale={[1, 0.7, 0.4]}><sphereGeometry args={[0.2, 10, 8]} />{mat('#3DDC97', 0.6)}</mesh></group>
+      </Stage>
+      <Txt x={1300} y={86} t={u < tv ? 'Sol: presente' : u < te ? 't = ' + clock(secs) + ' · la Tierra aún no lo sabe' : '¡Ahora sí! la Tierra se suelta'} c={u < te ? C.yellow : C.green} s={42} w={700} />
+    </>);
+  }
   const secs = m === 'tarda' ? seg(u, 0.08, 0.85) * 500 : 0;
   return (<>
     <Stage cam={[0, 0, 11]}>
@@ -50,7 +68,7 @@ export const Minkowski: React.FC<{s: any; dur: number}> = ({s, dur}) => {
     {arrow(ox, oy, ox, oy - 780 * ax, C.yellow)}
     <text x={ox + L * 0.6} y={oy + 56} fill={CYAN} fontSize="42" fontWeight="700" opacity={ax}>ESPACIO →</text>
     <text x={ox + 26} y={oy - 780 * ax + 10} fill={C.yellow} fontSize="42" fontWeight="700" opacity={ax}>TIEMPO ↑</text>
-    {(m === 'luz' || m === 'cono' || m === 'mundo' || m === 'ejes') && <g opacity={m === 'ejes' ? 0.55 : 1}>
+    {(m === 'luz' || m === 'cono' || m === 'mundo' || m === 'ejes' || m === 'taquion') && <g opacity={m === 'ejes' ? 0.55 : 1}>
       {arrow(ox, oy, ox + L * 0.62 * Math.max(lx, m === 'cono' ? 1 : 0), oy - L * 0.62 * Math.max(lx, m === 'cono' ? 1 : 0), MAG, 7)}
       {arrow(ox, oy, ox - L * 0.62 * Math.max(lx, m === 'cono' ? 1 : 0), oy - L * 0.62 * Math.max(lx, m === 'cono' ? 1 : 0), MAG, 7)}
       <circle cx={ox + L * 0.62 * Math.max(lx, m === 'cono' ? 1 : 0)} cy={oy - L * 0.62 * Math.max(lx, m === 'cono' ? 1 : 0)} r="14" fill="#fff" />
@@ -60,6 +78,16 @@ export const Minkowski: React.FC<{s: any; dur: number}> = ({s, dur}) => {
     <circle cx={ox} cy={oy} r="16" fill="#fff" />
     {(() => { const k = (u * 1.4) % 1; return <circle cx={ox} cy={oy - 700 * k} r="11" fill={C.yellow} opacity={1 - k * 0.7} />; })()}
     {[1, 2, 3, 4, 5].map((i) => <g key={i}><line x1={ox - 14} y1={oy - i * 130} x2={ox + 14} y2={oy - i * 130} stroke="#e9e4f7" strokeWidth="3" /><line x1={ox + i * 130} y1={oy - 14} x2={ox + i * 130} y2={oy + 14} stroke="#e9e4f7" strokeWidth="3" /><line x1={ox - i * 130} y1={oy - 14} x2={ox - i * 130} y2={oy + 14} stroke="#e9e4f7" strokeWidth="3" /></g>)}
+    {m === 'simul' && (() => { const th = 0.42 * Math.sin(u * Math.PI * 2.2); const ax = ox - 300, bx = ox + 300, ty = oy - 400; const sl = Math.tan(th); const order = sl > 0 ? 'para otro observador: B ocurre DESPUÉS de A' : 'para otro observador: B ocurre ANTES de A'; return <g>
+      <line x1={ax - 200} y1={ty} x2={bx + 200} y2={ty} stroke={C.green} strokeWidth="4" strokeDasharray="12 10" /><text x={ax - 190} y={ty - 24} fill={C.green} fontSize="34" fontWeight="600">simultáneos para ti</text>
+      <line x1={ax - 200} y1={ty + sl * 200} x2={bx + 200} y2={ty - sl * 800 + sl * 200} stroke={MAG} strokeWidth="4" strokeDasharray="6 8" opacity="0.9" />
+      <circle cx={ax} cy={ty} r="18" fill="#fff" /><text x={ax - 18} y={ty + 56} fill="#fff" fontSize="38" fontWeight="700">A</text><circle cx={bx} cy={ty} r="18" fill="#fff" /><text x={bx - 14} y={ty + 56} fill="#fff" fontSize="38" fontWeight="700">B</text>
+      <text x="560" y="170" fill={MAG} fontSize="40" fontWeight="700">{order}</text></g>; })()}
+    {m === 'taquion' && <g>
+      <line x1={ox} y1={oy} x2={ox + 520} y2={oy - 250 * seg(u, 0.1, 0.5) - 30} stroke={C.orange} strokeWidth="8" strokeLinecap="round" /><circle cx={ox + 520} cy={oy - 280} r="18" fill={C.orange} opacity={seg(u, 0.4, 0.5)} />
+      <text x={ox + 330} y={oy - 330} fill={C.orange} fontSize="36" fontWeight="700" opacity={seg(u, 0.4, 0.55)}>señal más rápida que c</text>
+      <line x1={ox - 300} y1={oy + 90} x2={ox + 700} y2={oy - 650} stroke={MAG} strokeWidth="4" strokeDasharray="6 8" opacity={seg(u, 0.55, 0.7)} />
+      <text x={ox - 560} y={oy - 520} fill={MAG} fontSize="36" fontWeight="700" opacity={seg(u, 0.65, 0.8)}>otro observador: ¡llega antes de enviarse!</text></g>}
     {m === 'luz' && <text x={ox - 330} y={oy - 520} fill="#e9e4f7" fontSize="40" fontWeight="600" opacity={seg(u, 0.55, 0.8)}>1 s de tiempo = 299 792 km de espacio</text>}
   </Svg>);
 };
@@ -67,7 +95,7 @@ export const Minkowski: React.FC<{s: any; dur: number}> = ({s, dur}) => {
 // ---------- barras de porcentaje de c ----------
 export const Barras: React.FC<{s: any; dur: number}> = ({s, dur}) => {
   const f = useCurrentFrame(); const u = f / dur; const m = s.modo;
-  const rows: [string, number, string, string][] = m === 'sinmasa'
+  const rows: [string, number, string, string][] = m === 'c' ? [['Luz medida por quien está parado', 1, '100 % de c', C.yellow], ['Luz medida por quien corre a 0,5 c', 1, '100 % de c', CYAN]] : m === 'sinmasa'
     ? [['Luz', 1, '100 % de c', C.yellow], ['Ondas gravitacionales', 1, '100 % de c', CYAN], ['Gluones', 1, '100 % de c', MAG]]
     : [['Una persona caminando', 4.7e-9, '0,00000047 %', C.green], ['Un avión de pasajeros', 8.3e-7, '0,000083 %', C.green], ['La Tierra en su órbita', 1e-4, '0,01 %', C.yellow], ['Protón en el LHC', 0.99999999, '99,999999 %', MAG]];
   return (<Svg>
