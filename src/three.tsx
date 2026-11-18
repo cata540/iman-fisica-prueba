@@ -53,17 +53,14 @@ export const FieldLines: React.FC<{scale?: number; time: number; color?: string}
         const r = r0 * Math.sin(th) ** 2;
         pts.push(new THREE.Vector3(r * Math.cos(th) * 1.0 * 1.35, r * Math.sin(th) * Math.cos(phi), r * Math.sin(th) * Math.sin(phi)));
       }
-      out.push(new THREE.BufferGeometry().setFromPoints(pts));
+      out.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 90, 0.022, 6, false));
     }
     return out;
   }, []);
   return (
     <group scale={scale} rotation={[0, time * 0.25, 0]}>
       {loops.map((g, i) => (
-        <line key={i}>
-          <primitive object={g} attach="geometry" />
-          <lineBasicMaterial color={color} transparent opacity={0.85} />
-        </line>
+        <mesh key={i} geometry={g}><meshBasicMaterial color={color} transparent opacity={0.9} /></mesh>
       ))}
     </group>
   );

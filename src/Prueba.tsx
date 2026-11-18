@@ -127,8 +127,7 @@ const Spin: React.FC<{x: number; y: number; k: number; t: number; align: number}
           <mesh><sphereGeometry args={[0.34, 32, 24]} />{mat('#2FB8C8', 0.3)}</mesh>
           <mesh rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.46, 0.018, 8, 48, Math.PI * 1.5]} />{mat('#9be7ff', 0.2)}</mesh>
         </group>
-        <Arrow color={C.yellow} len={0.95} pos={[0, 0.3, 0]} r={0.045} />
-        <Arrow color={C.yellow} len={0.5} pos={[0, -0.3, 0]} dir={-1} r={0.045} />
+        <Arrow color={C.yellow} len={0.8} pos={[0, 0.3, 0]} r={0.05} />
       </group>
     </group>
   );
@@ -166,7 +165,7 @@ const Scene5: React.FC = () => {
       <group rotation={[0.1, Math.sin(t * 0.5) * 0.1, 0]}>
         {gridS > 0.01 && <SpinGrid t={t} align={align} scale={gridS} pos={[0.8, -0.2, 0]} />}
       </group>
-      <group position={[-6.6, -1.2, 0]} rotation={[0.2, t * 0.3, 0]} scale={0.55 * chartO}>
+      <group position={[-5.2, -1.6, 0]} rotation={[0.2, t * 0.3, 0]} scale={0.5 * chartO}>
         <BarMagnet /><FieldLines time={t} />
       </group>
     </Stage>
@@ -208,7 +207,7 @@ export const Prueba: React.FC = () => {
         const from = acc; acc += FR[i];
         return <Sequence key={i} from={from} durationInFrames={FR[i]}><Fade dur={FR[i]}><S /></Fade></Sequence>;
       })}
-      <Audio src={staticFile('audio/voz.m4a')} />
+      <Audio src={staticFile('audio/voz.m4a')} volume={1.41} />
     </AbsoluteFill>
   );
 };
