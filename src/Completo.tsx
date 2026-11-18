@@ -275,8 +275,74 @@ const Clip: React.FC<{dur: number}> = ({dur}) => {
   );
 };
 
+// ---- imán cayendo por un tubo de cobre ----
+const Tubo: React.FC<{dur: number}> = ({dur}) => {
+  const f = useCurrentFrame(); const t = f / 30;
+  const yFast = 2.4 - ((t * 1.0) % 1.0) * 5.2;
+  const yMag = 2.2 - interpolate(f, [0.1 * dur, 0.9 * dur], [0, 4.4], clamp);
+  return (<>
+    <Stage cam={[0, 0, 11]}>
+      <group rotation={[0.1, Math.sin(t * 0.4) * 0.12, 0]}>
+        <group position={[2.8, 0, 0]}>
+          <mesh><cylinderGeometry args={[0.8, 0.8, 5.6, 40, 1, true]} /><meshStandardMaterial color="#d9803f" metalness={0.5} roughness={0.35} transparent opacity={0.4} side={2} /></mesh>
+          <group position={[0, yMag, 0]}><group rotation={[0, 0, Math.PI / 2]}><BarMagnet scale={0.38} /></group></group>
+        </group>
+        <group position={[-2.8, 0, 0]}>
+          <group position={[0, yFast, 0]}><RoundedBox size={[0.55, 0.9, 0.55]} color="#b9b3d4" radius={0.1} /></group>
+        </group>
+      </group>
+    </Stage>
+    <Label text="sin tubo: cae rápido" x={170} y={850} from={0.2 * dur} size={36} />
+    <Label text="en el tubo de cobre: cae lento" x={1100} y={850} from={0.2 * dur} size={36} color={C.orange} />
+  </>);
+};
+
+// ---- histéresis ----
+const Histeresis: React.FC<{dur: number}> = ({dur}) => {
+  const f = useCurrentFrame(); const t = f / 30;
+  const o = interpolate(f, [4, 20], [0, 1], clamp);
+  const draw = interpolate(f, [0.15 * dur, 0.85 * dur], [0, 1], clamp);
+  const N = 80; const pts: string[] = [];
+  const up = (h: number) => Math.tanh((h - 0.35) * 3.2), dn = (h: number) => Math.tanh((h + 0.35) * 3.2);
+  for (let i = 0; i <= N * draw * 2; i++) {
+    const u = i / N; // 0..2
+    const h = u <= 1 ? -1 + u * 2 : 1 - (u - 1) * 2; const m = u <= 1 ? up(h) : dn(h);
+    pts.push((1350 + h * 380) + ',' + (560 - m * 220));
+  }
+  return (<>
+    <Stage cam={[0, 0, 10.5]}>
+      <group position={[-4.2, -0.2, 0]} rotation={[0.2, t * 0.3, 0]} scale={0.8 * sp(f, 0)}><BarMagnet /><FieldLines time={t} /></group>
+    </Stage>
+    <svg width="1920" height="1080" style={{position: 'absolute', inset: 0, opacity: o, fontFamily: FONT}}>
+      <path d="M 900 560 H 1800 M 1350 300 V 820" stroke="#e9e4f7" strokeWidth="3" fill="none" />
+      <text x="1370" y="300" fill="#fff" fontSize="34" fontWeight="500">magnetización</text>
+      <text x="1560" y="610" fill="#fff" fontSize="34" fontWeight="500">campo aplicado</text>
+      <polyline points={pts.join(' ')} fill="none" stroke={C.yellow} strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="1350" cy={560 - dn(0) * 220} r="10" fill={C.green} opacity={draw > 0.55 ? 1 : 0} />
+      <text x="1375" y={540 - dn(0) * 220} fill={C.green} fontSize="30" fontWeight="600" opacity={draw > 0.55 ? 1 : 0}>remanencia</text>
+    </svg>
+  </>);
+};
+
+// ---- bandas del fondo oceánico ----
+const Bandas: React.FC<{dur: number}> = ({dur}) => {
+  const f = useCurrentFrame(); const t = f / 30;
+  const widths = [0.35, 0.7, 0.45, 0.9, 0.5, 0.65];
+  const bars: {x: number; w: number; c: string}[] = []; let x = 0.25; let i = 0;
+  for (const w of widths) { bars.push({x, w, c: i % 2 === 0 ? '#EF7B3C' : '#3F6DFF'}); bars.push({x: -x - w, w, c: i % 2 === 0 ? '#EF7B3C' : '#3F6DFF'}); x += w; i++; }
+  const grow = interpolate(f, [0.1 * dur, 0.6 * dur], [0, 1], clamp);
+  return (
+    <Stage cam={[0, 5.5, 8]}>
+      <group rotation={[-0.35, Math.sin(t * 0.3) * 0.15, 0]}>
+        {bars.map((b, k) => <mesh key={k} position={[(b.x + b.w / 2) * 1.5, 0, 0]} scale={[Math.min(1, grow * 1.6 - Math.abs(b.x) * 0.15), 1, 1]}><boxGeometry args={[b.w * 1.5, 0.12, 5]} />{mat(b.c, 0.5)}</mesh>)}
+        <mesh position={[0, 0.1, 0]}><boxGeometry args={[0.3, 0.12, 5.2]} />{mat(C.yellow, 0.3)}</mesh>
+      </group>
+    </Stage>
+  );
+};
+
 const BODY: Record<string, React.FC<any>> = {
-  nevera: Nevera, campo: Campo, bateria: Bateria, libro: Libro, bloque: Bloque, anillo: Anillo, oersted: Oersted, orbita: Orbita, grafica: Grafica, clip: Clip,
+  nevera: Nevera, campo: Campo, bateria: Bateria, libro: Libro, bloque: Bloque, anillo: Anillo, oersted: Oersted, orbita: Orbita, grafica: Grafica, clip: Clip, tubo: Tubo, histeresis: Histeresis, bandas: Bandas,
   espines: (p: any) => <Grid mode="ordenado" dur={p.dur} />, alinea: (p: any) => <Grid mode="alinea" dur={p.dur} />,
   dominios: (p: any) => <Grid mode="dominios" dur={p.dur} />, calor: (p: any) => <Grid mode="calor" dur={p.dur} />,
 };
