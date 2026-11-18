@@ -1,0 +1,25 @@
+{
+  "name": "fisica-iman-prueba",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render src/index.ts Prueba out/prueba_30s.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p --gl=swangle"
+  },
+  "dependencies": {
+    "@react-three/fiber": "8.17.10",
+    "@remotion/cli": "4.0.520",
+    "@remotion/google-fonts": "4.0.520",
+    "@remotion/three": "4.0.520",
+    "msedge-tts": "2.1.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.520",
+    "three": "0.169.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.3",
+    "@types/three": "0.169.0",
+    "typescript": "5.5.4"
+  }
+}
