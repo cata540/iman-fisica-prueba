@@ -15,7 +15,7 @@ export const NAMES: Record<string, string> = {
   nota: 'nota', foton: 'fotones', enchufe: 'enchufe', altavoz: 'altavoz', disco: 'disco duro',
 };
 
-const Prop: React.FC<{k: string; t: number}> = ({k, t}) => {
+export const Prop: React.FC<{k: string; t: number}> = ({k, t}) => {
   switch (k) {
     case 'movil': return (<group rotation={[0, t * 0.8, 0]}><RoundedBox size={[0.8, 1.5, 0.12]} color="#1d1735" radius={0.12} /><mesh position={[0, 0, 0.1]}><planeGeometry args={[0.66, 1.3]} /><Em color="#3DDC97" i={0.5} /></mesh><mesh position={[0, 0.2, 0.11]}><planeGeometry args={[0.35, 0.18]} /><meshBasicMaterial color="#0e3a2a" /></mesh></group>);
     case 'linterna': return (<group rotation={[0, t * 0.8, -0.5]}><mesh><cylinderGeometry args={[0.2, 0.2, 1.1, 24]} />{mat('#4a5bd6', 0.35)}</mesh><mesh position={[0, 0.75, 0]}><cylinderGeometry args={[0.38, 0.2, 0.45, 24]} />{mat('#d9d4ee', 0.3)}</mesh><mesh position={[0, 1.0, 0]}><cylinderGeometry args={[0.3, 0.3, 0.05, 24]} /><Em color="#FFD83A" i={1} /></mesh></group>);

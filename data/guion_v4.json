@@ -128,5 +128,1872 @@
     0.05
    ]
   ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Energía",
+    "la capacidad de producir cambios",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "Primero, ¿qué es la energía? Es la capacidad de producir cambios: mover, calentar, iluminar. No es una sustancia, sino una cuenta que sale siempre igual.",
+  "pills": [
+   [
+    "¿Qué es la energía?",
+    "y",
+    0.05
+   ],
+   [
+    "Una cuenta que sale igual",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "objetos",
+  "texto": "Se mide en julios. Un julio es, más o menos, lo que cuesta levantar una manzana pequeña un metro.",
+  "pills": [
+   [
+    "La unidad: el julio",
+    "y",
+    0.05
+   ]
+  ],
+  "objs": [
+   [
+    "mano",
+    "levantar…",
+    "#2FD0F0"
+   ],
+   [
+    "caja",
+    "una manzana, 1 metro: 1 julio",
+    "#FFD83A"
+   ]
+  ]
+ },
+ {
+  "tipo": "pendulo",
+  "texto": "En el péndulo, arriba toda la energía es de altura. Abajo, toda es de movimiento. En medio, un reparto. Y la suma no cambia.",
+  "pills": [
+   [
+    "Arriba: altura",
+    "y",
+    0.05
+   ],
+   [
+    "Abajo: movimiento",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "calorpared",
+  "texto": "Hubo que esperar al siglo diecinueve para verlo claro. Joule midió que agitar agua con unas palas la calentaba, con una equivalencia exacta.",
+  "pills": [
+   [
+    "Joule, siglo XIX",
+    "y",
+    0.05
+   ],
+   [
+    "Una equivalencia exacta",
+    "g",
+    0.5
+   ]
+  ],
+  "modo": "calor"
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "≈ 8 millones J",
+    "la energía de la comida de un día",
+    "#2FD0F0"
+   ]
+  ],
+  "texto": "Para hacernos una idea: una persona consume unos ocho millones de julios al día solo con la comida.",
+  "pills": [
+   [
+    "Energía de la comida",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "1847",
+    "Helmholtz formula la conservación de la energía",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "Mayer y Helmholtz generalizaron la idea: calor, movimiento, electricidad y química son formas de lo mismo. Helmholtz la formuló en mil ochocientos cuarenta y siete.",
+  "pills": [
+   [
+    "Helmholtz, 1847",
+    "y",
+    0.05
+   ],
+   [
+    "Formas de lo mismo",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "objetos",
+  "texto": "Esa regla aguanta cualquier prueba. Ningún aparato de movimiento perpetuo ha funcionado jamás, ni se ha medido una violación.",
+  "pills": [
+   [
+    "Movimiento perpetuo: imposible",
+    "y",
+    0.05
+   ]
+  ],
+  "objs": [
+   [
+    "rueda",
+    "Movimiento perpetuo",
+    "#FF4FD8"
+   ],
+   [
+    "rayo",
+    "0 aparatos que funcionen",
+    "#FFD83A"
+   ]
+  ]
+ },
+ {
+  "tipo": "objetos",
+  "texto": "Una bombilla transforma electricidad en luz y calor. Un motor, electricidad en movimiento. Una planta, luz en azúcar. Ninguna crea energía: solo la cambia de forma.",
+  "pills": [
+   [
+    "Solo cambia de forma",
+    "y",
+    0.05
+   ]
+  ],
+  "objs": [
+   [
+    "bombilla",
+    "electricidad → luz y calor",
+    "#FFD83A"
+   ],
+   [
+    "motor",
+    "electricidad → movimiento",
+    "#2FD0F0"
+   ]
+  ]
+ },
+ {
+  "tipo": "calorpared",
+  "modo": "calor",
+  "texto": "Incluso el rozamiento cumple la regla: el movimiento que parece perderse se convierte en calor, en agitación de átomos.",
+  "pills": [
+   [
+    "El rozamiento no destruye",
+    "y",
+    0.05
+   ],
+   [
+    "Se vuelve calor",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "objetos",
+  "texto": "Un coche que frena no destruye su energía: la deja como calor en los frenos y en el aire.",
+  "pills": [
+   [
+    "Un coche que frena",
+    "y",
+    0.05
+   ]
+  ],
+  "objs": [
+   [
+    "motor",
+    "movimiento (½ m v²)",
+    "#2FD0F0"
+   ],
+   [
+    "llama",
+    "→ calor en frenos y aire",
+    "#FF4FD8"
+   ]
+  ]
+ },
+ {
+  "tipo": "objetos",
+  "texto": "Y una batería de móvil guarda unos cincuenta mil julios: los mismos que hacen falta para subir a una persona de ochenta kilos unos setenta metros.",
+  "pills": [
+   [
+    "Una batería de móvil",
+    "y",
+    0.05
+   ]
+  ],
+  "objs": [
+   [
+    "pila",
+    "batería",
+    "#FFD83A"
+   ],
+   [
+    "movil",
+    "≈ 50 000 J",
+    "#2FD0F0"
+   ]
+  ]
+ },
+ {
+  "tipo": "tierrasol",
+  "texto": "El Sol convierte unos cuatro millones de toneladas de materia en energía cada segundo, con la fórmula más famosa de Einstein.",
+  "pills": [
+   [
+    "El Sol: 4 millones de t/s",
+    "y",
+    0.05
+   ]
+  ],
+  "modo": "v"
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "1 gramo",
+    "≈ 9 × 10¹³ julios",
+    "#FFD83A"
+   ],
+   [
+    "Hiroshima",
+    "del mismo orden de energía",
+    "#FF4FD8"
+   ]
+  ],
+  "texto": "La masa también es energía, concentrada. Un solo gramo equivale a unos noventa billones de julios, del orden de la bomba de Hiroshima.",
+  "pills": [
+   [
+    "La masa es energía concentrada",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "linea",
+  "cta": 1,
+  "texto": "Si estás aprendiendo algo nuevo, suscríbete y activa la campanita, así no te pierdes el siguiente vídeo.",
+  "pills": [
+   [
+    "Suscríbete y activa la campanita",
+    "y",
+    0.1
+   ],
+   [
+    "Así no te pierdes el siguiente",
+    "g",
+    0.6
+   ]
+  ],
+  "modo": "cosmica"
+ },
+ {
+  "tipo": "pastel",
+  "texto": "Hoy sabemos que la energía del universo se reparte en tres grandes partes: materia ordinaria, materia oscura y energía oscura.",
+  "pills": [
+   [
+    "Tres grandes partes",
+    "y",
+    0.05
+   ],
+   [
+    "Materia y energía oscuras",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Emmy Noether",
+    "1918: la razón de la conservación",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "Pero ¿por qué se conserva? Durante siglos fue un hecho experimental, sin explicación. Hasta que, en mil novecientos dieciocho, Emmy Noether encontró la razón.",
+  "pills": [
+   [
+    "¿Por qué se conserva?",
+    "y",
+    0.05
+   ],
+   [
+    "Emmy Noether, 1918",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "minkowski",
+  "texto": "Su teorema dice algo precioso: cada simetría de la naturaleza produce una ley de conservación.",
+  "pills": [
+   [
+    "Teorema de Noether",
+    "y",
+    0.05
+   ],
+   [
+    "Simetría → conservación",
+    "g",
+    0.5
+   ]
+  ],
+  "modo": "ejes"
+ },
+ {
+  "tipo": "lhc",
+  "texto": "Esa idea es tan profunda que hoy guía toda la física de partículas: las fuerzas fundamentales nacen de simetrías.",
+  "pills": [
+   [
+    "Las simetrías mandan",
+    "y",
+    0.05
+   ],
+   [
+    "Física de partículas",
+    "g",
+    0.5
+   ]
+  ],
+  "modo": "v"
+ },
+ {
+  "tipo": "pendulo",
+  "texto": "Si repites un experimento hoy, mañana o dentro de un año, obtienes el mismo resultado. Las leyes no cambian con el tiempo.",
+  "pills": [
+   [
+    "Las leyes no cambian con el tiempo",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "reloj",
+  "texto": "Esa simetría, que las leyes sean las mismas en cualquier instante, es exactamente lo que garantiza que la energía se conserve.",
+  "pills": [
+   [
+    "Simetría en el tiempo",
+    "y",
+    0.05
+   ],
+   [
+    "Energía conservada",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Tiempo",
+    "→ energía",
+    "#FFD83A"
+   ],
+   [
+    "Espacio",
+    "→ momento",
+    "#2FD0F0"
+   ],
+   [
+    "Giro",
+    "→ momento angular",
+    "#FF4FD8"
+   ]
+  ],
+  "texto": "Del mismo modo, que las leyes valgan igual en cualquier lugar garantiza la conservación del momento. Y que valgan igual al girar, la del momento angular.",
+  "pills": [
+   [
+    "Cada simetría, una ley",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "objetos",
+  "texto": "Noether tuvo que dar clases en Gotinga bajo el nombre de Hilbert, porque no le permitían figurar como profesora. Aun así, cambió la física para siempre.",
+  "pills": [
+   [
+    "Gotinga, años 1910",
+    "y",
+    0.05
+   ],
+   [
+    "Cambió la física",
+    "g",
+    0.5
+   ]
+  ],
+  "objs": [
+   [
+    "libro",
+    "clases bajo el nombre de Hilbert",
+    "#FFD83A"
+   ]
+  ]
+ },
+ {
+  "tipo": "minkowski",
+  "modo": "ejes",
+  "texto": "Esto cambia la pregunta. La energía no se conserva por decreto: se conserva mientras el tiempo sea una simetría de las leyes.",
+  "pills": [
+   [
+    "No es un decreto",
+    "y",
+    0.05
+   ],
+   [
+    "Depende de la simetría temporal",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "¿Y si…?",
+    "el propio universo cambia con el tiempo",
+    "#FF4FD8"
+   ]
+  ],
+  "texto": "Y aquí viene el truco. ¿Qué pasa si las leyes sí dependen del tiempo, porque el propio universo cambia con el tiempo?",
+  "pills": [
+   [
+    "¿Y si el universo cambia?",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "expansion",
+  "texto": "Nuestro universo se expande. El espacio crece, y eso significa que el escenario donde ocurren las leyes no es el mismo hoy que ayer.",
+  "pills": [
+   [
+    "El universo se expande",
+    "y",
+    0.05
+   ],
+   [
+    "El escenario cambia",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "expansion",
+  "texto": "Ese cambio rompe la simetría temporal a escala global. Y sin esa simetría, el teorema de Noether ya no garantiza una energía total conservada.",
+  "pills": [
+   [
+    "Simetría rota a escala cósmica",
+    "y",
+    0.05
+   ],
+   [
+    "Sin garantía de conservación",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "pendulo",
+  "texto": "Es parecido a un péndulo cuyo hilo se alarga mientras oscila: su energía mecánica ya no se conserva por sí sola, porque el entorno cambia.",
+  "pills": [
+   [
+    "Como un péndulo que se alarga",
+    "y",
+    0.05
+   ],
+   [
+    "El entorno cambia",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "corrimiento",
+  "texto": "Un ejemplo claro es la luz del fondo cósmico de microondas. Al expandirse el espacio, sus ondas se estiran y cada fotón pierde energía.",
+  "pills": [
+   [
+    "El espacio estira la luz",
+    "y",
+    0.05
+   ],
+   [
+    "Cada fotón pierde energía",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "corrimiento",
+  "texto": "Desde que salió, hace casi catorce mil millones de años, su longitud de onda se ha multiplicado por mil cien, y su energía se ha dividido por lo mismo.",
+  "pills": [
+   [
+    "× 1 100 de longitud de onda",
+    "y",
+    0.05
+   ],
+   [
+    "Energía ÷ 1 100",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Sin marcador global",
+    "para sumar la energía de todo el universo",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "Esa energía no desapareció sin más: la expansión del espacio se encargó de ella. Pero no hay un marcador global donde sumarla.",
+  "pills": [
+   [
+    "La expansión se la llevó",
+    "y",
+    0.05
+   ],
+   [
+    "Sin marcador global",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Sin energía total",
+    "definida de forma general en un universo en expansión",
+    "#FF4FD8"
+   ]
+  ],
+  "texto": "¿A dónde fue esa energía? En cosmología no hay una respuesta única, porque no existe una energía total del universo definida de forma general.",
+  "pills": [
+   [
+    "¿A dónde fue esa energía?",
+    "y",
+    0.05
+   ],
+   [
+    "No hay energía total definida",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "objetos",
+  "texto": "Eso sí: en cualquier región pequeña, la energía se conserva perfectamente. El problema aparece solo a escala cósmica.",
+  "pills": [
+   [
+    "En una región pequeña: se conserva",
+    "y",
+    0.05
+   ],
+   [
+    "Solo falla a escala cósmica",
+    "g",
+    0.5
+   ]
+  ],
+  "objs": [
+   [
+    "pared",
+    "Local: se conserva",
+    "#2FD0F0"
+   ],
+   [
+    "tierra",
+    "Cósmica: no definida",
+    "#FF4FD8"
+   ]
+  ]
+ },
+ {
+  "tipo": "pastel",
+  "modo": "oscura",
+  "texto": "Otro ejemplo es la energía oscura: parece una densidad de energía constante del propio espacio vacío.",
+  "pills": [
+   [
+    "Energía oscura",
+    "y",
+    0.05
+   ],
+   [
+    "Densidad constante",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "inflacion",
+  "modo": "oscura",
+  "texto": "Si cada metro cúbico tiene la misma energía y el universo crece, hay más metros cúbicos, y por tanto más energía. Sin que nadie la ponga.",
+  "pills": [
+   [
+    "Más volumen",
+    "y",
+    0.05
+   ],
+   [
+    "Más energía total",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "minkowski",
+  "texto": "Para la relatividad general eso no rompe nada: la energía local se conserva, y no existe una cuenta global que lo prohíba.",
+  "pills": [
+   [
+    "La relatividad lo permite",
+    "y",
+    0.05
+   ]
+  ],
+  "modo": "mundo"
+ },
+ {
+  "tipo": "bigbang",
+  "modo": "viaje",
+  "texto": "Ahora sí, el viaje. Hace trece mil ochocientos millones de años, el universo observable era caliente, denso y casi uniforme.",
+  "pills": [
+   [
+    "Hace 13 800 millones de años",
+    "y",
+    0.05
+   ],
+   [
+    "Caliente, denso y uniforme",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "bigbang",
+  "texto": "Un detalle importante: el Big Bang no fue una explosión en un punto del espacio, sino una expansión del propio espacio, en todas partes a la vez.",
+  "pills": [
+   [
+    "No fue una explosión en un punto",
+    "y",
+    0.05
+   ],
+   [
+    "Se expandió el espacio",
+    "g",
+    0.5
+   ]
+  ],
+  "modo": "expande"
+ },
+ {
+  "tipo": "linea",
+  "modo": "cosmica",
+  "texto": "Los primeros instantes los conocemos solo en teoría. Antes de unos diez elevado a menos cuarenta y tres segundos, las leyes que conocemos dejan de valer.",
+  "pills": [
+   [
+    "Tiempo de Planck: 10⁻⁴³ s",
+    "y",
+    0.05
+   ],
+   [
+    "Aquí fallan nuestras leyes",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "linea",
+  "modo": "cosmica",
+  "texto": "Poco después, una fase de expansión explosiva, llamada inflación, habría estirado el universo en una fracción de segundo minúscula.",
+  "pills": [
+   [
+    "Inflación",
+    "y",
+    0.05
+   ],
+   [
+    "Expansión explosiva",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "inflacion",
+  "texto": "En esa fracción de segundo, el tamaño se habría multiplicado al menos por diez elevado a veintiséis.",
+  "pills": [
+   [
+    "× 10²⁶ en tamaño",
+    "y",
+    0.05
+   ],
+   [
+    "En una fracción minúscula",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "linea",
+  "modo": "cosmica",
+  "texto": "Al terminar la inflación, esa energía se transformó en un mar de partículas y radiación, y empezó el Big Bang caliente que conocemos.",
+  "pills": [
+   [
+    "Fin de la inflación",
+    "y",
+    0.05
+   ],
+   [
+    "Nace el Big Bang caliente",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "bigbang",
+  "texto": "En el primer segundo, la temperatura era de billones de grados. Había un caldo de quarks, gluones y electrones, sin átomos ni núcleos todavía.",
+  "pills": [
+   [
+    "Primer segundo",
+    "y",
+    0.05
+   ],
+   [
+    "Billones de grados",
+    "g",
+    0.5
+   ]
+  ],
+  "modo": "viaje"
+ },
+ {
+  "tipo": "linea",
+  "modo": "cosmica",
+  "texto": "Cada etapa dura más que todas las anteriores juntas. Por eso los físicos usan una escala logarítmica para dibujar toda la historia del universo.",
+  "pills": [
+   [
+    "Escala logarítmica",
+    "y",
+    0.05
+   ],
+   [
+    "Cada etapa dura más que las anteriores",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "1 por mil millones",
+    "exceso de materia sobre antimateria",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "Había además una pequeñísima diferencia: algo más de materia que de antimateria. Esa pequeña ventaja es la que formó todo lo que existe.",
+  "pills": [
+   [
+    "Materia y antimateria",
+    "y",
+    0.05
+   ],
+   [
+    "Una pequeña ventaja",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "bigbang",
+  "modo": "expande",
+  "texto": "Tres minutos después, el universo se enfrió lo suficiente para que se formaran los primeros núcleos: hidrógeno y helio.",
+  "pills": [
+   [
+    "A los 3 minutos",
+    "y",
+    0.05
+   ],
+   [
+    "Hidrógeno y helio",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "≈ 25 %",
+    "de la materia ordinaria es helio, forjado en minutos",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "En esos primeros minutos se formó casi todo el helio del universo: aproximadamente una cuarta parte de la materia ordinaria.",
+  "pills": [
+   [
+    "Casi todo el helio",
+    "y",
+    0.05
+   ],
+   [
+    "≈ 25 % de la materia",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "espectro",
+  "texto": "Trescientos ochenta mil años después, se formaron los átomos y la luz quedó libre. Es la luz que hoy detectamos como fondo cósmico de microondas.",
+  "pills": [
+   [
+    "380 000 años",
+    "y",
+    0.05
+   ],
+   [
+    "La luz queda libre",
+    "g",
+    0.5
+   ]
+  ],
+  "modo": "cmb"
+ },
+ {
+  "tipo": "bigbang",
+  "modo": "viaje",
+  "texto": "Cientos de millones de años después, la gravedad reunió el gas en estrellas y galaxias.",
+  "pills": [
+   [
+    "Primeras estrellas",
+    "y",
+    0.05
+   ],
+   [
+    "La gravedad construye galaxias",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "bigbang",
+  "texto": "Las estrellas fabricaron los elementos pesados: el carbono de tu cuerpo y el hierro de tu sangre se forjaron dentro de ellas.",
+  "pills": [
+   [
+    "Elementos forjados en estrellas",
+    "y",
+    0.05
+   ],
+   [
+    "Carbono y hierro",
+    "g",
+    0.5
+   ]
+  ],
+  "modo": "expande"
+ },
+ {
+  "tipo": "minkowski",
+  "cta": 2,
+  "texto": "Y si te está gustando este viaje, suscríbete y activa la campanita ahora mismo. Todavía queda lo mejor.",
+  "pills": [
+   [
+    "Suscríbete y activa la campanita",
+    "y",
+    0.1
+   ],
+   [
+    "Todavía queda lo mejor",
+    "g",
+    0.6
+   ]
+  ],
+  "modo": "luz"
+ },
+ {
+  "tipo": "expansion",
+  "texto": "Hoy, trece mil ochocientos millones de años después, hay al menos cien mil millones de galaxias en el universo observable.",
+  "pills": [
+   [
+    "Hoy",
+    "y",
+    0.05
+   ],
+   [
+    "≥ 100 000 millones de galaxias",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "≈ 10⁸⁰",
+    "átomos en el universo observable",
+    "#2FD0F0"
+   ],
+   [
+    "≈ 10⁷⁰ J",
+    "energía de la materia",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "En total hay del orden de diez elevado a ochenta átomos, y una energía de materia de unos diez elevado a setenta julios.",
+  "pills": [
+   [
+    "Cifras del universo",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "pozo",
+  "texto": "Aquí aparece la idea clave: la gravedad tiene energía negativa. Para separar dos masas hay que gastar energía; juntas, tienen menos.",
+  "pills": [
+   [
+    "La gravedad: energía negativa",
+    "y",
+    0.05
+   ],
+   [
+    "Juntas, tienen menos",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "pozo",
+  "texto": "Es como un pozo: al caer hacia el fondo, la energía baja de cero a valores negativos. Tomamos como cero estar infinitamente lejos.",
+  "pills": [
+   [
+    "Un pozo de energía",
+    "y",
+    0.05
+   ],
+   [
+    "Cero: infinitamente lejos",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "objetos",
+  "texto": "Una piedra en el borde de un pozo tiene más energía que una piedra en el fondo. Para sacarla de allí, hay que aportar energía.",
+  "pills": [
+   [
+    "Sacar la piedra cuesta energía",
+    "y",
+    0.05
+   ]
+  ],
+  "objs": [
+   [
+    "roca",
+    "Borde: más energía",
+    "#2FD0F0"
+   ],
+   [
+    "valle",
+    "Fondo: menos energía",
+    "#FF4FD8"
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "E < 0",
+    "sistema ligado: no se escapa",
+    "#FF4FD8"
+   ],
+   [
+    "E > 0",
+    "se aleja para siempre",
+    "#2FD0F0"
+   ]
+  ],
+  "texto": "La Tierra y el Sol forman un sistema ligado: su energía total es negativa, y por eso están atados. Con energía positiva, se alejarían para siempre.",
+  "pills": [
+   [
+    "Sistemas ligados",
+    "y",
+    0.05
+   ],
+   [
+    "Energía total negativa",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "pozo",
+  "texto": "Ahora llevamos esa idea al cosmos. Toda la materia del universo se atrae a sí misma, y eso aporta una enorme energía gravitatoria negativa.",
+  "pills": [
+   [
+    "Toda la materia se atrae",
+    "y",
+    0.05
+   ],
+   [
+    "Energía gravitatoria negativa",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cero",
+  "texto": "La pregunta es: ¿cuánta? En un universo plano, los cálculos aproximados indican que sumar la energía de la materia y la negativa de la gravedad da cero.",
+  "pills": [
+   [
+    "¿Cuánta energía negativa?",
+    "y",
+    0.05
+   ],
+   [
+    "Universo plano: suma cero",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cero",
+  "texto": "Una forma intuitiva de verlo: si el universo está equilibrado entre expansión y atracción gravitatoria, la suma de ambas energías es cero.",
+  "pills": [
+   [
+    "Expansión vs gravedad",
+    "y",
+    0.05
+   ],
+   [
+    "Equilibrio: suma cero",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Energía cinética",
+    "= − energía gravitatoria",
+    "#FFD83A"
+   ],
+   [
+    "Total",
+    "= 0",
+    "#3DDC97"
+   ]
+  ],
+  "texto": "El argumento más sencillo es de tipo newtoniano. Con la densidad crítica, la energía de movimiento de la expansión iguala a la energía gravitatoria.",
+  "pills": [
+   [
+    "Argumento newtoniano",
+    "y",
+    0.05
+   ],
+   [
+    "Densidad crítica",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "< 1 %",
+    "desviación medida respecto a un universo plano",
+    "#2FD0F0"
+   ]
+  ],
+  "texto": "Y las medidas actuales de la geometría del universo lo muestran plano con una precisión mejor que el uno por ciento.",
+  "pills": [
+   [
+    "Un universo plano",
+    "y",
+    0.05
+   ],
+   [
+    "Precisión mejor que el 1 %",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cero",
+  "texto": "Si es así, el universo sería un ejemplo de algo que no costó nada: la energía positiva y la negativa se compensan exactamente.",
+  "pills": [
+   [
+    "Un universo que no costó nada",
+    "y",
+    0.05
+   ],
+   [
+    "Positivo y negativo se compensan",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "calorpared",
+  "texto": "Aunque la energía total pudiera ser cero, otra cantidad sí cambia: la entropía. En el Big Bang era increíblemente baja, y por eso el tiempo tiene una dirección.",
+  "pills": [
+   [
+    "Entropía baja al principio",
+    "y",
+    0.05
+   ],
+   [
+    "La flecha del tiempo",
+    "g",
+    0.5
+   ]
+  ],
+  "modo": "calor"
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "1973",
+    "Tryon: ¿es el universo una fluctuación del vacío?",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "La idea la propuso en mil novecientos setenta y tres el físico Edward Tryon: quizá el universo es una fluctuación cuántica con energía total nula.",
+  "pills": [
+   [
+    "Edward Tryon, 1973",
+    "y",
+    0.05
+   ],
+   [
+    "Universo = fluctuación cuántica",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Hipótesis",
+    "elegante, pero no demostrada",
+    "#FF4FD8"
+   ]
+  ],
+  "texto": "Es una hipótesis elegante, pero hay que ser honestos: en relatividad general, la energía total de un universo en expansión no está definida de forma única.",
+  "pills": [
+   [
+    "Ojo: es una hipótesis",
+    "y",
+    0.05
+   ],
+   [
+    "La energía total no es única",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Debate abierto",
+    "entre los físicos teóricos",
+    "#FF4FD8"
+   ]
+  ],
+  "texto": "Y otros físicos señalan que, en un universo sin fronteras claras, la idea de energía total pierde sentido riguroso. El debate sigue abierto.",
+  "pills": [
+   [
+    "El debate sigue abierto",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "cero",
+  "texto": "Aun así, la idea es útil: muestra que no hace falta violar ninguna ley para que exista mucho universo, si la cuenta total es pequeña.",
+  "pills": [
+   [
+    "No se viola ninguna ley",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "inflacion",
+  "texto": "La inflación ofrece una forma concreta de ver cómo puede aparecer energía. Imagina un campo que llena el espacio con una densidad de energía constante.",
+  "pills": [
+   [
+    "Un campo con energía constante",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "inflacion",
+  "texto": "Cuando el espacio se estira, ese campo mantiene la misma densidad. Pero hay más volumen, así que parece que sale energía de la nada.",
+  "pills": [
+   [
+    "Más volumen, misma densidad",
+    "y",
+    0.05
+   ],
+   [
+    "Parece energía de la nada",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "inflacion",
+  "texto": "La razón es una propiedad extraña: un campo con presión negativa, como el de la inflación, hace que el espacio se estire en lugar de frenarse.",
+  "pills": [
+   [
+    "Presión negativa",
+    "y",
+    0.05
+   ],
+   [
+    "El espacio se estira",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cero",
+  "modo": "inflacion",
+  "texto": "Alan Guth lo llamó el almuerzo gratis definitivo. La clave es que mientras sube la energía positiva del campo, baja, igual de deprisa, la energía gravitatoria negativa.",
+  "pills": [
+   [
+    "Alan Guth: el almuerzo gratis",
+    "y",
+    0.05
+   ],
+   [
+    "Sube lo positivo, baja lo negativo",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "reparto",
+  "texto": "Al terminar la inflación, el campo decae y convierte su energía en partículas: toda la materia y la radiación que existen hoy.",
+  "pills": [
+   [
+    "Fin de la inflación",
+    "y",
+    0.05
+   ],
+   [
+    "Nacen las partículas",
+    "g",
+    0.5
+   ]
+  ],
+  "modo": "uno"
+ },
+ {
+  "tipo": "bigbang",
+  "texto": "Es un buen modelo, con predicciones que ya se han comprobado, como las pequeñas variaciones de temperatura del fondo cósmico.",
+  "pills": [
+   [
+    "Un modelo con éxito",
+    "y",
+    0.05
+   ],
+   [
+    "Predicciones comprobadas",
+    "g",
+    0.5
+   ]
+  ],
+  "modo": "expande"
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "¿Ocurrió?",
+    "aún sin respuesta definitiva",
+    "#FF4FD8"
+   ]
+  ],
+  "texto": "Pero todavía no sabemos con certeza si la inflación ocurrió, ni qué campo la provocó. Es una de las grandes preguntas abiertas.",
+  "pills": [
+   [
+    "Pregunta abierta",
+    "y",
+    0.05
+   ],
+   [
+    "No sabemos qué campo",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "vacio",
+  "texto": "La física cuántica añade otra pieza. El vacío no está vacío: está lleno de campos que fluctúan constantemente.",
+  "pills": [
+   [
+    "El vacío no está vacío",
+    "y",
+    0.05
+   ],
+   [
+    "Campos que fluctúan",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "vacio",
+  "texto": "El principio de incertidumbre permite que, durante un tiempo muy breve, aparezca una pequeña cantidad de energía. Cuanto menos dura, más puede ser.",
+  "pills": [
+   [
+    "Principio de incertidumbre",
+    "y",
+    0.05
+   ],
+   [
+    "ΔE · Δt ≥ ħ/2",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Sin energía gratis",
+    "las fluctuaciones se compensan siempre",
+    "#3DDC97"
+   ]
+  ],
+  "texto": "Ojo: esto no significa que se pueda fabricar energía a voluntad. Son fluctuaciones que se compensan, no un truco para obtener energía gratis.",
+  "pills": [
+   [
+    "No es energía gratis",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "vacio",
+  "texto": "Pueden surgir parejas de partículas y antipartículas, y desaparecer enseguida. Sus efectos se han medido, por ejemplo en el efecto Casimir.",
+  "pills": [
+   [
+    "Parejas que aparecen y desaparecen",
+    "y",
+    0.05
+   ],
+   [
+    "Efecto Casimir",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "inflacion",
+  "texto": "Si el universo tiene energía total cero, nada impide en principio que una fluctuación así crezca. Es solo una posibilidad teórica.",
+  "pills": [
+   [
+    "Una fluctuación que crece",
+    "y",
+    0.05
+   ],
+   [
+    "Solo una posibilidad teórica",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Vilenkin · Hartle · Hawking",
+    "modelos de un universo desde la «nada» cuántica",
+    "#2FD0F0"
+   ]
+  ],
+  "texto": "Es la idea del universo surgiendo de la nada cuántica, que han explorado físicos como Vilenkin, Hartle y Hawking.",
+  "pills": [
+   [
+    "Universo desde la nada cuántica",
+    "y",
+    0.05
+   ],
+   [
+    "Vilenkin, Hartle y Hawking",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "vacio",
+  "texto": "Pero ojo con la palabra nada: en esos modelos, la nada es un estado con leyes físicas, no la ausencia absoluta de todo.",
+  "pills": [
+   [
+    "Ojo con la palabra «nada»",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Sin confirmar",
+    "ningún experimento ha visto cómo empezó el universo",
+    "#FF4FD8"
+   ]
+  ],
+  "texto": "Son propuestas teóricas. Ningún experimento ha confirmado todavía cómo empezó el universo.",
+  "pills": [
+   [
+    "Propuestas teóricas",
+    "y",
+    0.05
+   ],
+   [
+    "Sin confirmación experimental",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "pastel",
+  "texto": "Lo que sí sabemos con mucha seguridad es la composición actual: materia ordinaria, materia oscura y energía oscura, en proporciones muy distintas.",
+  "pills": [
+   [
+    "Lo que sí sabemos",
+    "y",
+    0.05
+   ],
+   [
+    "Composición actual",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "pastel",
+  "texto": "Solo el cinco por ciento es materia como la de nuestros átomos. El veintisiete es materia oscura, y el sesenta y ocho, energía oscura.",
+  "pills": [
+   [
+    "5 % materia ordinaria",
+    "y",
+    0.05
+   ],
+   [
+    "27 % oscura · 68 % energía oscura",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "5 %",
+    "todo lo que ves: estrellas, planetas, tú",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "Es decir: todo lo que ves a tu alrededor, estrellas, planetas, tú mismo, es una parte pequeña de la energía del cosmos.",
+  "pills": [
+   [
+    "Lo que ves: solo el 5 %",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "2011",
+    "Nobel por descubrir la expansión acelerada",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "De la energía oscura sabemos casi nada, salvo que acelera la expansión. Su descubrimiento mereció el Nobel de Física de dos mil once.",
+  "pills": [
+   [
+    "Energía oscura",
+    "y",
+    0.05
+   ],
+   [
+    "Nobel de Física 2011",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "expansion",
+  "texto": "Si la expansión sigue acelerándose, el futuro es frío y vacío: las galaxias se alejarán hasta quedar aisladas en la oscuridad.",
+  "pills": [
+   [
+    "El futuro del universo",
+    "y",
+    0.05
+   ],
+   [
+    "Frío y vacío",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Modelos, no certezas",
+    "sobre el origen del universo",
+    "#FF4FD8"
+   ]
+  ],
+  "texto": "Y sobre el origen mismo, hay modelos, pero no una respuesta definitiva. Presentarlo como resuelto sería deshonesto.",
+  "pills": [
+   [
+    "No hay respuesta definitiva",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "pendulo",
+  "texto": "Lo que sí podemos afirmar es esto: ningún experimento ha mostrado jamás que se viole la conservación de la energía.",
+  "pills": [
+   [
+    "Ningún experimento la viola",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "objetos",
+  "texto": "Un detalle más: de toda la masa del universo, ¿cuánta es realmente energía? Según Einstein, masa y energía son lo mismo.",
+  "pills": [
+   [
+    "Masa y energía son lo mismo",
+    "y",
+    0.05
+   ]
+  ],
+  "objs": [
+   [
+    "caja",
+    "masa",
+    "#FFD83A"
+   ],
+   [
+    "rayo",
+    "energía: lo mismo",
+    "#2FD0F0"
+   ]
+  ]
+ },
+ {
+  "tipo": "objetos",
+  "texto": "Un protón pesa mucho más que los tres quarks que lo forman: casi toda su masa es la energía de la fuerza que los mantiene unidos.",
+  "pills": [
+   [
+    "El protón",
+    "y",
+    0.05
+   ],
+   [
+    "≈ 99 % es energía de enlace",
+    "g",
+    0.5
+   ]
+  ],
+  "objs": [
+   [
+    "atomo",
+    "protón: ≈ 99 % energía de enlace",
+    "#2FD0F0"
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Un campo",
+    "que da masa a las partículas elementales",
+    "#FF4FD8"
+   ]
+  ],
+  "texto": "Solo una parte de la masa viene de otra fuente: de cómo las partículas elementales interactúan con un campo que llena todo el espacio.",
+  "pills": [
+   [
+    "Otra fuente de masa",
+    "y",
+    0.05
+   ],
+   [
+    "Un campo que llena el espacio",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "lhc",
+  "modo": "v",
+  "texto": "Ese campo es el campo de Higgs, y su partícula, el bosón de Higgs, se detectó en el Gran Colisionador de Hadrones en dos mil doce.",
+  "pills": [
+   [
+    "El campo de Higgs",
+    "y",
+    0.05
+   ],
+   [
+    "Detectado en 2012",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "El bosón de Higgs",
+    "el siguiente vídeo",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "Pero esa historia, la de cómo consiguen masa las partículas, merece su propio vídeo. Y es justo el siguiente.",
+  "pills": [
+   [
+    "Próximo vídeo",
+    "y",
+    0.05
+   ],
+   [
+    "El bosón de Higgs",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cero",
+  "texto": "Repasemos. La energía no se crea ni se destruye porque las leyes no cambian con el tiempo; esa simetría es la que la conserva.",
+  "pills": [
+   [
+    "Repaso",
+    "y",
+    0.05
+   ],
+   [
+    "Simetría temporal = conservación",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "corrimiento",
+  "texto": "En un universo en expansión, esa simetría se rompe a escala cósmica, y la energía total deja de ser un concepto sencillo.",
+  "pills": [
+   [
+    "En un universo en expansión",
+    "y",
+    0.05
+   ],
+   [
+    "La energía total se complica",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cero",
+  "texto": "Una posibilidad muy elegante es que la energía positiva de la materia y la negativa de la gravedad sumen cero.",
+  "pills": [
+   [
+    "Una posibilidad elegante",
+    "y",
+    0.05
+   ],
+   [
+    "Positivo + negativo = 0",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "inflacion",
+  "texto": "Y la inflación o las fluctuaciones cuánticas podrían explicar cómo un universo así llega a existir.",
+  "pills": [
+   [
+    "Inflación y fluctuaciones",
+    "y",
+    0.05
+   ],
+   [
+    "Posibles explicaciones",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Quizá, de ninguna parte",
+    "la suma total pudo ser siempre cero",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "Así que la respuesta honesta a «¿de dónde salió la energía?» es: quizá no salió de ninguna parte, porque la suma total pudo ser siempre cero.",
+  "pills": [
+   [
+    "¿De dónde salió la energía?",
+    "y",
+    0.05
+   ],
+   [
+    "Quizá de ninguna parte",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "cero",
+  "texto": "Y esto es lo hermoso de la física: una pregunta que parecía sencilla nos lleva a las simetrías, a la gravedad y al origen del universo.",
+  "pills": [
+   [
+    "Una pregunta, tres grandes ideas",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "cta": 3,
+  "title": [
+   "Gracias por",
+   "llegar hasta aquí"
+  ],
+  "ctaTitulo": "El Bosón De Higgs",
+  "texto": "Si has llegado hasta aquí, suscríbete y activa la campanita para no perderte nada. El próximo vídeo, sobre el bosón de Higgs, ya lo tienes en pantalla. Nos vemos allí.",
+  "pills": [
+   [
+    "Suscríbete y activa la campanita",
+    "y",
+    0.05
+   ],
+   [
+    "Próximo vídeo: El Bosón De Higgs",
+    "g",
+    0.5
+   ]
+  ]
  }
 ]

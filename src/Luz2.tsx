@@ -166,7 +166,7 @@ export const Gps: React.FC<{s: any; dur: number}> = ({dur}) => {
 };
 
 // ---------- CTA: botón de suscripción animado ----------
-export const Cta: React.FC<{v: number; dur: number}> = ({v, dur}) => {
+export const Cta: React.FC<{v: number; dur: number; titulo?: string}> = ({v, dur, titulo = '¿De Dónde Salió La Energía?'}) => {
   const f = useCurrentFrame(); const t = f / 30; const u = f / dur;
   const inn = seg(u, 0.04, 0.16), out = 1 - seg(u, 0.9, 1.0);
   const o = inn * out;
@@ -182,7 +182,7 @@ export const Cta: React.FC<{v: number; dur: number}> = ({v, dur}) => {
     </div>
     {v === 3 && (() => { const a = seg(u, 0.15, 0.35); return (<div style={{position: 'absolute', right: 110, top: 190, width: 760, height: 428, borderRadius: 24, border: '4px solid #FFD83A', background: '#1d1040', opacity: a * out, transform: `scale(${0.92 + a * 0.08})`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, color: '#fff'}}>
       <div style={{width: 100, height: 100, borderRadius: 999, background: '#FF1E1E', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 46}}>▶</div>
-      <div style={{marginTop: 18, fontSize: 28, fontWeight: 700, color: '#FFD83A', letterSpacing: 3}}>PRÓXIMO VÍDEO</div><div style={{fontSize: 52, fontWeight: 700, marginTop: 14, lineHeight: 1.15, textAlign: 'center', padding: '0 30px'}}>¿De Dónde Salió La Energía?</div></div>); })()}
+      <div style={{marginTop: 18, fontSize: 28, fontWeight: 700, color: '#FFD83A', letterSpacing: 3}}>PRÓXIMO VÍDEO</div><div style={{fontSize: 52, fontWeight: 700, marginTop: 14, lineHeight: 1.15, textAlign: 'center', padding: '0 30px'}}>{titulo}</div></div>); })()}
   </>);
 };
 

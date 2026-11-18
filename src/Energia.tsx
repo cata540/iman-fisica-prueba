@@ -59,7 +59,7 @@ export const BigBang: React.FC<{s: any; dur: number}> = ({s, dur}) => {
 // ---------- balance: energía positiva + gravitatoria negativa = 0 ----------
 export const Cero: React.FC<{s: any; dur: number}> = ({s, dur}) => {
   const f = useCurrentFrame(); const u = f / dur; const m = s.modo;
-  const up = 0.3 + 0.7 * seg(u, 0.05, 0.4), dn = 0.3 + 0.7 * seg(u, 0.2, 0.55), sum = seg(u, 0.55, 0.75);
+  const inf = m === 'inflacion'; const up = inf ? 0.25 + 0.75 * seg(u, 0.05, 0.85) : 0.3 + 0.7 * seg(u, 0.05, 0.4), dn = inf ? up : 0.3 + 0.7 * seg(u, 0.2, 0.55), sum = inf ? 1 : seg(u, 0.55, 0.75);
   const Y0 = 560; const H = 300;
   return (<Svg>
     <line x1="260" y1={Y0} x2="1660" y2={Y0} stroke="#e9e4f7" strokeWidth="5" />
