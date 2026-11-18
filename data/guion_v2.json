@@ -1,0 +1,115 @@
+[
+ {
+  "tipo": "habitacion",
+  "apaga": 0.14,
+  "texto": "Pulsas el interruptor. En ese instante, más de un millón de billones de fotones cruzan tu habitación cada segundo. Y en apenas unos nanosegundos, todos habrán desaparecido.",
+  "pills": [
+   [
+    "Un interruptor",
+    "y",
+    0.03
+   ],
+   [
+    "Más de 10¹⁸ fotones por segundo",
+    "g",
+    0.3
+   ],
+   [
+    "Solo unos nanosegundos",
+    "y",
+    0.7
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "apaga": 0,
+  "modo": "choque",
+  "texto": "No se apagan como una vela. No se esconden en ninguna parte. Cada uno choca contra algo y deja de existir. Pero la energía que llevaban no se destruye.",
+  "pills": [
+   [
+    "Cada fotón choca",
+    "y",
+    0.05
+   ],
+   [
+    "Deja de existir",
+    "g",
+    0.4
+   ],
+   [
+    "La energía no se destruye",
+    "y",
+    0.72
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "texto": "Esa es la gran pregunta. Si la luz no es algo que se gaste como la gasolina, ¿a dónde va exactamente? Hoy vamos a seguir a esos fotones hasta el final.",
+  "pills": [
+   [
+    "La gran pregunta",
+    "y",
+    0.04
+   ],
+   [
+    "Seguimos a los fotones",
+    "g",
+    0.6
+   ]
+  ],
+  "title": [
+   "¿A dónde va",
+   "la energía?"
+  ],
+  "items": [
+   [
+    "luz",
+    "bombilla"
+   ],
+   [
+    "gasta",
+    "rayo",
+    "se gasta",
+    true
+   ],
+   [
+    "fotones",
+    "foton"
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "apaga": 9,
+  "texto": "Antes de seguirlos, hay que saber de dónde salen. Una bombilla fabrica fotones sin parar, y cada uno viaja a trescientos mil kilómetros por segundo.",
+  "pills": [
+   [
+    "¿De dónde salen?",
+    "y",
+    0.05
+   ],
+   [
+    "300 000 km/s",
+    "g",
+    0.55
+   ]
+  ],
+  "items": [
+   [
+    "bombilla",
+    "bombilla"
+   ],
+   [
+    "fotones",
+    "foton"
+   ],
+   [
+    "kilómetros",
+    "reloj",
+    "por segundo"
+   ]
+  ]
+ }
+]

@@ -7,12 +7,12 @@ import {Arrow, BarMagnet, FieldLines, RoundedBox, Stage, mat} from './three';
 import {Battery, Cross, Fade, Plug, clamp, rnd, sp} from './Prueba';
 import {Cues, Item, ZONE_TYPES} from './Props';
 
-type Spec = {tipo: string; pills?: [string, string, number][]; title?: string[]; labels?: [string, number, number, number, string?][]; barra?: boolean; items?: Item[]; texto?: string; final?: boolean; plano?: boolean; curva?: string};
+export type Spec = {tipo: string; pills?: [string, string, number][]; title?: string[]; labels?: [string, number, number, number, string?][]; barra?: boolean; items?: Item[]; texto?: string; final?: boolean; plano?: boolean; curva?: string};
 const FR = tl.frames as number[];
 export const TOTAL_FRAMES = FR.reduce((a, b) => a + b, 0);
 const COL: Record<string, string> = {y: C.yellow, g: C.green, o: C.orange};
 
-const Overlay: React.FC<{s: Spec; dur: number}> = ({s, dur}) => (<>
+export const Overlay: React.FC<{s: Spec; dur: number}> = ({s, dur}) => (<>
   {(s.pills ?? []).map((p, i, arr) => (
     <Pill key={i} text={p[0]} color={p[1] === 'g' ? 'green' : 'yellow'} from={Math.round(p[2] * dur)} to={arr[i + 1] ? Math.round(arr[i + 1][2] * dur) : undefined} />
   ))}
@@ -354,13 +354,13 @@ const Bandas: React.FC<{dur: number}> = ({dur}) => {
   );
 };
 
-const BODY: Record<string, React.FC<any>> = {
+export const BODY: Record<string, React.FC<any>> = {
   nevera: Nevera, campo: Campo, bateria: Bateria, libro: Libro, bloque: Bloque, anillo: Anillo, oersted: Oersted, orbita: Orbita, grafica: Grafica, clip: Clip, tubo: Tubo, histeresis: Histeresis, bandas: Bandas,
   espines: (p: any) => <Grid mode="ordenado" dur={p.dur} />, alinea: (p: any) => <Grid mode="alinea" dur={p.dur} />,
   dominios: (p: any) => <Grid mode="dominios" dur={p.dur} />, calor: (p: any) => <Grid mode="calor" dur={p.dur} />,
 };
 
-const Zoom: React.FC<{dur: number; i: number; children: React.ReactNode}> = ({dur, i, children}) => {
+export const Zoom: React.FC<{dur: number; i: number; children: React.ReactNode}> = ({dur, i, children}) => {
   const f = useCurrentFrame();
   const p = f / dur; const dir = i % 2 === 0 ? 1 : -1;
   return <AbsoluteFill style={{transform: `scale(${1.0 + 0.05 * p}) translate(${dir * p * -14}px, ${p * -8}px)`, transformOrigin: '60% 50%'}}>{children}</AbsoluteFill>;
