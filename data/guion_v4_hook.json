@@ -1,0 +1,132 @@
+[
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "E total",
+    "ni se crea ni se destruye, solo se transforma",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "Aprendiste que la energía no se crea ni se destruye, solo se transforma.",
+  "pills": [
+   [
+    "Ni se crea ni se destruye",
+    "y",
+    0.05
+   ],
+   [
+    "Solo se transforma",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "pendulo",
+  "texto": "Un péndulo lo demuestra: altura que se vuelve movimiento, y movimiento que se vuelve altura.",
+  "pills": [
+   [
+    "Altura ↔ movimiento",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "Pila",
+    "química → eléctrica",
+    "#FFD83A"
+   ],
+   [
+    "Bombilla",
+    "eléctrica → luz y calor",
+    "#2FD0F0"
+   ],
+   [
+    "Montaña rusa",
+    "altura → velocidad",
+    "#FF4FD8"
+   ]
+  ],
+  "texto": "Una pila, una bombilla, una montaña rusa: en todas, la cuenta sale siempre exacta.",
+  "pills": [
+   [
+    "La cuenta siempre sale exacta",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "bigbang",
+  "modo": "expande",
+  "texto": "Pero hay un problema incómodo. El universo contiene una cantidad inmensa de energía. ¿De dónde salió?",
+  "pills": [
+   [
+    "Un problema incómodo",
+    "y",
+    0.05
+   ],
+   [
+    "¿De dónde salió?",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "cifra",
+  "cards": [
+   [
+    "13 800 millones",
+    "de años desde el Big Bang",
+    "#2FD0F0"
+   ],
+   [
+    "≈ 10⁷⁰ julios",
+    "energía de la materia observable",
+    "#FFD83A"
+   ]
+  ],
+  "texto": "Si la energía no puede crearse, ¿cómo apareció todo en el Big Bang? La respuesta es mucho más extraña de lo que parece.",
+  "pills": [
+   [
+    "Una respuesta muy extraña",
+    "y",
+    0.1
+   ]
+  ]
+ },
+ {
+  "tipo": "cero",
+  "texto": "Y podría ser tan simple como sorprendente: quizá, sumando todo, la energía total del universo es exactamente cero.",
+  "pills": [
+   [
+    "¿Energía total = 0?",
+    "y",
+    0.05
+   ],
+   [
+    "Lo positivo cancela lo negativo",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "bigbang",
+  "modo": "viaje",
+  "texto": "Para entenderlo, tenemos que viajar hasta el instante en que todo empezó.",
+  "pills": [
+   [
+    "Viaje al Big Bang",
+    "y",
+    0.05
+   ]
+  ]
+ }
+]
