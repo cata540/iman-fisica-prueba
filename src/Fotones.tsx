@@ -50,14 +50,14 @@ const EVENTS: Ev[] = (() => {
 export const Habitacion: React.FC<{s: any; dur: number}> = ({s, dur}) => {
   const f = useCurrentFrame(); const t = f / 30;
   const choque = s.modo === 'choque';
-  const shift = choque ? 1.0 : 0;               // en modo choque la lámpara ya estaba encendida antes de la escena
-  const tt = t + shift;
+  const P = 3.4;                                   // modo choque: se repite el apagado en bucle
+  const tt = choque ? t % P : t;
   const tOn = choque ? 0 : (s.enciende ?? 0.0) * dur / 30;
-  const tOff = choque ? 1.0 : (s.apaga ?? 0.15) * dur / 30;
+  const tOff = choque ? 0.7 : (s.apaga ?? 0.15) * dur / 30;
   const on = tt >= tOn && tt < tOff;
   const evs = EVENTS.filter((e) => e.t0 + tOn <= tOff);
   const hitsSoFar = evs.filter((e) => e.t0 + tOn + e.tHit < tt).length;
-  const warm = Math.min(0.2, hitsSoFar / 500) + (choque ? 0.05 : 0);
+  const warm = Math.min(0.07, hitsSoFar / 900);
   const ns = Math.max(0, Math.min(20, ((tt - tOff) / 1.5) * 20));
   const active = evs.filter((e) => tt >= e.t0 + tOn && tt < e.t0 + tOn + e.tHit + 0.28);
   return (<>
@@ -96,11 +96,15 @@ export const Habitacion: React.FC<{s: any; dur: number}> = ({s, dur}) => {
           }
           const k = (age - e.tHit) / 0.28;
           return (<group key={i} position={e.hit}>
-            <mesh scale={0.15 + k * 0.5}><sphereGeometry args={[0.5, 12, 10]} /><meshBasicMaterial color="#FF9A4C" transparent opacity={0.7 * (1 - k)} /></mesh>
+            <mesh scale={0.1 + k * 0.3}><sphereGeometry args={[0.5, 12, 10]} /><meshBasicMaterial color="#FF9A4C" transparent opacity={0.7 * (1 - k)} /></mesh>
           </group>);
         })}
       </group>
     </Stage>
+    {choque && (() => { const after = Math.max(0, tt - tOff); const ph = Math.min(1, after / 1.4); return (<div style={{position: 'absolute', left: 90, top: 760, fontFamily: FONT, color: '#fff', fontWeight: 600, fontSize: 34}}>
+      {[['Fotones en vuelo', 1 - ph, C.cyan], ['Calor en las paredes', ph, C.orange], ['Energía total', 1, C.yellow]].map(([n, v, c], i) => (
+        <div key={i} style={{marginBottom: 18}}>{n as string}<div style={{marginTop: 6, width: 440, height: 16, borderRadius: 8, background: 'rgba(255,255,255,.14)'}}><div style={{width: `${(v as number) * 100}%`, height: '100%', borderRadius: 8, background: c as string}} /></div></div>))}
+    </div>); })()}
     <div style={{position: 'absolute', right: 70, top: 62, fontFamily: FONT, fontWeight: 600, fontSize: 34, color: on ? C.green : '#b9b0d6', opacity: interpolate(f, [0, 8], [0, 1], clamp)}}>
       {tt < tOn ? 'LUZ: OFF' : on ? 'LUZ: ON' : `LUZ: OFF · t = ${ns.toFixed(0)} ns`}</div>
   </>);
