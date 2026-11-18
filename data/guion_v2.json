@@ -82,36 +82,1524 @@
   ]
  },
  {
-  "tipo": "habitacion",
-  "apaga": 9,
-  "texto": "Antes de seguirlos, hay que saber de dónde salen. Una bombilla fabrica fotones sin parar, y cada uno viaja a trescientos mil kilómetros por segundo.",
+  "tipo": "foton",
+  "title": [
+   "Fotón =",
+   "un cuanto de luz"
+  ],
+  "items": [
+   [
+    "masa",
+    "caja",
+    "masa",
+    true
+   ],
+   [
+    "carga",
+    "rayo",
+    "carga",
+    true
+   ],
+   [
+    "campo",
+    "iman",
+    "campo"
+   ]
+  ],
+  "texto": "Un fotón es la partícula más pequeña de luz. No tiene masa, no tiene carga, y siempre viaja a la velocidad de la luz. Es un paquete mínimo de energía del campo electromagnético.",
   "pills": [
    [
-    "¿De dónde salen?",
+    "Un cuanto de luz",
     "y",
     0.05
    ],
    [
-    "300 000 km/s",
+    "Sin masa, sin carga",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "items": [
+   [
+    "paquetes",
+    "caja",
+    "paquetes"
+   ],
+   [
+    "luz",
+    "bombilla"
+   ]
+  ],
+  "texto": "Fue Einstein, en mil novecientos cinco, quien propuso que la luz llega en paquetes. Con esa idea explicó el efecto fotoeléctrico, y por ello recibió el Nobel de Física en mil novecientos veintiuno.",
+  "pills": [
+   [
+    "Einstein, 1905",
+    "y",
+    0.05
+   ],
+   [
+    "Nobel de Física, 1921",
     "g",
     0.55
    ]
+  ]
+ },
+ {
+  "tipo": "espectro",
+  "modo": "energia",
+  "texto": "Su energía depende solo de su color. Un fotón rojo lleva menos energía que uno azul, y uno ultravioleta todavía más. La fórmula es sencilla: energía igual a la constante de Planck por la frecuencia.",
+  "pills": [
+   [
+    "E = h · f",
+    "y",
+    0.5
+   ],
+   [
+    "Azul > rojo",
+    "g",
+    0.2
+   ]
+  ]
+ },
+ {
+  "tipo": "espectro",
+  "modo": "energia",
+  "texto": "En números: un fotón rojo lleva unos uno coma ocho electronvoltios; uno violeta, unos tres coma uno. Parece poquísimo, pero una bombilla emite tantos que suman decenas de vatios.",
+  "pills": [
+   [
+    "Rojo ≈ 1,8 eV",
+    "y",
+    0.1
+   ],
+   [
+    "Violeta ≈ 3,1 eV",
+    "g",
+    0.45
+   ]
+  ]
+ },
+ {
+  "tipo": "espectro",
+  "modo": "visible",
+  "texto": "Casi todo lo que ves son fotones en un rango estrechísimo: entre cuatrocientos y setecientos cincuenta nanómetros. Más allá hay infrarrojo, que no vemos, y ultravioleta, que tampoco.",
+  "pills": [
+   [
+    "Luz visible: 400–750 nm",
+    "y",
+    0.1
+   ],
+   [
+    "Infrarrojo y ultravioleta",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "items": [
+   [
+    "emite",
+    "bombilla",
+    "emisor"
+   ],
+   [
+    "absorbe",
+    "pared",
+    "absorbente"
+   ]
+  ],
+  "texto": "Lo más importante: los fotones no son granos de arena que existen siempre. Se crean cuando algo los emite, y se destruyen cuando algo los absorbe. Nadie los guarda en un cajón.",
+  "pills": [
+   [
+    "Se crean al emitirse",
+    "y",
+    0.05
+   ],
+   [
+    "Se destruyen al absorberse",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "title": [
+   "Seguir",
+   "la energía"
   ],
   "items": [
    [
-    "bombilla",
-    "bombilla"
-   ],
-   [
-    "fotones",
+    "fotón",
     "foton"
    ],
    [
-    "kilómetros",
-    "reloj",
-    "por segundo"
+    "energía",
+    "rayo"
    ]
   ],
-  "enciende": 0
+  "texto": "Por eso la pregunta tiene truco. Un fotón no se va a ningún sitio cuando apagas la luz: se acaba. Lo que de verdad hay que seguir es su energía.",
+  "pills": [
+   [
+    "Un fotón se acaba",
+    "y",
+    0.05
+   ],
+   [
+    "Hay que seguir la energía",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "filamento",
+  "texto": "En una bombilla clásica, la electricidad calienta un filamento de wolframio hasta unos dos mil quinientos grados. A esa temperatura los átomos vibran, los electrones se agitan y el filamento escupe fotones sin parar.",
+  "pills": [
+   [
+    "Filamento de wolframio",
+    "y",
+    0.05
+   ],
+   [
+    "≈ 2 500 °C",
+    "g",
+    0.4
+   ]
+  ]
+ },
+ {
+  "tipo": "filamento",
+  "texto": "Es radiación térmica: todo lo que está caliente brilla. Pero solo una pequeña parte son fotones visibles. La mayoría son infrarrojos, es decir, calor. Una bombilla incandescente convierte en luz apenas un cinco por ciento.",
+  "pills": [
+   [
+    "Todo lo caliente brilla",
+    "y",
+    0.05
+   ],
+   [
+    "≈ 5 % luz, 95 % calor",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "espectro",
+  "modo": "planck",
+  "texto": "Cuanto más caliente está un objeto, más azul es su luz. Un hierro al rojo, un filamento amarillento, el Sol casi blanco. La regla es la misma. Solo cambia la temperatura.",
+  "pills": [
+   [
+    "Más caliente = más azul",
+    "y",
+    0.05
+   ],
+   [
+    "Misma regla, otra temperatura",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "banda",
+  "modo": "led",
+  "texto": "Un LED hace algo muy distinto. Dentro del chip, los electrones caen de un nivel de energía alto a uno bajo, y la diferencia sale como un fotón. Todos del mismo color, y sin calentar nada.",
+  "pills": [
+   [
+    "LED: electrón que cae",
+    "y",
+    0.05
+   ],
+   [
+    "Un fotón por salto",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "banda",
+  "modo": "gap",
+  "texto": "Esa diferencia se llama banda prohibida, y fija el color del LED. Por eso un LED gasta bastante menos electricidad: desperdicia mucho menos energía en forma de calor.",
+  "pills": [
+   [
+    "Banda prohibida",
+    "y",
+    0.05
+   ],
+   [
+    "Fija el color",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "balance",
+  "modo": "eficiencia",
+  "texto": "Para comparar: de cada cien vatios que entran en una bombilla incandescente, solo unos cinco salen como luz visible. En un LED moderno son entre treinta y cuarenta. El resto acaba como calor.",
+  "pills": [
+   [
+    "Incandescente: ≈ 5 %",
+    "y",
+    0.1
+   ],
+   [
+    "LED: 30–40 %",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "niveles",
+  "modo": "emision",
+  "texto": "En ambos casos el mecanismo básico es el mismo: un electrón pasa de un nivel de energía alto a otro más bajo, y el átomo suelta la diferencia como un fotón. Así nacen, de uno en uno.",
+  "pills": [
+   [
+    "Un electrón baja de nivel",
+    "y",
+    0.05
+   ],
+   [
+    "Nace un fotón",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "enciende": 0,
+  "apaga": 9,
+  "items": [
+   [
+    "trillones",
+    "foton",
+    "10¹⁹/s"
+   ]
+  ],
+  "texto": "Una bombilla de diez vatios emite del orden de diez trillones de fotones visibles por segundo. Aunque no los veas como granos, tus ojos reciben una lluvia incesante.",
+  "pills": [
+   [
+    "≈ 10¹⁹ fotones por segundo",
+    "y",
+    0.1
+   ],
+   [
+    "Una lluvia incesante",
+    "g",
+    0.6
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "enciende": 0,
+  "apaga": 9,
+  "texto": "Cada fotón viaja a casi trescientos mil kilómetros por segundo. Una habitación de cinco metros se cruza en menos de veinte nanosegundos, veinte milmillonésimas de segundo.",
+  "pills": [
+   [
+    "300 000 km/s",
+    "y",
+    0.05
+   ],
+   [
+    "Habitación: < 20 ns",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "enciende": 0.2,
+  "apaga": 9,
+  "texto": "Un nanosegundo es tan corto que en ese tiempo la luz solo recorre treinta centímetros. Cuando enciendes una lámpara, sus primeros fotones llegan a la pared opuesta en menos de veinte nanosegundos.",
+  "pills": [
+   [
+    "1 ns = 30 cm de luz",
+    "y",
+    0.05
+   ],
+   [
+    "Al encender: < 20 ns",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "enciende": 0.02,
+  "apaga": 0.35,
+  "texto": "Por eso, cuando apagas el interruptor, la oscuridad no llega de golpe. En el rincón más lejano todavía queda luz unos nanosegundos después. Los últimos fotones tienen que terminar su viaje.",
+  "pills": [
+   [
+    "Apagas el interruptor",
+    "y",
+    0.05
+   ],
+   [
+    "Los últimos fotones terminan su viaje",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "items": [
+   [
+    "freno",
+    "mano",
+    "sin freno",
+    true
+   ],
+   [
+    "absorbido",
+    "pared"
+   ]
+  ],
+  "texto": "No existe un freno de emergencia para un fotón. Una vez emitido, no puede detenerse ni ir más despacio en el vacío. Solo puede ser absorbido, desviado, o seguir hasta chocar con algo.",
+  "pills": [
+   [
+    "Sin freno de emergencia",
+    "y",
+    0.05
+   ],
+   [
+    "Solo se absorbe o se desvía",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "items": [
+   [
+    "velas",
+    "rueda",
+    "vela solar"
+   ],
+   [
+    "empujón",
+    "mano"
+   ]
+  ],
+  "texto": "Aunque no tiene masa, un fotón lleva impulso: la luz empuja. Por eso funcionan las velas solares, y por eso una pared recibe un diminuto empujón con cada fotón que absorbe.",
+  "pills": [
+   [
+    "La luz empuja",
+    "y",
+    0.05
+   ],
+   [
+    "Velas solares",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "modo": "choque",
+  "texto": "En una habitación, casi siempre un fotón choca contra algo muy pronto: una pared, el suelo, un mueble, tu piel. Veamos qué ocurre exactamente en ese choque.",
+  "pills": [
+   [
+    "El choque",
+    "y",
+    0.05
+   ],
+   [
+    "¿Qué ocurre en el choque?",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "calorpared",
+  "modo": "absorbe",
+  "texto": "Imagina la pared a escala atómica: átomos ordenados, con sus electrones en niveles de energía. Cuando llega un fotón, el átomo puede absorberlo, pero solo si su energía encaja con un salto posible.",
+  "pills": [
+   [
+    "La pared, átomo a átomo",
+    "y",
+    0.05
+   ],
+   [
+    "Solo si encaja el salto",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "niveles",
+  "modo": "absorcion",
+  "texto": "Si encaja, el electrón salta a un nivel superior y el fotón desaparece. Su energía no se pierde: queda almacenada en el átomo como energía de excitación.",
+  "pills": [
+   [
+    "El fotón desaparece",
+    "y",
+    0.05
+   ],
+   [
+    "La energía se almacena",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "niveles",
+  "modo": "relax",
+  "texto": "Pero ese estado dura muy poco. En una pared normal, el electrón choca con los vecinos y les entrega su energía en forma de vibración. El estado excitado se disuelve en movimiento.",
+  "pills": [
+   [
+    "Dura una fracción mínima",
+    "y",
+    0.05
+   ],
+   [
+    "Se disuelve en vibración",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "calorpared",
+  "modo": "calor",
+  "texto": "Esas vibraciones son exactamente lo que llamamos calor. La energía del fotón se reparte entre billones de átomos que vibran un poquito más. Ya no es luz: es agitación térmica.",
+  "pills": [
+   [
+    "Vibración = calor",
+    "y",
+    0.05
+   ],
+   [
+    "Ya no es luz",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "balance",
+  "modo": "casa",
+  "texto": "Una cuenta rápida: una luz de diez vatios, encendida horas, calienta la habitación con esos mismos diez vatios. Casi todo lo que gasta el interruptor acaba como calor repartido por paredes, muebles y aire.",
+  "pills": [
+   [
+    "10 W de luz = 10 W de calor",
+    "y",
+    0.1
+   ],
+   [
+    "Todo acaba repartido",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "balance",
+  "modo": "casa",
+  "texto": "Si no se escapara nada, diez vatios durante una hora son treinta y seis mil julios. Eso calentaría el aire de una habitación mediana apenas medio grado. El resto se reparte por las paredes y se va fuera.",
+  "pills": [
+   [
+    "10 W · 1 h = 36 000 J",
+    "y",
+    0.05
+   ],
+   [
+    "≈ 0,5 °C en el aire",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "items": [
+   [
+    "entero",
+    "foton"
+   ],
+   [
+    "cuarto",
+    "foton",
+    "¼ de fotón",
+    true
+   ]
+  ],
+  "texto": "Hay algo curioso: la absorción de un fotón es un evento de todo o nada. O se absorbe entero, o no se absorbe. No existe un cuarto de fotón desvaneciéndose poco a poco.",
+  "pills": [
+   [
+    "Todo o nada",
+    "y",
+    0.05
+   ],
+   [
+    "No hay medio fotón",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "espectro",
+  "modo": "absorcion",
+  "texto": "Por eso los materiales tienen colores. Cada uno absorbe ciertos fotones, según los saltos que permiten sus electrones, y deja pasar o refleja los demás.",
+  "pills": [
+   [
+    "Cada material, sus saltos",
+    "y",
+    0.05
+   ],
+   [
+    "El resto se refleja",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "color",
+  "modo": "rojo",
+  "texto": "Una pared roja absorbe sobre todo los fotones azules y verdes, y devuelve los rojos. Por eso la ves roja: el color que ves son justo los fotones que la pared no se quedó.",
+  "pills": [
+   [
+    "Pared roja",
+    "y",
+    0.05
+   ],
+   [
+    "Ves lo que no absorbe",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "color",
+  "modo": "espejo",
+  "texto": "Un espejo, en cambio, devuelve casi todos. Ni siquiera es un rebote como el de una pelota: los electrones del metal vibran con la luz y la reemiten casi sin pérdidas.",
+  "pills": [
+   [
+    "Espejo",
+    "y",
+    0.05
+   ],
+   [
+    "Devuelve casi todo",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "color",
+  "modo": "negro",
+  "texto": "Una superficie negra absorbe casi todo. Por eso una camiseta negra se calienta más al sol: cada fotón absorbido se convierte en calor dentro de la tela.",
+  "pills": [
+   [
+    "Superficie negra",
+    "y",
+    0.05
+   ],
+   [
+    "Todo se convierte en calor",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "title": [
+   "La sombra:",
+   "fotones que faltan"
+  ],
+  "items": [
+   [
+    "absorbió",
+    "pared"
+   ],
+   [
+    "calor",
+    "llama"
+   ]
+  ],
+  "texto": "Y una sombra no es una cosa. Es el lugar donde faltan fotones, porque algo los absorbió antes de que llegaran. Cada sombra es, en el fondo, un pequeño rastro de calor.",
+  "pills": [
+   [
+    "Una sombra no es una cosa",
+    "y",
+    0.05
+   ],
+   [
+    "Es donde faltan fotones",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "modo": "choque",
+  "texto": "En una habitación real, los fotones rebotan unas pocas veces. En cada rebote la pared se queda con una parte, así que tras unas decenas de nanosegundos no queda ninguno.",
+  "pills": [
+   [
+    "Unos pocos rebotes",
+    "y",
+    0.05
+   ],
+   [
+    "Decenas de nanosegundos",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "tierra",
+  "modo": "escape",
+  "texto": "Pero no todos terminan dentro. Los que salen por la ventana siguen su camino: se alejan de la casa a trescientos mil kilómetros por segundo, y puede que no vuelvan nunca.",
+  "pills": [
+   [
+    "Por la ventana",
+    "y",
+    0.05
+   ],
+   [
+    "Puede que no vuelvan",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "tierra",
+  "modo": "escape",
+  "texto": "Muchos chocarán con el suelo, los árboles o las nubes. Pero algunos podrían escapar de la Tierra y viajar por el espacio durante millones de años.",
+  "pills": [
+   [
+    "Suelo, árboles, nubes",
+    "y",
+    0.05
+   ],
+   [
+    "Algunos escapan al espacio",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "decaimiento",
+  "modo": "intro",
+  "texto": "Entonces, ¿por qué algunas cosas siguen brillando después de apagar la luz? Porque no toda la luz que ves son fotones en vuelo. A veces el propio material sigue emitiendo.",
+  "pills": [
+   [
+    "¿Por qué siguen brillando?",
+    "y",
+    0.05
+   ],
+   [
+    "El material sigue emitiendo",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "decaimiento",
+  "modo": "filamento",
+  "texto": "Un filamento caliente tarda una fracción de segundo en enfriarse, y mientras sigue caliente, sigue emitiendo. Por eso una bombilla clásica se apaga con un pequeño desvanecimiento.",
+  "pills": [
+   [
+    "Filamento: décimas de segundo",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "decaimiento",
+  "modo": "filamento",
+  "texto": "Con una vela pasa algo parecido: la llama brilla porque sus partículas de hollín están calientes. Al soplarla, el hollín se enfría y el brillo se desvanece en una fracción de segundo.",
+  "pills": [
+   [
+    "Vela: hollín caliente",
+    "y",
+    0.05
+   ],
+   [
+    "Se enfría y se apaga",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "decaimiento",
+  "modo": "led",
+  "texto": "Un LED se apaga en nanosegundos, porque sus electrones dejan de caer en cuanto desaparece la corriente. Es casi un apagón instantáneo, y por eso se usan para transmitir datos con luz.",
+  "pills": [
+   [
+    "LED: nanosegundos",
+    "y",
+    0.05
+   ],
+   [
+    "Datos con luz",
+    "g",
+    0.6
+   ]
+  ]
+ },
+ {
+  "tipo": "decaimiento",
+  "modo": "fluor",
+  "texto": "Los tubos fluorescentes usan un polvo que absorbe ultravioleta y emite luz visible. Ese polvo sigue brillando unos milisegundos, demasiado poco para que lo notes.",
+  "pills": [
+   [
+    "Fluorescente: milisegundos",
+    "y",
+    0.05
+   ]
+  ]
+ },
+ {
+  "tipo": "decaimiento",
+  "modo": "fosf",
+  "texto": "Y las estrellas que brillan en la oscuridad guardan los fotones durante horas. Sus electrones quedan atrapados en un estado excitado del que salir está casi prohibido, y se escapan muy despacio.",
+  "pills": [
+   [
+    "Fosforescente: horas",
+    "y",
+    0.05
+   ],
+   [
+    "Estado casi prohibido",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "niveles",
+  "modo": "fosf",
+  "texto": "Es como una cuenta atrás larguísima: cada electrón atrapado tiene una pequeña probabilidad por segundo de caer. Los que caen emiten un fotón; los demás esperan su turno.",
+  "pills": [
+   [
+    "Electrones atrapados",
+    "y",
+    0.05
+   ],
+   [
+    "Caen de uno en uno",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "decaimiento",
+  "modo": "todos",
+  "texto": "Aun así, ninguna de estas luces es una excepción a la regla. En todos los casos, un fotón se emite cuando un electrón baja de nivel, y desaparece cuando otro electrón lo absorbe.",
+  "pills": [
+   [
+    "Ninguna es excepción",
+    "y",
+    0.05
+   ],
+   [
+    "Emitir = bajar, absorber = subir",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "balance",
+  "modo": "fotones",
+  "texto": "Aquí aparece la idea central. En cada absorción, el número de fotones cambia, pero la energía total no. Los fotones no se conservan. La energía sí.",
+  "pills": [
+   [
+    "Los fotones no se conservan",
+    "y",
+    0.2
+   ],
+   [
+    "La energía sí",
+    "g",
+    0.6
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "items": [
+   [
+    "crear",
+    "bombilla"
+   ],
+   [
+    "destruirlos",
+    "llama"
+   ]
+  ],
+  "texto": "Es una de esas leyes que parecen una trampa. Podemos crear fotones de la nada si aportamos energía, y destruirlos transformando esa energía en otra cosa. Nada se pierde.",
+  "pills": [
+   [
+    "Crear fotones cuesta energía",
+    "y",
+    0.05
+   ],
+   [
+    "Destruirlos la transforma",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "reparto",
+  "modo": "uno",
+  "texto": "Un solo fotón de luz visible puede convertirse en muchos fotones infrarrojos, cada uno con menos energía. Uno de energía grande se reparte en veinte pequeños, y la suma sigue igual.",
+  "pills": [
+   [
+    "1 fotón visible",
+    "y",
+    0.05
+   ],
+   [
+    "≈ 20 fotones infrarrojos",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "reparto",
+  "modo": "entropia",
+  "texto": "Ese reparto es el corazón del asunto: lo que los físicos llaman aumento de entropía. La energía concentrada en pocos fotones se dispersa en muchísimos, y ya no puede volver atrás por sí sola.",
+  "pills": [
+   [
+    "Aumento de entropía",
+    "y",
+    0.05
+   ],
+   [
+    "La energía se dispersa",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "balance",
+  "modo": "fotones",
+  "texto": "Fíjate en la cuenta: entra un fotón con una energía, salen veinte fotones con una veinteava parte cada uno. Hay más fotones que antes, pero la energía total es idéntica.",
+  "pills": [
+   [
+    "1 × E = 20 × E/20",
+    "y",
+    0.05
+   ],
+   [
+    "Más fotones, misma energía",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "title": [
+   "Fotones →",
+   "calor"
+  ],
+  "items": [
+   [
+    "calor",
+    "llama"
+   ],
+   [
+    "habitación",
+    "pared"
+   ]
+  ],
+  "texto": "Esa es la respuesta corta al título. Los fotones no van a ninguna parte: se transforman en calor. Pero el calor tampoco se queda para siempre en tu habitación.",
+  "pills": [
+   [
+    "La respuesta corta",
+    "y",
+    0.05
+   ],
+   [
+    "Luz → calor",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "title": [
+   "Luz →",
+   "otras formas"
+  ],
+  "items": [
+   [
+    "hoja",
+    "rana",
+    "hoja"
+   ],
+   [
+    "panel",
+    "caja",
+    "panel solar"
+   ]
+  ],
+  "texto": "Tampoco todos acaban como calor. Una hoja usa los fotones para fabricar azúcar, y un panel solar para empujar electrones. Pero en cualquier caso, la energía se transforma. Nunca desaparece.",
+  "pills": [
+   [
+    "Una hoja los usa",
+    "y",
+    0.05
+   ],
+   [
+    "Un panel solar también",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "calorpared",
+  "modo": "ir",
+  "texto": "Todo objeto con temperatura emite luz infrarroja. Tu pared caliente la emite hacia la habitación, hacia el exterior y hacia ti. Es el mismo proceso del filamento, pero a una temperatura mucho más baja.",
+  "pills": [
+   [
+    "Todo emite infrarrojo",
+    "y",
+    0.05
+   ],
+   [
+    "Mismo proceso, menos temperatura",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "espectro",
+  "modo": "ambiente",
+  "texto": "A temperatura ambiente, unos veinte grados, el pico de esa emisión está en unas diez micras, muy lejos de lo que ve el ojo. Una cámara térmica, en cambio, sí la ve.",
+  "pills": [
+   [
+    "20 °C → pico a 10 µm",
+    "y",
+    0.05
+   ],
+   [
+    "Una cámara térmica la ve",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "modo": "choque",
+  "texto": "Así que la energía que absorbió la pared se reparte por toda la casa y sale poco a poco en forma de fotones infrarrojos, que escapan por ventanas, tejados y paredes.",
+  "pills": [
+   [
+    "La casa pierde calor",
+    "y",
+    0.05
+   ],
+   [
+    "Salen fotones infrarrojos",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "balance",
+  "modo": "cadena",
+  "texto": "Esa es la cadena completa. La luz de tu bombilla se convierte en calor, el calor de la casa se convierte en infrarrojo, y el infrarrojo se escapa al exterior.",
+  "pills": [
+   [
+    "Luz",
+    "y",
+    0.1
+   ],
+   [
+    "Calor",
+    "g",
+    0.35
+   ],
+   [
+    "Infrarrojo",
+    "y",
+    0.6
+   ],
+   [
+    "Exterior",
+    "g",
+    0.85
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "title": [
+   "La cuenta",
+   "sale exacta"
+  ],
+  "items": [
+   [
+    "luz",
+    "bombilla"
+   ],
+   [
+    "calor",
+    "llama"
+   ],
+   [
+    "infrarrojo",
+    "foton"
+   ]
+  ],
+  "texto": "Fíjate en que en ningún momento se perdió energía de verdad. Si sumas la luz de la bombilla, el calor de la pared y el infrarrojo que escapa, la cuenta sale exacta, hasta el último fotón.",
+  "pills": [
+   [
+    "La cuenta sale exacta",
+    "y",
+    0.05
+   ],
+   [
+    "Ninguna pérdida real",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "tierra",
+  "modo": "sol",
+  "texto": "Y la Tierra entera funciona igual. Recibe luz visible del Sol y devuelve al espacio infrarrojo. Si no devolviera tanta energía como recibe, el planeta se calentaría sin parar.",
+  "pills": [
+   [
+    "Entra luz del Sol",
+    "y",
+    0.1
+   ],
+   [
+    "Sale infrarrojo",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "tierra",
+  "modo": "sol",
+  "texto": "Los fotones del Sol tardan unos ocho minutos en llegar hasta nosotros. Pero antes pasaron miles de años rebotando dentro del propio Sol, hasta que por fin pudieron salir.",
+  "pills": [
+   [
+    "8 minutos hasta la Tierra",
+    "y",
+    0.05
+   ],
+   [
+    "Miles de años dentro del Sol",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "tierra",
+  "modo": "sol",
+  "texto": "El equilibrio es delicado: el dióxido de carbono y el vapor de agua atrapan parte de ese infrarrojo. Por eso el efecto invernadero hace habitable la Tierra, y también puede cambiar el clima.",
+  "pills": [
+   [
+    "Efecto invernadero",
+    "y",
+    0.05
+   ],
+   [
+    "Atrapa infrarrojo",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "reparto",
+  "modo": "uno",
+  "texto": "Por cada fotón visible que llega del Sol, la Tierra devuelve unos veinte fotones infrarrojos. Esa multiplicación de fotones es la forma de exportar desorden al espacio.",
+  "pills": [
+   [
+    "1 fotón entra",
+    "y",
+    0.05
+   ],
+   [
+    "≈ 20 salen",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "tierra",
+  "modo": "escape",
+  "texto": "Y fuera de la atmósfera, esos fotones infrarrojos siguen viajando. Es probable que alguno de los que emite tu casa esta noche recorra el espacio durante millones de años.",
+  "pills": [
+   [
+    "Más allá de la atmósfera",
+    "y",
+    0.05
+   ],
+   [
+    "Millones de años de viaje",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "items": [
+   [
+    "estrellas",
+    "rayo",
+    "estrellas"
+   ],
+   [
+    "tiempo",
+    "reloj",
+    "sin tiempo",
+    true
+   ]
+  ],
+  "texto": "Un fotón puede viajar así para siempre si no encuentra nada. La luz de las estrellas más lejanas lleva miles de millones de años de camino. Para el fotón, en cambio, ese viaje no dura nada.",
+  "pills": [
+   [
+    "Viaje sin fin",
+    "y",
+    0.05
+   ],
+   [
+    "Para el fotón no pasa el tiempo",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "cuerpo",
+  "modo": "cuerpo",
+  "texto": "Y ahora una sorpresa: una habitación a oscuras no está realmente a oscuras. Tu cuerpo irradia infrarrojo constantemente, y cada pared, mueble y objeto también lo hace.",
+  "pills": [
+   [
+    "Tu cuerpo emite infrarrojo",
+    "y",
+    0.05
+   ],
+   [
+    "Todo brilla en infrarrojo",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "cuerpo",
+  "modo": "camara",
+  "texto": "Una cámara térmica convierte ese infrarrojo en colores. Para ella no existe la oscuridad total en una habitación a veinte grados: todo está lleno de fotones que van y vienen entre superficies.",
+  "pills": [
+   [
+    "Cámara térmica",
+    "y",
+    0.05
+   ],
+   [
+    "Nunca hay oscuridad total",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "cuerpo",
+  "modo": "cuerpo",
+  "texto": "Por eso sientes el calor de una estufa sin tocarla. Son fotones infrarrojos que viajan por el aire, y tu piel los absorbe y los convierte en calor.",
+  "pills": [
+   [
+    "Estufa: infrarrojo",
+    "y",
+    0.05
+   ],
+   [
+    "Tu piel lo absorbe",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "ojo",
+  "modo": "poco",
+  "texto": "Para tus ojos sí hay oscuridad, porque no ven el infrarrojo. Pero un ojo bien adaptado a la penumbra puede detectar un puñado de fotones visibles: bastan unos pocos absorbidos en la retina para percibir un destello.",
+  "pills": [
+   [
+    "Tu ojo detecta pocos fotones",
+    "y",
+    0.05
+   ],
+   [
+    "Unos pocos bastan",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "ojo",
+  "modo": "retina",
+  "texto": "Es decir, la última luz que ves antes de dormir puede ser cuestión de un puñado de fotones. Cada uno desaparece en tu retina, y su energía dispara una señal nerviosa.",
+  "pills": [
+   [
+    "Cada fotón desaparece",
+    "y",
+    0.05
+   ],
+   [
+    "Se convierte en señal nerviosa",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "espectro",
+  "modo": "cmb",
+  "texto": "Incluso el espacio vacío tiene fotones. El fondo cósmico de microondas llena el universo con unos cuatrocientos fotones por centímetro cúbico, un eco del Big Bang a menos de tres grados sobre el cero absoluto.",
+  "pills": [
+   [
+    "Fondo cósmico de microondas",
+    "y",
+    0.05
+   ],
+   [
+    "≈ 400 fotones por cm³",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "title": [
+   "La oscuridad",
+   "no es vacío"
+  ],
+  "items": [
+   [
+    "térmicos",
+    "llama"
+   ],
+   [
+    "cósmicos",
+    "tierra"
+   ]
+  ],
+  "texto": "La oscuridad perfecta no existe. Siempre hay fotones térmicos, cósmicos, de fondo. Lo que llamas oscuridad es solo la ausencia de fotones visibles en cantidad suficiente para ti.",
+  "pills": [
+   [
+    "La oscuridad perfecta no existe",
+    "y",
+    0.05
+   ],
+   [
+    "Solo faltan fotones visibles",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "enciende": 0,
+  "apaga": 0.3,
+  "texto": "Así que cuando apagas la luz, no desaparece una cosa llamada luz. Desaparece una fuente de fotones visibles, y la habitación pasa a estar dominada por fotones que tus ojos no ven.",
+  "pills": [
+   [
+    "Se apaga una fuente",
+    "y",
+    0.05
+   ],
+   [
+    "Quedan fotones que no ves",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "title": [
+   "Los fotones",
+   "se transforman"
+  ],
+  "items": [
+   [
+    "bajar",
+    "atomo"
+   ],
+   [
+    "absorbe",
+    "pared"
+   ]
+  ],
+  "texto": "Repasemos el viaje. Los fotones se crean cuando un electrón baja de nivel, y se destruyen cuando otro electrón los absorbe. No se conservan: se transforman.",
+  "pills": [
+   [
+    "Se crean al bajar de nivel",
+    "y",
+    0.05
+   ],
+   [
+    "Se destruyen al absorberse",
+    "g",
+    0.5
+   ]
+  ]
+ },
+ {
+  "tipo": "balance",
+  "modo": "cadena",
+  "texto": "La energía, en cambio, se conserva siempre. Lo que era luz se convierte en calor, el calor se convierte en infrarrojo, y el infrarrojo se escapa hacia el espacio.",
+  "pills": [
+   [
+    "Luz",
+    "y",
+    0.1
+   ],
+   [
+    "Calor",
+    "g",
+    0.35
+   ],
+   [
+    "Infrarrojo",
+    "y",
+    0.6
+   ],
+   [
+    "Espacio",
+    "g",
+    0.85
+   ]
+  ]
+ },
+ {
+  "tipo": "tierra",
+  "modo": "escape",
+  "texto": "La próxima vez que apagues la luz, piensa en esto: en unos nanosegundos, billones de fotones habrán dejado de existir, y cada uno dejó su energía en algún sitio.",
+  "pills": [
+   [
+    "En unos nanosegundos",
+    "y",
+    0.05
+   ],
+   [
+    "Cada uno dejó su energía",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "enciende": 0,
+  "apaga": 0.4,
+  "texto": "Y esto ocurre cada vez que alguien pulsa un interruptor, miles de millones de veces al día en el mundo entero. Cada apagado es una pequeña lluvia de fotones que se transforma en calor.",
+  "pills": [
+   [
+    "Miles de millones de veces al día",
+    "y",
+    0.05
+   ],
+   [
+    "Una lluvia que se vuelve calor",
+    "g",
+    0.55
+   ]
+  ]
+ },
+ {
+  "tipo": "habitacion",
+  "enciende": 0,
+  "apaga": 0.2,
+  "modo": "viaje",
+  "texto": "Esa energía calentará la pared, saldrá al exterior, cruzará el cielo nocturno y quizá llegue al espacio. Nada se destruye. Solo cambia de forma.",
+  "pills": [
+   [
+    "Nada se destruye",
+    "y",
+    0.4
+   ],
+   [
+    "Solo cambia de forma",
+    "g",
+    0.7
+   ]
+  ]
+ },
+ {
+  "tipo": "foton",
+  "title": [
+   "Preguntar lo",
+   "que parece obvio"
+  ],
+  "items": [
+   [
+    "interruptor",
+    "bombilla"
+   ],
+   [
+    "planeta",
+    "tierra"
+   ]
+  ],
+  "texto": "Una pregunta tan simple como qué pasa al apagar la luz nos ha llevado de un interruptor a la física del planeta. En el próximo vídeo seguimos preguntando lo que parece obvio.",
+  "pills": [
+   [
+    "Una pregunta simple",
+    "y",
+    0.05
+   ],
+   [
+    "Hasta la física del planeta",
+    "g",
+    0.5
+   ]
+  ]
  }
 ]

@@ -7,10 +7,11 @@ import {Fade} from './Prueba';
 import {BODY, Overlay, Zoom, Spec} from './Completo';
 import {Cues} from './Props';
 import {Foton, Habitacion} from './Fotones';
+import {Filamento, Niveles, Espectro, CalorPared, Tierra, Decaimiento, ColorSup, Banda, Reparto, Balance, Cuerpo, Ojo} from './Fotones2';
 
 const FR = tl.frames as number[];
 export const TOTAL_V2 = FR.reduce((a, b) => a + b, 0);
-const B2: Record<string, React.FC<any>> = {...BODY, habitacion: Habitacion, foton: Foton};
+const B2: Record<string, React.FC<any>> = {...BODY, habitacion: Habitacion, foton: Foton, filamento: Filamento, niveles: Niveles, espectro: Espectro, calorpared: CalorPared, tierra: Tierra, decaimiento: Decaimiento, color: ColorSup, banda: Banda, reparto: Reparto, balance: Balance, cuerpo: Cuerpo, ojo: Ojo};
 
 export const Video2: React.FC = () => {
   const sc = spec as unknown as (Spec & {texto: string})[];
