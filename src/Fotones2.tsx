@@ -254,7 +254,7 @@ export const Reparto: React.FC<{s: any; dur: number}> = ({s, dur}) => {
         return <Dot key={k} p={[-0.8 + Math.cos(a) * ph * 7 * sp2, Math.sin(a) * ph * 4.3 * sp2, 0.3]} r={0.11} c={k % 2 ? '#ff5a3c' : '#ff8a4c'} o={0.4 + 0.6 * (1 - ph * 0.3)} />; })}
       {u >= tb && u < tb + 0.04 && <mesh position={[-0.8, 0, 0]} scale={1 + (u - tb) * 70}><sphereGeometry args={[0.5, 16, 12]} /><meshBasicMaterial color="#fff" transparent opacity={0.6 * (1 - (u - tb) / 0.04)} /></mesh>}
     </Stage>
-    <Txt x={110} y={800} t={u < tb ? '1 fotón visible (energía E)' : '≈ 20 fotones infrarrojos (E/20 cada uno)'} c={u < tb ? '#fff1a0' : '#ff8a6c'} s={40} />
+    <Txt x={110} y={800} t={u < tb ? (s.cap ? s.cap[0] : '1 fotón visible (energía E)') : (s.cap ? s.cap[1] : '≈ 20 fotones infrarrojos (E/20 cada uno)')} c={u < tb ? '#fff1a0' : '#ff8a6c'} s={40} />
     {m === 'entropia' && <Txt x={110} y={880} t="orden → desorden (entropía ↑)" c={C.yellow} s={36} o={seg(u, 0.5, 0.65)} />}
   </>);
 };

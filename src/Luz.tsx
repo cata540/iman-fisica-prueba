@@ -48,7 +48,7 @@ export const TierraSol: React.FC<{s: any; dur: number}> = ({s, dur}) => {
     <Txt x={720} y={880} t="150 millones de km" c="#e9e4f7" s={34} w={500} />
     <svg width="1920" height="1080" style={{position: 'absolute', inset: 0}}><line x1="260" y1="860" x2="1640" y2="860" stroke="#e9e4f7" strokeWidth="3" strokeDasharray="14 12" /></svg>
     {m === 'tarda' && <Txt x={1380} y={86} t={`t = ${clock(secs)}`} c={C.yellow} s={64} w={700} />}
-    {m === 'v' && <Txt x={1300} y={86} t="c ≈ 299 792 km/s" c={C.yellow} s={56} w={700} />}
+    {m === 'v' && <Txt x={s.rotulo ? 760 : 1300} y={86} t={s.rotulo ?? 'c ≈ 299 792 km/s'} c={C.yellow} s={s.rotulo ? 44 : 56} w={700} />}
   </>);
 };
 

@@ -47,11 +47,11 @@ export const Corrimiento: React.FC<{s: any; dur: number}> = ({dur}) => {
 export const Pozo: React.FC<{s: any; dur: number}> = ({dur}) => {
   const f = useCurrentFrame(); const t = f / 30; const u = f / dur;
   const X0 = 240, X1 = 1680, Y0 = 400; // y=Y0 es la energía cero
-  const U = (r: number) => -1 / Math.max(0.12, r); // r en 0..1+
+  const U = (r: number) => -1 / (r + 0.28);
   const mapX = (r: number) => X0 + (X1 - X0) * (r / 1.0);
-  const mapY = (v: number) => Y0 - v * 150; // v negativo -> baja
-  const pts: string[] = []; for (let i = 3; i <= 100; i++) { const r = i / 100; pts.push(`${mapX(r)},${Math.min(900, mapY(U(r) * 0.9))}`); }
-  const rb = 1 - 0.9 * seg((u * 2.2) % 1.0, 0, 0.85); const bx = mapX(rb), by = Math.min(900, mapY(U(rb) * 0.9)) - 26;
+  const mapY = (v: number) => Y0 - v * 105;
+  const pts: string[] = []; for (let i = 0; i <= 100; i++) { const r = i / 100; pts.push(`${mapX(r)},${mapY(U(r))}`); }
+  const rb = 1 - 0.97 * seg((u * 2.2) % 1.0, 0, 0.85); const bx = mapX(rb), by = mapY(U(rb)) - 26;
   return (<Svg>
     <line x1={X0 - 40} y1={Y0} x2={X1 + 20} y2={Y0} stroke="#e9e4f7" strokeOpacity="0.7" strokeWidth="4" strokeDasharray="14 12" />
     <text x={X1 - 330} y={Y0 - 18} fill="#e9e4f7" fontSize="32" fontWeight="600" fontFamily={FONT}>energía cero (infinitamente lejos)</text>
@@ -88,7 +88,7 @@ export const Vacio: React.FC<{s: any; dur: number}> = ({dur}) => {
     {[...Array(34)].map((_, i) => { const per = 1.4 + rnd(i * 5 + 1) * 2.2; const ph = ((t + rnd(i * 5 + 2) * 6) % per) / per; const life = Math.sin(ph * Math.PI);
       const x = 200 + rnd(i * 5 + 3) * 1500, y = 220 + rnd(i * 5 + 4) * 700; const d = 14 + life * 46;
       return (<g key={i} opacity={Math.max(0, life) * 0.95}><circle cx={x - d} cy={y} r={8 + life * 8} fill={CYAN} /><circle cx={x + d} cy={y} r={8 + life * 8} fill={MAG} /><line x1={x - d} y1={y} x2={x + d} y2={y} stroke="#ffffff" strokeOpacity="0.25" strokeWidth="2" /></g>); })}
-    <text x="200" y="150" fill="#fff" fontSize="40" fontWeight="700" fontFamily={FONT}>el vacío cuántico: campos que fluctúan</text>
+    <text x="200" y="250" fill="#fff" fontSize="40" fontWeight="700" fontFamily={FONT}>el vacío cuántico: campos que fluctúan</text>
     <text x="200" y="1010" fill={C.yellow} fontSize="48" fontWeight="700" fontFamily={FONT}>ΔE · Δt ≥ ħ / 2</text>
   </Svg>);
 };

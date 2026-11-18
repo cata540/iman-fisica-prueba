@@ -42,6 +42,7 @@ for (const [pre, tipo, modo, objs] of R) {
   const s = g.find((x) => x.texto.startsWith(pre)); if (!s) { miss.push(pre); continue; }
   s.tipo = tipo; if (modo) s.modo = modo; else delete s.modo; delete s.cards; if (objs) s.objs = objs; else delete s.objs; n++;
 }
+for (const [pre, k, v] of [['El Sol convierte', 'rotulo', '≈ 4 millones de toneladas por segundo → energía'], ['Al terminar la inflación, el campo', 'cap', ['Campo con energía almacenada', '→ partículas y radiación']]]) { const s = g.find((x) => x.texto.startsWith(pre)); if (s) s[k] = v; }
 // los CTA no deben ser tarjetas vacías
 const safe = ['pendulo', 'linea', 'minkowski'];
 g.forEach((s, i) => { if (s.cta && s.cta < 3 && s.tipo === 'cifra') { s.tipo = safe[s.cta % 3]; if (s.tipo === 'linea') s.modo = 'cosmica'; if (s.tipo === 'minkowski') s.modo = 'luz'; delete s.cards; } });

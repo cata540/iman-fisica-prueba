@@ -368,7 +368,8 @@
     0.05
    ]
   ],
-  "modo": "v"
+  "modo": "v",
+  "rotulo": "≈ 4 millones de toneladas por segundo → energía"
  },
  {
   "tipo": "cifra",
@@ -1468,7 +1469,11 @@
     0.5
    ]
   ],
-  "modo": "uno"
+  "modo": "uno",
+  "cap": [
+   "Campo con energía almacenada",
+   "→ partículas y radiación"
+  ]
  },
  {
   "tipo": "bigbang",

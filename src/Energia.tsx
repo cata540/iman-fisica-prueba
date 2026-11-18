@@ -13,10 +13,10 @@ export const Pendulo: React.FC<{s: any; dur: number}> = ({dur}) => {
   const Ep = (1 - Math.cos(th)) / (1 - Math.cos(A)); const Ek = 1 - Ep;
   const L = 3.1; const px = Math.sin(th) * L, py = -Math.cos(th) * L;
   const trail = [...Array(14)].map((_, i) => { const tt = t - i * 0.05; const a = A * Math.cos((tt / 2.4) * Math.PI * 2); return [Math.sin(a) * L, -Math.cos(a) * L, 1 - i / 14] as const; });
-  const bar = (y: number, v: number, col: string, name: string) => (<g><text x="1130" y={y - 16} fill="#fff" fontSize="36" fontWeight="600">{name}</text><rect x="1130" y={y} width="600" height="46" rx="14" fill="rgba(255,255,255,.12)" /><rect x="1130" y={y} width={Math.max(2, 600 * v)} height="46" rx="14" fill={col} /></g>);
+  const bar = (y: number, v: number, col: string, name: string) => (<g><text x="1250" y={y - 16} fill="#fff" fontSize="36" fontWeight="600">{name}</text><rect x="1250" y={y} width="500" height="46" rx="14" fill="rgba(255,255,255,.12)" /><rect x="1250" y={y} width={Math.max(2, 500 * v)} height="46" rx="14" fill={col} /></g>);
   return (<>
     <Stage cam={[0, -0.6, 10]}>
-      <group position={[-1.2, 3.0, 0]} scale={sp(f, 0) * 1.25}>
+      <group position={[-2.5, 3.0, 0]} scale={sp(f, 0) * 1.2}>
         <mesh position={[0, 0.05, 0]}><boxGeometry args={[1.5, 0.18, 0.4]} />{mat('#8a84a8', 0.3)}</mesh>
         <mesh position={[px / 2, py / 2, 0]} rotation={[0, 0, th]}><cylinderGeometry args={[0.025, 0.025, L, 8]} />{mat('#d9d4ee', 0.3)}</mesh>
         {trail.map((p, i) => <Dot key={i} p={[p[0], p[1], -0.1]} r={0.1 * p[2]} c={C.yellow} o={0.5 * p[2]} />)}
@@ -25,9 +25,9 @@ export const Pendulo: React.FC<{s: any; dur: number}> = ({dur}) => {
     </Stage>
     <Svg o={0.4 + 0.6 * seg(u, 0, 0.1)}>
       {bar(360, Ep, CYAN, 'Energía potencial (altura)')}{bar(500, Ek, C.yellow, 'Energía cinética (movimiento)')}
-      <line x1="1130" y1="590" x2="1730" y2="590" stroke="#e9e4f7" strokeOpacity="0.4" strokeWidth="3" />
+      <line x1="1250" y1="590" x2="1750" y2="590" stroke="#e9e4f7" strokeOpacity="0.4" strokeWidth="3" />
       {bar(660, Ep + Ek, C.green, 'Total')}
-      <text x="1130" y="800" fill={C.green} fontSize="44" fontWeight="700">siempre igual</text>
+      <text x="1250" y="800" fill={C.green} fontSize="44" fontWeight="700">siempre igual</text>
     </Svg>
   </>);
 };
