@@ -18,7 +18,7 @@ import {Physics, useRapier} from '@react-three/rapier';
 
 // Se monta dentro de <Physics>, DESPUÉS de los cuerpos (debe ser el último hijo).
 const Avanzar: React.FC<{pasos: number; dt: number}> = ({pasos, dt}) => {
-  const {step} = useRapier();
+  const {step, world} = useRapier();
   const invalidate = useThree((s) => s.invalidate);
   const handle = useRef<number | null>(null);
   // 1) efecto de layout (síncrono con el commit): reserva el fotograma para que Remotion no capture antes de tiempo
@@ -28,7 +28,10 @@ const Avanzar: React.FC<{pasos: number; dt: number}> = ({pasos, dt}) => {
   // 2) efecto pasivo: se ejecuta DESPUÉS de los efectos de los RigidBody/colliders hermanos (que crean los cuerpos
   //    de Rapier en useEffect). Si se avanzara antes, el mundo estaría vacío y la simulación no moveria nada.
   useEffect(() => {
+    const antes = world.bodies.len();
     for (let i = 0; i < pasos; i++) step(dt);
+    const ys: number[] = []; world.forEachRigidBody((b: any) => ys.push(Number(b.translation().y.toFixed(2))));
+    console.warn('FISICA_DEBUG pasos=' + pasos + ' cuerpos=' + antes + ' ys=' + JSON.stringify(ys));
     invalidate();
     // espera a que WebGL pinte el estado ya simulado antes de liberar el fotograma
     requestAnimationFrame(() => requestAnimationFrame(() => { invalidate(); requestAnimationFrame(() => { if (handle.current !== null) continueRender(handle.current); }); }));
