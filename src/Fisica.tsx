@@ -25,30 +25,35 @@ import {useThree} from '@react-three/fiber';
 import {Physics, useRapier} from '@react-three/rapier';
 
 const Avanzar: React.FC<{pasos: number; dt: number}> = ({pasos, dt}) => {
-  console.warn('FISICA_R render Avanzar pasos=' + pasos);
-  const {step} = useRapier();
+  const {step, world} = useRapier();
+  const d1 = useRef<any>(null); const d2 = useRef<any>(null); const d3 = useRef<any>(null);
   const advance = useThree((s) => s.advance);
   const handle = useRef<number | null>(null);
   // efecto de layout (síncrono con el commit): reserva el fotograma para que Remotion no lo capture todavía
   useLayoutEffect(() => {
-    console.warn('FISICA_R layoutEffect');
     handle.current = delayRender(`rapier: simulando ${pasos} pasos`);
   }, []);
   // efecto pasivo: tras los efectos de los cuerpos hermanos (ya creados en Rapier)
   useEffect(() => {
-    console.warn('FISICA_R passiveEffect');
+    const n0 = world.bodies.len();
     for (let i = 0; i < pasos; i++) step(dt);
-    console.warn('FISICA_R stepped');
+    let y0 = -99; world.forEachRigidBody((b: any) => { if (y0 === -99) y0 = b.translation().y; });
+    if (d1.current) { d1.current.material.color.set('#00ff00'); d1.current.scale.setScalar(0.3 + n0 * 0.25); }
+    if (d2.current) { d2.current.position.y = y0 === -99 ? -1 : y0 - 3; d2.current.material.color.set('#ffffff'); }
+    if (d3.current) { d3.current.scale.setScalar(0.2 + pasos * 0.01); }
     advance(performance.now()); // repinta con las posiciones ya simuladas (frameloop "never" en render)
     requestAnimationFrame(() => { if (handle.current !== null) continueRender(handle.current); });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return null;
+  return (<>
+    <mesh ref={d1} position={[5, 3.2, 0.5]} scale={0.3}><boxGeometry args={[1, 1, 1]} /><meshBasicMaterial color="#ff0000" /></mesh>
+    <mesh ref={d2} position={[6, 1, 0.5]}><boxGeometry args={[0.5, 0.5, 0.5]} /><meshBasicMaterial color="#ff00ff" /></mesh>
+    <mesh ref={d3} position={[5, 2, 0.5]} scale={0.2}><boxGeometry args={[1, 1, 1]} /><meshBasicMaterial color="#ffff00" /></mesh>
+  </>);
 };
 
 export const Fisica: React.FC<{frame: number; fps?: number; gravity?: [number, number, number]; children: React.ReactNode}> = ({frame, fps = 30, gravity = [0, -9.81, 0], children}) => {
   const dt = 1 / fps;
-  console.warn('FISICA_R render Fisica frame=' + frame);
   return (
     <Physics key={frame} paused timeStep={dt} interpolate={false} gravity={gravity}>
       {children}
