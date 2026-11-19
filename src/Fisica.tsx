@@ -24,7 +24,7 @@ import {continueRender, delayRender} from 'remotion';
 import {useThree} from '@react-three/fiber';
 import {Physics, useRapier} from '@react-three/rapier';
 
-const Avanzar: React.FC<{pasos: number; dt: number}> = ({pasos, dt}) => {
+const Avanzar: React.FC<{pasos: number; dt: number; gravity: [number, number, number]}> = ({pasos, dt, gravity}) => {
   const {step, world} = useRapier();
   const d1 = useRef<any>(null); const d2 = useRef<any>(null); const d3 = useRef<any>(null);
   const advance = useThree((s) => s.advance);
@@ -35,6 +35,9 @@ const Avanzar: React.FC<{pasos: number; dt: number}> = ({pasos, dt}) => {
   }, []);
   // efecto pasivo: tras los efectos de los cuerpos hermanos (ya creados en Rapier)
   useEffect(() => {
+    // los efectos de <Physics> (padre) corren después que los de este hijo: fijamos aquí la gravedad y el paso
+    world.gravity = {x: gravity[0], y: gravity[1], z: gravity[2]};
+    world.timestep = dt;
     const n0 = world.bodies.len();
     for (let i = 0; i < pasos; i++) step(dt);
     let y0 = -99; world.forEachRigidBody((b: any) => { if (y0 === -99) y0 = b.translation().y; });
@@ -57,7 +60,7 @@ export const Fisica: React.FC<{frame: number; fps?: number; gravity?: [number, n
   return (
     <Physics key={frame} paused timeStep={dt} interpolate={false} gravity={gravity}>
       {children}
-      <Avanzar pasos={frame} dt={dt} />
+      <Avanzar pasos={frame} dt={dt} gravity={gravity} />
     </Physics>
   );
 };
