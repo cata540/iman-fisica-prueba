@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@react-three/fiber": "8.17.10",
+    "@react-three/rapier": "1.5.0",
     "@remotion/cli": "4.0.520",
     "@remotion/google-fonts": "4.0.520",
     "@remotion/three": "4.0.520",

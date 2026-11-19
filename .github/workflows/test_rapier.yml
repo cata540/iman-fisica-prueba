@@ -1,0 +1,33 @@
+name: test-rapier
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 libasound2 libxrandr2 libxkbcommon-dev libxfixes3 libxcomposite1 libxdamage1 libgbm-dev libcups2 libpango-1.0-0 libcairo2 ffmpeg
+      - run: npm ci
+      - name: Fotogramas fuera de orden (comprueba el determinismo)
+        run: |
+          mkdir -p out
+          npx remotion still src/index.ts TestFisica out/a60.png --frame=60 --gl=swangle
+          npx remotion still src/index.ts TestFisica out/b60.png --frame=60 --gl=swangle
+          npx remotion still src/index.ts TestFisica out/f00.png --frame=0 --gl=swangle
+          npx remotion still src/index.ts TestFisica out/f30.png --frame=30 --gl=swangle
+          npx remotion still src/index.ts TestFisica out/f90.png --frame=90 --gl=swangle
+          cmp out/a60.png out/b60.png && echo "DETERMINISTA: el fotograma 60 sale idéntico en dos renders" | tee out/resultado.txt || echo "NO DETERMINISTA" | tee out/resultado.txt
+          ffmpeg -y -i out/f00.png -i out/f30.png -i out/a60.png -i out/f90.png -filter_complex "[0][1]hstack[a];[2][3]hstack[b];[a][b]vstack" out/rapier_test.png
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rapier
+          path: |
+            out/rapier_test.png
+            out/resultado.txt
