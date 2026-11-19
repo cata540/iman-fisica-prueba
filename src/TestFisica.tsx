@@ -14,6 +14,7 @@ export const TestFisica: React.FC = () => {
       <Backdrop />
       <ThreeCanvas width={width} height={height} camera={{position: [0, 1.5, 11], fov: 40}}>
         <ambientLight intensity={0.9} /><directionalLight position={[4, 6, 7]} intensity={2.2} />
+        <mesh position={[-5, 3.2, 0]}><boxGeometry args={[1, 1, 1]} /><meshStandardMaterial color="#3DDC97" /></mesh>
         <Fisica frame={frame} fps={fps}>
           {[[-2.5, 4, '#FFD83A'], [0, 6, '#2FD0F0'], [2.5, 8, '#FF4FD8']].map(([x, y, c], i) => (
             <RigidBody key={i} colliders="ball" restitution={0.75} position={[x as number, y as number, 0]}>

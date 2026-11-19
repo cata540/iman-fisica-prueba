@@ -19,6 +19,7 @@ const Avanzar: React.FC<{pasos: number; dt: number; onListo: () => void}> = ({pa
   const {step} = useRapier();
   const invalidate = useThree((s) => s.invalidate);
   useLayoutEffect(() => {
+    console.log('FISICA_AVANZA pasos', pasos);
     for (let i = 0; i < pasos; i++) step(dt);
     invalidate();
     // espera a que WebGL pinte el estado ya simulado antes de dejar que Remotion capture el fotograma
@@ -28,15 +29,22 @@ const Avanzar: React.FC<{pasos: number; dt: number; onListo: () => void}> = ({pa
   return null;
 };
 
+class Captura extends React.Component<{children: React.ReactNode}, {err: string | null}> {
+  state = {err: null as string | null};
+  static getDerivedStateFromError(e: any) { return {err: String(e && e.message ? e.message : e)}; }
+  componentDidCatch(e: any) { console.log('FISICA_ERROR', String(e && e.stack ? e.stack : e)); }
+  render() { return this.state.err ? null : this.props.children; }
+}
+
 export const Fisica: React.FC<{frame: number; fps?: number; gravity?: [number, number, number]; children: React.ReactNode}> = ({frame, fps = 30, gravity = [0, -9.81, 0], children}) => {
-  const handle = useMemo(() => delayRender(`rapier: simulando ${frame} pasos`), [frame]);
+  const handle = useMemo(() => { console.log('FISICA_MONTA frame', frame); return delayRender(`rapier: simulando ${frame} pasos`); }, [frame]);
   const dt = 1 / fps;
   return (
-    <Suspense fallback={null}>
+    <Captura><Suspense fallback={null}>
       <Physics key={frame} paused timeStep={dt} interpolate={false} gravity={gravity}>
         {children}
         <Avanzar pasos={frame} dt={dt} onListo={() => continueRender(handle)} />
       </Physics>
-    </Suspense>
+    </Suspense></Captura>
   );
 };

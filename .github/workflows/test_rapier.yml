@@ -18,7 +18,7 @@ jobs:
       - name: Diagnóstico con log detallado
         run: |
           mkdir -p out
-          npx remotion still src/index.ts TestFisica out/a60.png --frame=60 --gl=swangle --log=verbose 2>&1 | tee out/log60.txt | tail -60
+          npx remotion still src/index.ts TestFisica out/a60.png --frame=60 --gl=swangle --log=verbose 2>&1 | tee out/log60.txt | grep -E 'FISICA|console' | head -30
       - name: Fotogramas
         run: |
           npx remotion still src/index.ts TestFisica out/b60.png --frame=60 --gl=swangle
