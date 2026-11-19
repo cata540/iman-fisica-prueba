@@ -11,7 +11,7 @@
 //   </Fisica>
 // Los objetos deben ser iguales en cada fotograma (mismas posiciones iniciales). El coste es O(frame) pasos de
 // Rapier por fotograma: trivial con pocos cuerpos. Para escenas largas usa el fotograma local de la <Sequence>.
-import React, {useEffect, useLayoutEffect, useRef} from 'react';
+import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import {continueRender, delayRender} from 'remotion';
 import {useThree} from '@react-three/fiber';
 import {Physics, useRapier} from '@react-three/rapier';
@@ -21,6 +21,7 @@ const Avanzar: React.FC<{pasos: number; dt: number}> = ({pasos, dt}) => {
   const {step, world} = useRapier();
   const invalidate = useThree((s) => s.invalidate);
   const handle = useRef<number | null>(null);
+  const [dbg, setDbg] = useState('no-efecto');
   // 1) efecto de layout (síncrono con el commit): reserva el fotograma para que Remotion no capture antes de tiempo
   useLayoutEffect(() => {
     handle.current = delayRender(`rapier: simulando ${pasos} pasos`);
@@ -32,12 +33,13 @@ const Avanzar: React.FC<{pasos: number; dt: number}> = ({pasos, dt}) => {
     for (let i = 0; i < pasos; i++) step(dt);
     const ys: number[] = []; world.forEachRigidBody((b: any) => ys.push(Number(b.translation().y.toFixed(2))));
     console.warn('FISICA_DEBUG pasos=' + pasos + ' cuerpos=' + antes + ' ys=' + JSON.stringify(ys));
+    setDbg(JSON.stringify({pasos, cuerpos: antes, ys}));
     invalidate();
     // espera a que WebGL pinte el estado ya simulado antes de liberar el fotograma
     requestAnimationFrame(() => requestAnimationFrame(() => { invalidate(); requestAnimationFrame(() => { if (handle.current !== null) continueRender(handle.current); }); }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return null;
+  return (<mesh position={[5, 3.2, 0]} scale={dbg === 'no-efecto' ? 0.3 : 1}><boxGeometry args={[1, 1, 1]} /><meshBasicMaterial color={dbg === 'no-efecto' ? '#ff0000' : '#00ff00'} /></mesh>);
 };
 
 export const Fisica: React.FC<{frame: number; fps?: number; gravity?: [number, number, number]; children: React.ReactNode}> = ({frame, fps = 30, gravity = [0, -9.81, 0], children}) => {
