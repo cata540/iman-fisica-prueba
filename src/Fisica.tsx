@@ -11,22 +11,27 @@
 //   </Fisica>
 // Los objetos deben ser iguales en cada fotograma (mismas posiciones iniciales). El coste es O(frame) pasos de
 // Rapier por fotograma: trivial con pocos cuerpos. Para escenas largas usa el fotograma local de la <Sequence>.
-import React, {useLayoutEffect} from 'react';
+import React, {useEffect, useLayoutEffect, useRef} from 'react';
 import {continueRender, delayRender} from 'remotion';
 import {useThree} from '@react-three/fiber';
 import {Physics, useRapier} from '@react-three/rapier';
 
-// Se monta dentro de <Physics>, después de los cuerpos. El delayRender se registra aquí (en un efecto, no en el
-// render) para no dejar manejadores huérfanos si React descarta un render mientras Rapier carga.
+// Se monta dentro de <Physics>, DESPUÉS de los cuerpos (debe ser el último hijo).
 const Avanzar: React.FC<{pasos: number; dt: number}> = ({pasos, dt}) => {
   const {step} = useRapier();
   const invalidate = useThree((s) => s.invalidate);
+  const handle = useRef<number | null>(null);
+  // 1) efecto de layout (síncrono con el commit): reserva el fotograma para que Remotion no capture antes de tiempo
   useLayoutEffect(() => {
-    const handle = delayRender(`rapier: simulando ${pasos} pasos`);
+    handle.current = delayRender(`rapier: simulando ${pasos} pasos`);
+  }, []);
+  // 2) efecto pasivo: se ejecuta DESPUÉS de los efectos de los RigidBody/colliders hermanos (que crean los cuerpos
+  //    de Rapier en useEffect). Si se avanzara antes, el mundo estaría vacío y la simulación no moveria nada.
+  useEffect(() => {
     for (let i = 0; i < pasos; i++) step(dt);
     invalidate();
-    // espera a que WebGL pinte el estado ya simulado antes de dejar que Remotion capture el fotograma
-    requestAnimationFrame(() => requestAnimationFrame(() => { invalidate(); requestAnimationFrame(() => continueRender(handle)); }));
+    // espera a que WebGL pinte el estado ya simulado antes de liberar el fotograma
+    requestAnimationFrame(() => requestAnimationFrame(() => { invalidate(); requestAnimationFrame(() => { if (handle.current !== null) continueRender(handle.current); }); }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return null;
