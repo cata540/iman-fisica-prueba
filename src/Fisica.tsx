@@ -1,3 +1,6 @@
+// ⚠ EXPERIMENTAL / NO VERIFICADO (2026-11-19): en las pruebas de Actions (workflow test_rapier) los cuerpos NO caen en render
+// (las bolas quedan en su posición inicial aunque se llame a world.step y a advance()). Contiene sondas de depuración.
+// No usar en un vídeo sin resolverlo antes. Ver las notas de abajo sobre frameloop="never" de <ThreeCanvas>.
 // Física 3D determinista para Remotion con @react-three/rapier.
 //
 // POR QUÉ ASÍ (aprendido probando en Actions):
