@@ -25,16 +25,20 @@ import {useThree} from '@react-three/fiber';
 import {Physics, useRapier} from '@react-three/rapier';
 
 const Avanzar: React.FC<{pasos: number; dt: number}> = ({pasos, dt}) => {
+  console.warn('FISICA_R render Avanzar pasos=' + pasos);
   const {step} = useRapier();
   const advance = useThree((s) => s.advance);
   const handle = useRef<number | null>(null);
   // efecto de layout (síncrono con el commit): reserva el fotograma para que Remotion no lo capture todavía
   useLayoutEffect(() => {
+    console.warn('FISICA_R layoutEffect');
     handle.current = delayRender(`rapier: simulando ${pasos} pasos`);
   }, []);
   // efecto pasivo: tras los efectos de los cuerpos hermanos (ya creados en Rapier)
   useEffect(() => {
+    console.warn('FISICA_R passiveEffect');
     for (let i = 0; i < pasos; i++) step(dt);
+    console.warn('FISICA_R stepped');
     advance(performance.now()); // repinta con las posiciones ya simuladas (frameloop "never" en render)
     requestAnimationFrame(() => { if (handle.current !== null) continueRender(handle.current); });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -44,6 +48,7 @@ const Avanzar: React.FC<{pasos: number; dt: number}> = ({pasos, dt}) => {
 
 export const Fisica: React.FC<{frame: number; fps?: number; gravity?: [number, number, number]; children: React.ReactNode}> = ({frame, fps = 30, gravity = [0, -9.81, 0], children}) => {
   const dt = 1 / fps;
+  console.warn('FISICA_R render Fisica frame=' + frame);
   return (
     <Physics key={frame} paused timeStep={dt} interpolate={false} gravity={gravity}>
       {children}
