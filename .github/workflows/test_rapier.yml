@@ -4,7 +4,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-22.04
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,21 +15,22 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libnss3 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 libasound2 libxrandr2 libxkbcommon-dev libxfixes3 libxcomposite1 libxdamage1 libgbm-dev libcups2 libpango-1.0-0 libcairo2 ffmpeg
       - run: npm ci
-      - name: Diagnóstico con log detallado
+      - name: Tres variantes a distintos fotogramas
         run: |
           mkdir -p out
-          npx remotion still src/index.ts TestFisica out/a60.png --frame=60 --gl=swangle --log=verbose 2>&1 | tee out/log60.txt | grep -E 'FISICA|console' | head -30
-      - name: Fotogramas
-        run: |
-          npx remotion still src/index.ts TestFisica out/b60.png --frame=60 --gl=swangle
-          npx remotion still src/index.ts TestFisica out/f00.png --frame=0 --gl=swangle
-          npx remotion still src/index.ts TestFisica out/f30.png --frame=30 --gl=swangle
-          npx remotion still src/index.ts TestFisica out/f90.png --frame=90 --gl=swangle
-          cmp -s out/a60.png out/b60.png && D1=ok || D1=no
-          cmp -s out/f30.png out/f90.png && D2=igual || D2=distinto
-          cmp -s out/f00.png out/f90.png && D3=igual || D3=distinto
-          echo "mismo fotograma, dos renders: $D1 | f30 vs f90: $D2 | f0 vs f90: $D3" | tee out/resultado.txt
-          ffmpeg -y -i out/f00.png -i out/f30.png -i out/a60.png -i out/f90.png -filter_complex "[0][1]hstack[a];[2][3]hstack[b];[a][b]vstack" out/rapier_test.png
+          for m in A B C; do
+            for f in 0 30 90; do
+              npx remotion still src/index.ts TestFisica$m out/${m}_$f.png --frame=$f --gl=swangle --log=verbose > out/log_${m}_$f.txt 2>&1 || echo "FALLO $m $f"
+            done
+          done
+          npx remotion still src/index.ts TestFisicaC out/C_30b.png --frame=30 --gl=swangle
+          if cmp -s out/C_30.png out/C_30b.png; then echo "C: mismo fotograma, dos renders: IDENTICO" > out/resultado.txt; else echo "C: mismo fotograma, dos renders: DISTINTO" > out/resultado.txt; fi
+          for m in A B C; do
+            if cmp -s out/${m}_0.png out/${m}_90.png; then echo "$m: f0 y f90 IGUALES" >> out/resultado.txt; else echo "$m: f0 y f90 distintos" >> out/resultado.txt; fi
+          done
+          cat out/resultado.txt
+          ffmpeg -y -i out/A_0.png -i out/A_90.png -i out/B_0.png -i out/B_90.png -i out/C_0.png -i out/C_30.png -i out/C_90.png -i out/C_30b.png -filter_complex "[0][1][2][3]hstack=4[a];[4][5][6][7]hstack=4[b];[a][b]vstack,scale=2560:-1" out/rapier_test.png
+          grep -hE "FISICA|rapier" out/log_C_30.txt | head -10 > out/log_resumen.txt || true
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -37,4 +38,5 @@ jobs:
           path: |
             out/rapier_test.png
             out/resultado.txt
-            out/log60.txt
+            out/log_resumen.txt
+            out/log_C_30.txt
