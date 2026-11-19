@@ -12,13 +12,17 @@
 // `frame` por escena (usa el fotograma local de la <Sequence>).
 import React, {Suspense, useLayoutEffect, useMemo} from 'react';
 import {continueRender, delayRender} from 'remotion';
+import {useThree} from '@react-three/fiber';
 import {Physics, useRapier} from '@react-three/rapier';
 
 const Avanzar: React.FC<{pasos: number; dt: number; onListo: () => void}> = ({pasos, dt, onListo}) => {
   const {step} = useRapier();
+  const invalidate = useThree((s) => s.invalidate);
   useLayoutEffect(() => {
     for (let i = 0; i < pasos; i++) step(dt);
-    onListo();
+    invalidate();
+    // espera a que WebGL pinte el estado ya simulado antes de dejar que Remotion capture el fotograma
+    requestAnimationFrame(() => requestAnimationFrame(() => { invalidate(); requestAnimationFrame(() => onListo()); }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return null;

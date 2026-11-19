@@ -23,7 +23,10 @@ jobs:
           npx remotion still src/index.ts TestFisica out/f00.png --frame=0 --gl=swangle
           npx remotion still src/index.ts TestFisica out/f30.png --frame=30 --gl=swangle
           npx remotion still src/index.ts TestFisica out/f90.png --frame=90 --gl=swangle
-          cmp out/a60.png out/b60.png && echo "DETERMINISTA: el fotograma 60 sale idéntico en dos renders" | tee out/resultado.txt || echo "NO DETERMINISTA" | tee out/resultado.txt
+          cmp out/a60.png out/b60.png && D1=ok || D1=no
+          cmp -s out/f30.png out/f90.png && D2=igual || D2=distinto
+          cmp -s out/f00.png out/f90.png && D3=igual || D3=distinto
+          echo "mismo fotograma, dos renders: $D1 | f30 vs f90: $D2 | f0 vs f90: $D3" | tee out/resultado.txt
           ffmpeg -y -i out/f00.png -i out/f30.png -i out/a60.png -i out/f90.png -filter_complex "[0][1]hstack[a];[2][3]hstack[b];[a][b]vstack" out/rapier_test.png
       - uses: actions/upload-artifact@v4
         with:
