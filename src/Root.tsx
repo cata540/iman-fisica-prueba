@@ -10,7 +10,9 @@ import tl from '../data/timeline.json';
 
 export const Root: React.FC = () => (
   <>
-  <Composition id="TestFisica" component={TestFisica} durationInFrames={120} fps={30} width={1280} height={720} />
+  <Composition id="TestFisicaA" component={TestFisica as any} defaultProps={{modo: 'a'}} durationInFrames={120} fps={30} width={1280} height={720} />
+  <Composition id="TestFisicaB" component={TestFisica as any} defaultProps={{modo: 'b'}} durationInFrames={120} fps={30} width={1280} height={720} />
+  <Composition id="TestFisicaC" component={TestFisica as any} defaultProps={{modo: 'c'}} durationInFrames={120} fps={30} width={1280} height={720} />
   <Composition id="Video4" component={Video4} durationInFrames={TOTAL_V4} fps={30} width={1920} height={1080} />
   <Composition id="Video3" component={Video3} durationInFrames={TOTAL_V3} fps={30} width={1920} height={1080} />
   <Composition id="Video2" component={Video2} durationInFrames={TOTAL_V2} fps={30} width={1920} height={1080} />
