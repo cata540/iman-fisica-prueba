@@ -40,9 +40,9 @@ const Avanzar: React.FC<{pasos: number; dt: number; gravity: [number, number, nu
     world.timestep = dt;
     const n0 = world.bodies.len();
     for (let i = 0; i < pasos; i++) step(dt);
-    let y0 = -99; world.forEachRigidBody((b: any) => { if (y0 === -99) y0 = b.translation().y; });
+    let y0 = -99; let nd = 0; let gy = 0; world.forEachRigidBody((b: any) => { if (b.isDynamic()) { nd++; if (y0 === -99) y0 = b.translation().y; } }); gy = world.gravity.y;
     if (d1.current) { d1.current.material.color.set('#00ff00'); d1.current.scale.setScalar(0.3 + n0 * 0.25); }
-    if (d2.current) { d2.current.position.y = y0 === -99 ? -1 : y0 - 3; d2.current.material.color.set('#ffffff'); }
+    if (d2.current) { d2.current.position.y = y0 === -99 ? 3 : y0 + 3; d2.current.material.color.set(nd === 3 ? '#ffffff' : '#ff0000'); d2.current.scale.setScalar(Math.abs(gy) > 5 ? 1 : 0.3); }
     if (d3.current) { d3.current.scale.setScalar(0.2 + pasos * 0.01); }
     advance(performance.now()); // repinta con las posiciones ya simuladas (frameloop "never" en render)
     requestAnimationFrame(() => { if (handle.current !== null) continueRender(handle.current); });
